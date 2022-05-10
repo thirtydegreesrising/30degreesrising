@@ -1,0 +1,30 @@
+Metadata File for okpilak1907060001
+
+Digital File ID: okpilak1907060001
+GLIMS Glacier ID: N/A
+Glacier Name: Okpilak Glacier
+Country: United States
+State/Province: Alaska
+Latitude: 69.19000
+Longitude: -144.15000
+Dublin Core Spatial Coverage: N/A
+Photographer Station Latitude: N/A
+Photographer Station Longitude: N/A
+Photographer Station Name: N/A
+Date of Original Media: Jun 1907
+Photographer Name: Leffingwell, Ernest
+Image Dimensions (pixels): 4186 x 2748
+Image Type: TIFF
+High Resolution Image File Size (kb): 11239
+Format of Original Media:  
+Description: N/A
+Photograph Number: N/A
+Other glaciers in image: N/A
+Keywords: N/A
+Documentation: https://nsidc.org/data/g00472
+Source: USGS Photo Library
+Notes: The multi-image panorama photograph contains photographs taken circa 1907.
+Publisher: National Snow and Ice Data Center
+Rights: Photograph held by the National Snow and Ice Data Center, Boulder. May be used freely if properly cited.
+Credit: N/A
+Citation: Leffingwell, Ernest. 1907. Okpilak Glacier: From the Glacier Photograph Collection. Boulder, Colorado USA: National Snow and Ice Data Center.  Digital media.

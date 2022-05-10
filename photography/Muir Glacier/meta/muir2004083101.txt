@@ -1,0 +1,30 @@
+Metadata File for muir2004083101
+
+Digital File ID: muir2004083101
+GLIMS Glacier ID: N/A
+Glacier Name: Muir Glacier
+Country: United States
+State/Province: Alaska
+Latitude: 59.07830
+Longitude: -136.36100
+Dublin Core Spatial Coverage: N/A
+Photographer Station Latitude: N/A
+Photographer Station Longitude: N/A
+Photographer Station Name: N/A
+Date of Original Media: 31 Aug 2004
+Photographer Name: Molnia, Bruce F.
+Image Dimensions (pixels): 2185 x 1461
+Image Type: JPEG
+High Resolution Image File Size (kb): 2111
+Format of Original Media: Digital photograph
+Description: N/A
+Photograph Number: N/A
+Other glaciers in image: N/A
+Keywords: Trimline
+Documentation: https://nsidc.org/data/g00472
+Source: U.S. Geological Survey
+Notes: Taken from photo Station 4 established in 1941 by W.O. Field on White Thunder Ridge, Muir Inlet, Glacier Bay National Park and Preserve, Alaska.
+Publisher: National Snow and Ice Data Center
+Rights: Image courtesy of the U.S. Geological Survey. May be used freely if properly cited.
+Credit: N/A
+Citation: Molnia, Bruce F.. 2004. Muir Glacier: From the Glacier Photograph Collection. Boulder, Colorado USA: National Snow and Ice Data Center.  Digital media.

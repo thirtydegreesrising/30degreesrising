@@ -1,0 +1,31 @@
+Metadata File for 123-1-LechnerGlacier-19900813-Tetreau
+
+Digital File ID: 123-1-LechnerGlacier-19900813-Tetreau
+GLIMS Glacier ID: G210376E59937N
+Glacier Name: Lechner Glacier
+Country: United States
+State/Province: Alaska
+Latitude: 59.94361
+Longitude: -149.69861
+Dublin Core Spatial Coverage: Aialik Bay (Kenai Peninsula division, Alaska, United States) (bay)
+Photographer Station Latitude: N/A
+Photographer Station Longitude: N/A
+Photographer Station Name: N/A
+Date of Original Media: 13 Aug 1990
+Photographer Name: Tetreau, M.
+Image Dimensions (pixels): 3040 x 2080
+Image Type: JPEG
+High Resolution Image File Size (kb): 547504
+Format of Original Media: Photographic print
+Description: N/A
+Photograph Number: N/A
+Other glaciers in image: N/A
+Keywords: N/A
+Documentation: https://nsidc.org/data/g00472
+Source: Kenai Fjords National Park (U.S. National Park Service)
+Notes: Photo vantage point: Head of Aialik Bay, 0.6 miles NE of Squab Island; KEFJ Site ID (USGS Library ID): Tetreau 9
+Special Collection: Kenai Fjords National Park Glacier Photographs
+Publisher: National Snow and Ice Data Center
+Rights: Photograph held by the National Snow and Ice Data Center, Boulder. May be used freely if properly cited.
+Credit: N/A
+Citation: Tetreau, M.. 1990. Lechner Glacier: From the Glacier Photograph Collection. Boulder, Colorado USA: National Snow and Ice Data Center.  Digital media.

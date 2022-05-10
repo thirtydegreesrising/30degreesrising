@@ -1,0 +1,31 @@
+Metadata File for 156-2-BearGlacier-20050805-Molnia
+
+Digital File ID: 156-2-BearGlacier-20050805-Molnia
+GLIMS Glacier ID: G210289E60007N
+Glacier Name: Bear Glacier
+Country: United States
+State/Province: Alaska
+Latitude: 59.89213
+Longitude: -149.55443
+Dublin Core Spatial Coverage: Resurrection Bay (Kenai Peninsula division, Alaska, United States) (bay)
+Photographer Station Latitude: N/A
+Photographer Station Longitude: N/A
+Photographer Station Name: N/A
+Date of Original Media: 5 Aug 2005
+Photographer Name: Molnia, Bruce F.
+Image Dimensions (pixels): 3465 x 2031
+Image Type: JPEG
+High Resolution Image File Size (kb): 3796003
+Format of Original Media: Digital photograph
+Description: N/A
+Photograph Number: N/A
+Other glaciers in image: N/A
+Keywords: N/A
+Documentation: https://nsidc.org/data/g00472
+Source: Kenai Fjords National Park (U.S. National Park Service)
+Notes: Photo vantage point: Bear Glacier from Bulldog Cove; KEFJ Site ID (USGS Library ID): N/A
+Special Collection: Kenai Fjords National Park Glacier Photographs
+Publisher: National Snow and Ice Data Center
+Rights: Photograph held by the National Snow and Ice Data Center, Boulder. May be used freely if properly cited.
+Credit: N/A
+Citation: Molnia, Bruce F.. 2005. Bear Glacier: From the Glacier Photograph Collection. Boulder, Colorado USA: National Snow and Ice Data Center.  Digital media.

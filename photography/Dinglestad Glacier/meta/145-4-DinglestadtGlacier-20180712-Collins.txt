@@ -1,0 +1,31 @@
+Metadata File for 145-4-DinglestadtGlacier-20180712-Collins
+
+Digital File ID: 145-4-DinglestadtGlacier-20180712-Collins
+GLIMS Glacier ID: G209578E59706N
+Glacier Name: Dinglestadt Glacier
+Country: United States
+State/Province: Alaska
+Latitude: 59.64054
+Longitude: -150.29450
+Dublin Core Spatial Coverage: McCarty Fiord (Kenai Peninsula division, Alaska, United States) (bay)
+Photographer Station Latitude: N/A
+Photographer Station Longitude: N/A
+Photographer Station Name: N/A
+Date of Original Media: 12 Jul 2018
+Photographer Name: Collins, A.
+Image Dimensions (pixels): 3888 x 2592
+Image Type: JPEG
+High Resolution Image File Size (kb): 3156355
+Format of Original Media: Digital photograph
+Description: N/A
+Photograph Number: N/A
+Other glaciers in image: N/A
+Keywords: N/A
+Documentation: https://nsidc.org/data/g00472
+Source: Kenai Fjords National Park (U.S. National Park Service)
+Notes: Photo vantage point: McCarty Fjord, 3/4 mile S of point that lies W of "Ecstasy" Creek; KEFJ Site ID (USGS Library ID): Tetreau 20
+Special Collection: Kenai Fjords National Park Glacier Photographs
+Publisher: National Snow and Ice Data Center
+Rights: Photograph held by the National Snow and Ice Data Center, Boulder. May be used freely if properly cited.
+Credit: N/A
+Citation: Collins, A.. 2018. Dinglestadt Glacier: From the Glacier Photograph Collection. Boulder, Colorado USA: National Snow and Ice Data Center.  Digital media.

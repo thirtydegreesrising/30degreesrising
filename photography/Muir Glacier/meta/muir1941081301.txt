@@ -1,0 +1,30 @@
+Metadata File for muir1941081301
+
+Digital File ID: muir1941081301
+GLIMS Glacier ID: N/A
+Glacier Name: Muir Glacier
+Country: United States
+State/Province: Alaska
+Latitude: 59.07830
+Longitude: -136.36060
+Dublin Core Spatial Coverage: N/A
+Photographer Station Latitude: N/A
+Photographer Station Longitude: N/A
+Photographer Station Name: N/A
+Date of Original Media: 13 Aug 1941
+Photographer Name: Field, William Osgood
+Image Dimensions (pixels): 3431 x 2244
+Image Type: TIFF
+High Resolution Image File Size (kb): 22561
+Format of Original Media: Photographic print
+Description: 1 photoprint; 14.5 x 9.5 cm. (5 3/4 x 3 3/4 in.)
+Photograph Number: F-41-64
+Other glaciers in image: Riggs Glacier
+Keywords: Medial moraine, Lateral moraine
+Documentation: https://nsidc.org/data/g00472
+Source: American Geographical Society/World Data Center-A for Glaciology
+Notes: Taken from photo Station 4 established in 1941 by W.O. Field on White Thunder Ridge, Muir Inlet, Glacier Bay National Park and Preserve, Alaska.
+Publisher: National Snow and Ice Data Center
+Rights: Photograph held by the National Snow and Ice Data Center, Boulder. May be used freely if properly cited.
+Credit: N/A
+Citation: Field, William Osgood. 1941. Muir Glacier: From the Glacier Photograph Collection. Boulder, Colorado USA: National Snow and Ice Data Center.  Digital media.
