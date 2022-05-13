@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
+    <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
+    <style>
+        #chartContainer {
+            width: 700px;
+            margin: auto;
+            margin-top: -5px;
+            margin-left: -5px;
+            margin-bottom: -10px;
+        }
+
+
+        #charttitle {
+            font: bold 15px Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="chartContainer">
+    </div>
+
+</body>
+
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<script>
+    // set the dimensions and margins of the graph
+    var margin = {
+            top: 10,
+            right: 30,
+            bottom: 30,
+            left: 60
+        },
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+
+    var svg = dimple.newSvg("#chartContainer", 1000, 1000);
+    d3.csv("/glacier_map/all_cleaned.csv", function (data) {
+
+        var filter = new Array()
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].Region != "Global") {
+                test = data[i]
+                filter.push(test)
+            }
+        }
+
+        var myChart = new dimple.chart(svg, filter);
+        myChart.setBounds(60, 90, 800, 400);
+        var x = myChart.addCategoryAxis("x", "year");
+        x.addOrderRule("Date");
+        myChart.addMeasureAxis("y", "mass_change_rate");
+        var s = myChart.addSeries("Region", dimple.plot.line);
+        s.interpolation = "cardinal";
+        myChart.addLegend(0, 10, 800, 200, "right");
+        myChart.draw();
+    });
+</script>
+
+</html>

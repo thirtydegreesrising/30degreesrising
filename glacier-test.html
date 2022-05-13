@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="Glacier" content="Haisu Chen" />
+    <title>Glacier</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19777583-2"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("/glacier_map/glacier_background3.jpg") fixed center center;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: scroll;
+            
+        }
+
+        .videoback {
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            position: relative;
+            width: 100%;
+            z-index: -11
+        }
+
+        .image {
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            position: relative;
+            width: 100%;
+            z-index: -2
+        }
+
+        .section {
+            text-align: center;
+
+        }
+
+        #console {
+            position: absolute;
+            width: 240px;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: (rgba(37, 37, 38, 0.3));
+        }
+    </style>
+</head>
+<div class="fullpage">
+    <div class="section-header" id="header">
+        <video class="videoback" autoplay="true" muted="muted" loop id="glacier-vid" class="section-vid">
+            <source src="/glacier_map/glacier_video.mp4" type="video/mp4">
+        </video>
+
+        <div class="wrapper">
+            <div class="intro">
+                <h3>30-degrees-rising</h3>
+                <h2>Glacier</h2>
+                <h2>narrative</h2>
+                <h2>narrative</h2>
+                <h2>narrative</h2>
+                <h2>narrative</h2>
+                <h2>narrative</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="chart">
+        <h1>Mean Elevation Change Rate</h1>
+        <div class="section">
+            <iframe height="380" width="70%" class="embed-responsive-item" 
+                style=" background-color:rgba(255, 255, 255, 0.9);" src="/glacier_map/chart1.html" frameborder="no"
+                border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+        <div class="section">
+            <iframe height="400" width="70%" class="embed-responsive-item" 
+                style=" background-color:rgba(255, 255, 255, 0.9);" src="/glacier_map/map_glacier_glance.html" frameborder="no"
+                border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+        <h2>narrative</h2>
+        <h2>narrative</h2>
+        <h2>narrative</h2>
+        <h2>narrative</h2>
+        <h2>narrative</h2>
+        <h2>narrative</h2>
+        <h2>narrative</h2>
+        <h2>narrative</h2>
+        <h2>narrative</h2>
+        <h2>narrative</h2>
+    </div>
+
+
+
+
+</div>
+</body>
+
+
+
+
+
+
+<script src="js/jquery.scrollstory.js"></script>
+<script src="js/jquery.scrolldepth.min.js"></script>
+
+
+</html>
