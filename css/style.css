@@ -100,7 +100,7 @@ h3 {
     font-family: 'PT Sans Narrow';
     font-weight: normal;
     color: #FFFFFF;
-    font-size: 50px;
+    font-size: 70px;
 }
 
 p {
@@ -353,12 +353,12 @@ p .fa-info-circle:hover {
 }
 
 .wrapper {
-    top: 120px;
+    top: 100px;
     left: calc((100% - 1050px)/2 + 20px);
     margin-left: 175px;
     max-width: 600px;
     z-index: 999999;
-    position: absolute;
+    position: fixed;
     height: 670px;
 }
 
@@ -662,6 +662,7 @@ footer p {
     position: relative;
     width: auto;
     height: auto;
+    top: 0px;
     z-index: -1;
     overflow: hidden;
 }

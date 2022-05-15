@@ -7,6 +7,10 @@
     <script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
     <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
     <style>
+        body {
+            font-family: 'PT Sans', Helvetica, Arial, Sans-serif
+        }
+
         #chartContainer {
             width: 1000px;
             margin: auto;
@@ -16,9 +20,18 @@
             font-size: 50;
         }
 
+        #selection {
+            font-weight: bold;
+            position: fixed;
+            font-size: 14px;
+            width: 500px;
+            margin-top: 10px;
+            top: 280px;
+            left: 930px;
+        }
 
-        #charttitle {
-            font: bold 15px Verdana, sans-serif;
+        #local {
+            margin-top: -8px;
         }
 
         svg text {
@@ -28,7 +41,10 @@
 </head>
 
 <body>
-
+    <div id="selection">
+        <p>Current Selection:</p>
+        <p id="local">None</p>
+    </div>
 
     <div id="chartContainer">
     </div>
@@ -43,7 +59,7 @@
     var width = 2000
     var height = 1000
     var svg = dimple.newSvg("#chartContainer", width, height);
-    d3.csv("/glacier_map/all_cleaned.csv", function (data) {
+    d3.csv("/glacier_map/all_cleaned2.csv", function (data) {
 
         var filter = new Array()
         for (var i = 0; i < data.length; i++) {
@@ -56,25 +72,99 @@
         var myChart = new dimple.chart(svg, filter);
 
 
-        myChart.setBounds(0.1 * width, 90, 0.4 * width, 0.25 * height);
+        myChart.setBounds(100, 40, 0.4 * width, 0.25 * height);
 
         var x = myChart.addCategoryAxis("x", "year");
-        x.addOrderRule("Date");
+        x.addOrderRule("year");
         var y = myChart.addMeasureAxis("y", "elevation_change_rate");
         var s = myChart.addSeries("Region", dimple.plot.line);
+
         s.interpolation = "cardinal";
         x.title = 'Year';
-        y.title = 'Mean Elevation Change Rate'
-        
-        s.addEventHandler("mouseover", function () {});
-        s.addEventHandler("mouseleave", function () {});
+        y.title = 'Mean Elevation Change Rate (m y-1)'
 
-        myChart.addLegend(0.08 * width, 30, 0.5 * width, 0.25 * height, "right");
-        myChart.draw();
-        s.shapes.on("click", function (e) {
-            dimple._showPointTooltip(e, this, myChart, s);
+
+
+
+        var myLegend = myChart.addLegend(900, 90, 0.1 * width, height, "right")
+
+        myChart.draw(800);
+        svg.selectAll("title_text")
+            .data(["Click Legend to", "Show Spatial Domain."])
+            .enter()
+            .append("text")
+            .attr("x", 935)
+            .attr("y", function (d, i) {
+                return 45 + i * 19;
+            })
+            .style("font-weight", "bold")
+            .style("font-family", "Arial")
+            .style("font-size", "10px")
+            .style("color", "Black")
+            .text(function (d) {
+                return d;
+            });
+        //text.dimple-legend
+        svg.selectAll("text")
+            .style("font-size", "14px")
+            .style("font-family", "Arial")
+
+
+        svg.selectAll("text.dimple-legend")
+            .attr("x", 970)
+            .attr("y", function (d, i) {
+                return 85 + i * 17.6
+            })
+        d3.selectAll("rect")
+            .attr("x", 936)
+            .attr("y", function (d, i) {
+                return 75 + i * 17.4
+            })
+            .style("width", 22)
+            .style("height", 12)
+
+
+        myChart.legends = []
+
+        var filterValues = dimple.getUniqueValues(data, "Region");
+
+        myLegend.shapes.selectAll("rect").on("click", function (e) {
+            var highlight = false;
+            var newFilters = [];
+            for (var i = 0; i < filterValues.length; i++) {
+                if (filterValues[i] == e.aggField.slice(-1)[0]) {
+                    highlight = true;
+                } else {
+                    newFilters.push(filterValues[i])
+                }
+            }
+
+            if (highlight) {
+                d3.selectAll("rect").style("stroke-width", 1)
+                d3.select(this).style("stroke-width", 2.5);
+                var local_click = e.aggField.slice(-1)[0]
+                document.getElementById("local").innerHTML = local_click
+
+
+            } else {
+                newFilters.push(e.aggField.slice(-1)[0]);
+                d3.selectAll("rect").style("stroke-width", 1)
+                d3.select(this).style("stroke-width", 1);
+                document.getElementById("local").innerHTML = "None"
+
+            }
+
+            filterValues = newFilters;
+            myChart.data = dimple.filterData(data, "Region", filterValues);
+
+            var message = document.getElementById("local").innerHTML
+            var event = new CustomEvent('myCustomEvent', {
+                    detail: message,
+                })
+                window.parent.document.dispatchEvent(event)
         })
-    });
+
+    })
 </script>
 
 </html>

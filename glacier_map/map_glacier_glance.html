@@ -22,78 +22,215 @@
             bottom: 0;
             width: 100%;
         }
-
-
     </style>
 </head>
 
 <body>
 
     <style>
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
         .map-overlay {
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-        position: absolute;
-        width: 20%;
-        top: 0;
-        left: 0;
-        padding: 20px;
+            font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            position: absolute;
+            width: 20%;
+            height: auto;
+            top: 40px;
+            right: 10px;
+            padding: 10px;
+            background-color: hsla(0, 0%, 100%, 0.85);
+            border-radius: 10px;
+
         }
-         
-        .map-overlay .map-overlay-inner {
-        background-color: #fff;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        border-radius: 3px;
-        padding: 10px;
-        margin-bottom: 10px;
-        
+
+
+        .map-overlay table {
+            border: none;
+            width: 100%;
         }
-         
+
         .map-overlay h2 {
-        line-height: 24px;
-        display: block;
-        margin: 0 0 10px;
-        }
-         
-        .map-overlay .legend .bar {
-        height: 20px;
-        width: 20px;
-        background: #0080ff;
-        opacity: 0.3;
-        }
-         
-        .map-overlay input {
-        background-color: transparent;
-        display: inline-block;
-        width: 100%;
-        position: relative;
-        margin: 0;
-        cursor: ew-resize;
+            line-height: 24px;
+            display: block;
+            margin: 0 0 10px;
         }
 
-        .toggle{
+        .colour-key {
+            width: 15px;
+            height: 15px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 25px;
+            box-shadow: 4px 2px 4px rgba(0, 0, 0, 0.20);
+            display: inline-block;
+            margin-right: 3px;
+        }
 
-          width: 20%;
-          
+        .scale-key {
+            width: 1px;
+            height: 1px;
+            margin-left: 20px;
+
+            -webkit-border-radius: 1px;
+            -moz-border-radius: 1px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-bottom: 0px;
+            border: 1px;
+            border-style: solid;
+            border-color: #141414;
+
+        }
+
+
+        ul {
+            padding-left:10px;
+            width:130%;
+            list-style-type: none;
+            padding-bottom: 25px;
+        }
+
+        li {
+
+            color: #141414;
+            font-size: 14px;
+            float: left;
+            padding-right: 15px;
+            padding-bottom: 8px;
+
+        }
+
+        .toggle {
+
+            width: 20%;
+
         }
 
         .label {
-            width: 15%;
+            line-height: 100%;
+            font-size: 4px;
+            width: 12%;
             display: inline-block;
-            text-align: left;        
+            text-align: left;
         }
-        
-        </style>
+
+        .legend {
+            display: inline-block;
+            margin-left: 12px;
+            text-align: center;
+        }
+
+        .legend-label {
+            margin-top: 8px;
+            margin-left: 20px;
+            margin-bottom: 4px;
+            display: block;
+            text-align: center;
+
+        }
+        .session{
+            margin-bottom:20px;
+        }
+
+        .br {
+            height: 10px;
+            border-radius: 10px;
+            margin-bottom: 1px;
+            background: linear-gradient(90deg, #610000, #a50025, #e14832, #f88e52, #fefebf, #85b9d7, #313695);
+            border: 1px;
+            border-style: solid;
+            border-color: #141414;
+        }
+    </style>
 
 
     <div id='map'></div>
+    <div class='map-overlay top'>
+        <h2>
+            <center>Annual Change Rate for Glaciers on Tiles</center>
+        </h2>
+        <h3 style="line-height: 30%;">
+            <center>Land Features</center>
+        </h3>
+        <div class="session" id="feature">
+            <ul id="list-group">
+                <li class="list-group-item">
+                    <div class="colour-key" style="background-color: #d1d1d1;"></div>
+                    Base
+                </li>
+                <li class="list-group-item">
+                    <div class="colour-key" style="background-color: #c2afaf;"></div>
+                    Hillshade
+                </li>
+                <li class="list-group-item">
+                    <div class="colour-key" style="background-color: #1d4794;"></div>
+                    Glacier
+                </li>
+                <li class="list-group-item">
+                    <div class="colour-key" style="background-color: #a4d8af;"></div>
+                    Greenspace
+                </li>
+                <li class="list-group-item">
+                    <div class="colour-key" style="background-color: #333d58;"></div>
+                    Waterbody
+                </li>
+            </ul>
+        </div>
+        <h3 style="line-height: 80%;">
+            <center>Glacier Area (km²)</center>
+        </h3>
+        <div class="session" id="circle" style="line-height: 30%;">
 
+            <ul id="list-group">
+                <li class="list-group-item">
+                    <div class="legend">
+                        <div class="scale-key" style="width: 35px; height:35px"></div>
+                        <div class="legend-label">10000</div>
+                    </div>
+                    <div class="legend">
+                        <div class="scale-key" style="width: 12px; height:12px;margin-bottom: 10px;"></div>
+                        <div class="legend-label">1000</div>
+                    </div>
+                    <div class="legend">
+                        <div class="scale-key" style="width: 4px; height:4px;margin-bottom: 12px;"></div>
+                        <div class="legend-label">100</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <h3 style="padding-top:25px;margin-bottom:3px;line-height: 140%;">
+            <center>Mean Elevation Change Rate 2000-2019 (m yr-1)</center>
+        </h3>
+        <div class="session" id="scalebar">
+
+
+            <div class="br"></div>
+            <div class="label">-3.2</div>
+            <div class="label">-2.5</div>
+            <div class="label">-1.8</div>
+            <div class="label">-1.1</div>
+            <div class="label">-0.4</div>
+            <div class="label">0.3</div>
+            <div class="label">0.5+</div>
+        </div>
+
+
+
+    </div>
 
 
 
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoidWNmbmhjaCIsImEiOiJja3lrazVpdmkyNWl2MnZzZXB3ZDB3NHA3In0._zxeE9Xr4_NYgQIwWS9x3w'; // Put your Mapbox Public Access token here
+        mapboxgl.accessToken =
+            'pk.eyJ1IjoidWNmbmhjaCIsImEiOiJja3lrazVpdmkyNWl2MnZzZXB3ZDB3NHA3In0._zxeE9Xr4_NYgQIwWS9x3w'; // Put your Mapbox Public Access token here
 
-    
+
         // Load a new map in the 'map' HTML div
         var map = new mapboxgl.Map({
             container: 'map', // container id
@@ -106,33 +243,153 @@
                 //center: [60,0], 
                 //parallels: [90, 90]
             },
-            center: [-20, 73], 
-            zoom: 1.3// starting zoom
+            center: [12, 72],
+            zoom: 1.2 // starting zoom
         });
 
 
-        map.on('load', function () {    
-            map.addSource('boundary-1ciwgn',{
-            type:'vector',
-            url: 'mapbox://ucfnhch.5yoswoym'
-        });
-        map.addLayer({                  
+        map.on('load', function () {
+            map.addSource('boundary-1ciwgn', {
+                type: 'vector',
+                url: 'mapbox://ucfnhch.5yoswoym'
+            });
+
+            map.addSource('new_glacier_tile-22njq4', {
+                type: 'vector',
+                url: 'mapbox://ucfnhch.acvabvrn'
+            });
+
+            map.addLayer({
                 'id': 'boundary',
                 'type': 'fill',
-                'source':'boundary-1ciwgn',
-                'source-layer':'boundary-1ciwgn',
-				'layout': {},
+                'source': 'boundary-1ciwgn',
+                'source-layer': 'boundary-1ciwgn',
+                'layout': {},
                 'paint': {
-                    'fill-color': "#e1ddfd",
-                    'fill-opacity': 0, 
+                    'fill-color': "#72050d",
+                    'fill-opacity': 0.3,
+                    "fill-opacity-transition": {
+                            duration: 800
+                        },
                 }
-            },
-            
-		)
+            });
+            map.setFilter('boundary', ['all', ['==', ['string', ['get', 'FULL_NAME']], "none"]])
 
-        
-       })
+            map.addLayer({
+                'id': 'points',
+                'type': 'circle',
+                'source': 'new_glacier_tile-22njq4',
+                'source-layer': 'new_glacier_tile-22njq4',
+                'layout': {},
+                'paint': {
+                    'circle-radius': {
+                        property: 'Glacier ar',
+                        type: "exponential",
+                        stops: [
+                            [{
+                                zoom: 1,
+                                value: 0.015
+                            }, 0],
+                            [{
+                                zoom: 1,
+                                value: 100
+                            }, 2],
+                            [{
+                                zoom: 1,
+                                value: 1000
+                            }, 8],
+                            [{
+                                zoom: 1,
+                                value: 12166.221
+                            }, 30],
+                            [{
+                                zoom: 22,
+                                value: 0.015
+                            }, 0],
+                            [{
+                                zoom: 22,
+                                value: 100
+                            }, 8],
+                            [{
+                                zoom: 22,
+                                value: 1000
+                            }, 32],
+                            [{
+                                zoom: 22,
+                                value: 12166.221
+                            }, 120],
 
+                        ]
+                    },
+
+                    'circle-color': {
+                        property: 'Mean eleva',
+                        type: "exponential",
+                        stops: [
+                            [-3.185, "#610000"],
+                            [-1.7, "#a50025"],
+                            [-0.9, "#e14832"],
+                            [-0.6, "#f88e52"],
+                            [-0.3, "#fed587"],
+                            [0, "#fefebf"],
+                            [0.3, "#85b9d7"],
+                            [0.757, "#313695"]
+                        ]
+                    },
+                    'circle-opacity': 0.93,
+                    'circle-stroke-width': 0,
+                    'circle-stroke-color': '#1e1e1e',
+                    'circle-stroke-opacity': 1,
+
+                }
+            })
+
+            var popup = new mapboxgl.Popup({
+                closeButton: false,
+                closeOnClick: false
+            });
+            map.on('mouseover', 'points', function (e) {
+                map.getCanvas().style.cursor = 'pointer';
+                var coordinates = e.features[0].geometry.coordinates.slice();
+                var description = "<h3>Location: " + e.features[0].properties.FULL_NAME +
+                    "</h3><h3>Elevation Change: " + e.features[0].properties["Mean eleva"].toFixed(3) + " m/yr" +
+                    "</h3><h3>Area: " + e.features[0].properties["Glacier ar"].toFixed(3) + " km²" +
+                    "</h3><h3>Tile Size: " + e.features[0].properties["Tile siz_1"] + "x" + e.features[
+                        0].properties["Tile siz_1"] + "°</h3>"
+                popup
+                    .setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(map)
+            })
+            map.on('mouseleave', 'points', function (e) {
+                map.getCanvas().style.cursor = '';
+                popup.remove()
+            })
+
+
+            window.document.addEventListener('myCustomEvent', handleEvent, false)
+
+            function handleEvent(e) {
+                message = e.detail
+
+                var reg1 = RegExp(/Russian/);
+                var reg2 = RegExp(/Greenland/);
+                var reg3 = RegExp(/Western/);
+                    if (message.match(reg1)) {
+                        message = "Russian Arctic"
+                    }
+                    if (message.match(reg2)) {
+                        message = "Greenland Periphery"
+                    }
+                    if (message.match(reg3)) {
+                        message = "Western Canada and USA"
+                    }
+                    map.setFilter('boundary', ['all', ['==', ['string', ['get', 'FULL_NAME']], message]])
+            }
+
+
+
+        })
     </script>
 
 </body>
