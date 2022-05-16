@@ -13,7 +13,7 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
+            font-family: 'PT Sans', Helvetica, Arial, Sans-serif;
         }
 
         a,
@@ -149,7 +149,6 @@
             'fill-extrusion': ['fill-extrusion-opacity'],
             'heatmap': ['heatmap-opacity']
         }
-
         var alignments = {
             'left': 'lefty',
             'center': 'centered',
@@ -210,22 +209,34 @@
         config.chapters.forEach((record, idx) => {
             var container = document.createElement('div');
             var chapter = document.createElement('div');
-
+            container.style.width = 450+'px'
+            chapter.style.width = 440+'px'
+            chapter.style.backgroundColor = (0,0,0,0.9)
             if (record.title) {
                 var title = document.createElement('h3');
                 title.innerText = record.title;
+                title.style.fontSize=24+'px';
+                title.style.marginLeft=-22+'px';
                 chapter.appendChild(title);
             }
 
             if (record.image) {
                 var image = new Image();
                 image.src = record.image;
+                
+                image.style.height = 250+'px'
+                image.style.width = 490+'px';
+                image.style.marginLeft = -22+'px';
+
                 chapter.appendChild(image);
             }
 
             if (record.description) {
                 var story = document.createElement('p');
                 story.innerHTML = record.description;
+                story.style.fontSize=18+'px';
+                story.style.marginLeft = -22+'px';
+
                 chapter.appendChild(story);
             }
 
@@ -292,42 +303,101 @@
         var scroller = scrollama();
 
         map.on("load", function () {
-            if (config.use3dTerrain) {
-                map.addSource('mapbox-dem', {
-                    'type': 'raster-dem',
-                    'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
-                    'tileSize': 512,
-                    'maxzoom': 14
-                });
-                // add the DEM source as a terrain layer with exaggerated height
-                map.setTerrain({
-                    'source': 'mapbox-dem',
-                    'exaggeration': 1.5
-                });
 
-                // add a sky layer that will show when the map is highly pitched
-                map.addLayer({
-                    'id': 'sky',
-                    'type': 'sky',
-                    'paint': {
-                        'sky-type': 'atmosphere',
-                        'sky-atmosphere-sun': [0.0, 0.0],
-                        'sky-atmosphere-sun-intensity': 15
-                    }
-                });
-            };
+            map.addSource('all_glacier_sip-8tmeru', {
+                'type': 'vector',
+                'url': 'mapbox://ucfnhch.a4x2y7dw',
+
+            })
+ //           map.addSource('bear-ax11vj',{
+ //               'type':'vector',
+ //               'url':'mapbox://ucfnhch.2uvt4ykq',
+ //          })
+
+            map.addLayer({
+                'id': 'glacier',
+                'type': 'fill',
+                'source': 'all_glacier_sip-8tmeru',
+                'source-layer': 'all_glacier_sip-8tmeru',
+                'layout': {},
+                'paint': {
+                    'fill-color': "#044a95",
+                    'fill-opacity': 0,
+                    "fill-opacity-transition": {
+                        duration: 800
+                    },
+                }
+            });
+
+            map.addLayer({
+                'id': 'glacier-highlight',
+                'type': 'fill',
+                'source': 'all_glacier_sip-8tmeru',
+                'source-layer': 'all_glacier_sip-8tmeru',
+                'layout': {},
+                'paint': {
+                    'fill-color': "#D82148",
+                    'fill-opacity': 0,
+                    "fill-opacity-transition": {
+                        duration: 800
+                    },
+                }
+            });
+
+            map.addLayer({
+                'id': 'bear-bbox',
+                'type': 'fill',
+                'source': 'bear-ax11vj',
+                'source-layer': 'bear-ax11vj',
+                'layout': {},
+                'paint': {
+                    'fill-color': "#D82148",
+                    'fill-opacity': 0,
+                    "fill-opacity-transition": {
+                        duration: 800
+                    },
+                }
+            });
+
 
             // setup the instance, pass callback functions
             scroller
                 .setup({
                     step: '.step',
-                    offset: 0.5,
+                    offset: 0.6,
                     progress: true
                 })
                 .onStepEnter(response => {
                     var chapter = config.chapters.find(chap => chap.id === response.element.id);
                     response.element.classList.add('active');
+                    if (chapter.id == "iceland-1") {
+                        map.setFilter('glacier-highlight', ['==', ['string', ['get', 'RGIId']],
+                            "RGI60-06.00558"
+                        ]);
+                    }
+                    if (chapter.id == "svabard-1") {
+                        map.setFilter('glacier-highlight', ['==', ['string', ['get', 'RGIId']],
+                            "RGI60-07.01482"
+                        ]);
+                    }
+                    if (chapter.id == "alaska-1") {
+                        map.setFilter('glacier-highlight', ['==', ['string', ['get', 'RGIId']],
+                            "RGI60-01.20841"
+                        ])
+                    }
+                    if (chapter.id == "alaska-2") {
+                        map.setFilter('glacier-highlight', ['==', ['string', ['get', 'RGIId']],
+                            "RGI60-01.17930"
+                        ])
+                    }
+
+
+
                     map[chapter.mapAnimation || 'flyTo'](chapter.location);
+                    console.log(chapter.id)
+
+
+
 
                     if (config.showMarkers) {
                         marker.setLngLat(chapter.location.center);
