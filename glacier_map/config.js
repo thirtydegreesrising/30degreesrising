@@ -13,7 +13,7 @@ var config = {
             alignment: 'right',
             title: 'Overall',
             image: '',
-            description: 'Glacier rephotograph provides effective and objective evidence for visually comparing and assessing landscape changes over time. Scientific agency and volunteers contribute to the glacier rephotographs. Glacier rephotographs are usually conducted during Summer since bare ice and glacier fronts are exploed clearly without seasonal covering of snow. Here, photographs comparison and glacier boundaries for four representative galciers in Iceland, Svabard and Alaska are presented to glance how the climate change may impact on glaciers locally.',
+            description: 'Glacier rephotograph provides effective and objective evidence for visually comparing and assessing landscape changes over time. Scientific agency and volunteers contribute to the glacier rephotographs. Glacier rephotographs are usually conducted during Summer since bare ice and glacier fronts are exposed clearly without seasonal covering of snow. Here, photographs comparison and glacier boundaries for four representative galciers in Iceland, Svabard and Alaska are presented to glance how the climate change may impact on glaciers locally. Glacier boundary used here are from version 6 of The Randolph Glacier Inventory (RGI) provided by NSIDC.',
             location: {
                 center: [-10, 65],
                 zoom: 2,
@@ -120,7 +120,7 @@ var config = {
             alignment: 'left',
             title: 'Svabard - Blomstrandbreen',
             image: 'Blomstrandbreen.gif',
-            description: '1928 to 2002; Credit:B/W Image by Courtesy of Norwegian Polar Institute; Color Image by Christian Aslund/Greenpeace.',
+            description: 'Credit:B/W Image by Courtesy of Norwegian Polar Institute; Color Image by Christian Aslund/Greenpeace.',
             location: {
                 center: [12.37, 79.065385],
                 zoom: 8,
@@ -179,7 +179,7 @@ var config = {
             alignment: 'right',
             title: 'Alaska - Muir',
             image: 'Muir.gif',
-            description: '',
+            description: 'Credit: B/W Image by William Osgood from American Geographical Society/World Data Center-A for Glaciology; Color Image by Molnia, Bruce F. from U.S. Geological Survey.',
             location: {
                 center: [-136.30, 59.17830],
                 zoom: 10,
@@ -212,7 +212,7 @@ var config = {
             alignment: 'right',
             title: 'Alaska - Lechner',
             image: 'Lechner.gif',
-            description: '',
+            description: 'Credit: 1990 Image by Tetreau, M. from Kenai Fjords National Park (U.S. National Park Service); 2018 Image by Collins, A. from Kenai Fjords National Park (U.S. National Park Service).',
             location: {
                 center: [-149.6, 59.94361],
                 zoom: 11,

@@ -4,6 +4,7 @@
 <head>
     <meta charset='utf-8' />
     <title>Mapbox Storytelling</title>
+    <meta name="author of the part" content="Haisu Chen">
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
@@ -321,7 +322,7 @@
                 'source-layer': 'all_glacier_sip-8tmeru',
                 'layout': {},
                 'paint': {
-                    'fill-color': "#044a95",
+                    'fill-color': "#66abff",
                     'fill-opacity': 0,
                     "fill-opacity-transition": {
                         duration: 800
@@ -336,28 +337,15 @@
                 'source-layer': 'all_glacier_sip-8tmeru',
                 'layout': {},
                 'paint': {
-                    'fill-color': "#D82148",
+                    'fill-color': "#066ae5",
+                    'fill-outline-color': 'black',
                     'fill-opacity': 0,
                     "fill-opacity-transition": {
-                        duration: 800
+                        duration: 1000
                     },
                 }
             });
 
-            map.addLayer({
-                'id': 'bear-bbox',
-                'type': 'fill',
-                'source': 'bear-ax11vj',
-                'source-layer': 'bear-ax11vj',
-                'layout': {},
-                'paint': {
-                    'fill-color': "#D82148",
-                    'fill-opacity': 0,
-                    "fill-opacity-transition": {
-                        duration: 800
-                    },
-                }
-            });
 
 
             // setup the instance, pass callback functions

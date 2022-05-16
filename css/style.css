@@ -354,9 +354,8 @@ p .fa-info-circle:hover {
 
 .wrapper {
     top: 100px;
-    left: calc((100% - 1200px)/2 + 40px);
-    margin-left: 175px;
-    max-width: 1000px;
+    left: calc((100% - 1200px)/2 + 10px);
+    max-width: 1400px;
     z-index: 999999;
     position: fixed;
     height: 670px;

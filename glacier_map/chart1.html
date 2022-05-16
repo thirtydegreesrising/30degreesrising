@@ -76,7 +76,7 @@
 
         var x = myChart.addCategoryAxis("x", "year");
         x.addOrderRule("year");
-        var y = myChart.addMeasureAxis("y", "elevation_change_rate");
+        var y = myChart.addMeasureAxis("y", ["Mean elevation change rate (m yr-1)"]);
         var s = myChart.addSeries("Region", dimple.plot.line);
 
         s.interpolation = "cardinal";
@@ -141,10 +141,10 @@
 
             if (highlight) {
                 d3.selectAll("rect").style("stroke-width", 1)
-                d3.select(this).style("stroke-width", 2.7);
+                d3.select(this).style("stroke-width", 3);
                 var local_click = e.aggField.slice(-1)[0]
                 document.getElementById("local").innerHTML = local_click
-
+                
 
             } else {
                 newFilters.push(e.aggField.slice(-1)[0]);
