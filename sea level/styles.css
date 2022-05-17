@@ -1,0 +1,102 @@
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+    
+        }
+        
+
+        .right-box {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            z-index: 5;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            width: 450px;
+            border-radius: 5px;
+            max-height: calc(100% - 20px);
+            overflow: auto;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            padding: 0px;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #a5a5a5;
+            cursor: pointer;
+        }
+
+        .title {
+            cursor: pointer;
+         text-decoration: underline black;
+        }
+
+        .legend-box {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            z-index: 5;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            width: 400px;
+            border-radius: 5px;
+            display: flex;
+        }
+
+        .right-legend-box {
+            padding: 0px 20px;
+        }
+
+        .radius {
+            display: inline-block;
+            border-radius: 50%;
+            height: 5px;
+            width: 5px;
+            margin-right: 5px;
+            background-color: #24ADF3
+        }
+
+        .value {
+            display: inline-block;
+            width: 180px;
+          
+        }
+
+        .left-legend-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .right-legend-item {
+            display: flex;
+            align-items: center;
+            width: 200px;
+        }
+
+        .right-raduio {
+            display: inline-block;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #24ADF3;
+        }
+
+        .select-box {
+            position: absolute;
+            left: 10px;
+            top: 20px;
+        }
+    </style>
