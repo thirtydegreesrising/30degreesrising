@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="30degreesrising_demo" content="Group3" />
+    <title>Sea Ice Extent</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19777583-2"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: scroll;
+
+        }
+
+
+        .videoback {
+            width: auto;
+            height: auto;
+
+            position: relative;
+            width: 100%;
+            z-index: -11
+        }
+
+        .image {
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            position: relative;
+            width: 100%;
+            z-index: -2
+        }
+
+        .section {
+            text-align: center;
+
+        }
+
+        .part {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("/glacier_map/glacier_background3.jpg") fixed center center;
+        }
+
+        .coverimage {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg.jpg") fixed center center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="coverimage">
+        <div id="fullpage">
+
+            <div class="section" id="section-1">
+                
+      
+                <div class="section-header" id="header">
+                   
+
+                    <div class="wrapper">
+                        <div class="intro">
+                            <h3>The Arctic</h3>
+                            <h2></h2>
+                            <h2>The fasted warming place on earth (source)</h2>
+                            <h2>narrative</h2>
+                            <h2>narrative</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="section-2">
+                <h1 style="margin-top:-16px">Arctic Sea Ice Extent</h1>
+                <div style="margin-top:-10px">
+                    <iframe name="iframe-1" id="chart-1" height="800" width="90%" class="embed-responsive-item"
+                        style=" background-color:rgba(255, 255, 255, 0.9);" src="/arctic_map/arctic_map.html"
+                        frameborder="no" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
+                        allowtransparency="true"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <!-- ---------------------------------- PART 2------------------------------------------ -->
+  
+</html>

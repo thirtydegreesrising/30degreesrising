@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Mapbox test-projections</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta name="Arctic Sea Ice Extend" content="Daphne Badounas" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    
+
+    <style>
+    html,body {
+        height: 100%;
+        margin: 0;
+        padding: 0;       
+    }
+
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    </style>
+
+ 
+</head>
+
+<body>
+
+    <style>
+
+
+        .map-overlay {
+            font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            width: 24%;
+            right:0;
+            position:absolute;
+            top: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            bottom:0;
+            min-height: 100%;
+            background-color: #DCF1F9;
+            padding: 20px;
+            opacity: 0.87;
+        
+        }
+
+
+        .map-overlay h2 {
+            line-height: 10px;
+            display: block;
+            margin: 30 0 20px;
+        }
+
+        .map-overlay input {
+            background-color: transparent;
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            cursor: ew-resize;  
+        }
+
+        .toggle {
+            column-count: 2;
+        }
+
+        input[type="radio"] {
+            width: 50%;
+        }
+
+        #title {
+            font-size: 34px; 
+            margin-bottom: 50px;  
+        }
+
+        #slider {
+            margin-left: 60px;
+            width: 370px;
+        }
+    </style>
+
+
+    <div id='map' style="background-color: #CBEAF6;"></div>
+
+
+    <div class="map-overlay">
+            <h1 id="title">Arctic sea ice extend </h1> 
+
+        
+
+            <h2> Month of the year</h2>
+
+            <div class="toggle" id="filters">
+                <div id='left'>
+
+                    <input id='Jan' type='radio' name="toggle" value=1 checked="checked">
+                    <label for="Jan"> January </label>
+                    <input id='Feb' type='radio' name="toggle" value=2>
+                    <label for="Feb"> February </label>
+                    <input id='Mar' type='radio' name="toggle" value=3 />
+                    <label for="Mar"> March </label>
+                    <input id='Apr' type='radio' name="toggle" value=4 />
+                    <label for="Apr"> April </label>
+                    <input id='May' type='radio' name="toggle" value=5 />
+                    <label for="May"> May </label>
+                    <input id='Jun' type='radio' name="toggle" value=6 />
+                    <label for="Jun"> June </label>
+                </div>
+
+                <div id='right'>
+                    <input id='Jul' type='radio' name="toggle" value=7 />
+                    <label for="Jul"> July </label>
+                    <input id='Aug' type='radio' name="toggle" value=8 />
+                    <label for="Aug"> August </label>
+                    <input id='Sep' type='radio' name="toggle" value=9 />
+                    <label for="Sep"> September </label>
+                    <input id='Oct' type='radio' name="toggle" value=10 />
+                    <label for="Oct"> October </label>
+                    <input id='Nov' type='radio' name="toggle" value=11 />
+                    <label for="Nov"> November </label>
+                    <input id='Dec' type='radio' name="toggle" value=12 />
+                    <label for="Dec"> December </label>
+                </div>
+            </div>
+
+            <h2>Sea Ice Extend in <label id="display-year"></label></h2>
+
+            <input id="slider" type="range" min="1980" max="2015" step="1" value= '1980' >
+            <div id="my_dataviz"></div>
+
+
+    </div>
+
+
+    <script>
+
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZGFwaG5lYmRuIiwiYSI6ImNreWtjamFzYjBmczkybnVmOTM1Z3B0YjkifQ.ygTqt_apbGM5eZFZqesskQ'; // Put your Mapbox Public Access token here
+
+        // Load a new map in the 'map' HTML div
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/daphnebdn/cl37wd2ko000714o45mdoxc7h', // stylesheet location
+            center: [90, 90], // starting position [lng, lat]
+            projection: {
+                name: 'albers',
+                //name: "mercator",
+                center: [60, 0],
+                parallels: [90, 90]       
+            },
+            zoom: 3.25,  // starting zoom
+            maxZoom: 4,
+            minZoom: 1          
+        });
+
+        // disable map rotation using right click + drag
+        map.dragRotate.disable();
+        
+        // disable map rotation using touch rotation gesture
+        //map.touchZoomRotate.disableRotation();
+
+        map.on('load', function () {
+
+            map.addSource('sea_ice_ext_shp-1qps3n', {
+                type:'vector',
+                url: "mapbox://daphnebdn.20g66sr5"
+            });
+
+            let filterYear2 = ['==', ['number', ['get', 'year']], 1980]
+            let filterMonth2 = ['==', ['number', ['get', 'month']], 1];
+
+
+            map.addLayer({
+                //"id": "iceCoverage-area",
+                'id': "iceCoverage",
+                "type": 'fill',
+                "source": 'sea_ice_ext_shp-1qps3n',
+                'source-layer': 'sea_ice_ext_shp-1qps3n',
+                'layout': {},
+                "paint": {
+                    'fill-color': '#CBEAF6', // blue color fill
+                    // 'fill-opacity': 0.3
+                },
+                //"filter": [ "==", ['number', ['get', 'year']] , 1980]
+                //"filter": ["all", filterYear2, filterMonth2]
+            });
+
+            map.setFilter("iceCoverage",['all',['==', ['number', ['get', 'year']], 1990]])
+/*
+            //update Year filter when the slider is dragged
+            document.getElementById('slider').addEventListener('input', (event) => {
+                    const year = parseInt(event.target.value);
+                    //update map
+                    filterYear2 = ['==', ['number', ['get', 'year']], year]
+                    map.setFilter("iceCoverage", ["all", filterYear2, filterMonth2]);
+
+                    //update text on UI
+                    document.getElementById("display-year").innerText = year;
+
+
+                    //update month filter by toggle
+                    document.getElementById('filters').addEventListener('change', (event) => {
+                        const month = parseInt(event.target.value);
+                        //update the map filter
+                        filterMonth2 = ["==", ["number", ["get", "month"]], month];
+                        map.setFilter("iceCoverage", ["all", filterYear2, filterMonth2]);
+
+                        //update the chart 
+                        updateGraph(month)
+                    });
+
+            });
+*/
+
+        });
+
+/*
+        function jsonCallback(err, data) {
+            console.log(data)
+            console.log(data.features)
+            console.log(data.features[1])
+            console.log(data.features[1].properties)
+            console.log(data.features[1].properties.name)
+            console.log(data.features[18].properties.month)
+            console.log(data.features[18].properties.SHAPE_Area)
+           
+///////////////////////////////////////////////////////////////////////////////
+
+
+            //filter out the month = September
+           // var chartdata = data.features.filter( d => d.properties.month === 12)
+           // console.log(data.features[1].properties.SHAPE_Area)
+
+
+         // https://embed.plnkr.co/wJDcZmkEzXaLVhuLZmcQ/
+         //http://bl.ocks.org/crayzeewulf/9719255
+         //http://jsfiddle.net/robdodson/KWRxW/
+         //https://observablehq.com/@d3/line-chart
+         //https://d3-graph-gallery.com/graph/line_basic.html
+
+        // set the dimensions and margins of the graph
+            var margin = {top: 10, right: 30, bottom: 30, left: 60},
+                width = 460 - margin.left - margin.right,
+                height = 300 - margin.top - margin.bottom;
+
+            
+
+            // append the svg object to the body of the page
+            var svg = d3.select("#my_dataviz")
+            .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform",
+                    "translate(" + margin.left + "," + margin.top + ")");
+
+            // Parse the date / time
+            var	parseDate = d3.timeParse("%Y");
+            var formatYear = d3.timeFormat("%Y");
+
+            data.features.forEach(function(d) {
+                //d.year = formatYear(d.properties.year);
+                d.year = parseDate(String(d.properties.year));
+                d.area = (+d.properties.SHAPE_Area/1000);
+               // console.log(d.year);
+                //console.log(d.area);
+            });
+
+         
+            // Add X axis 
+            var x = d3.scaleTime()
+            .domain(d3.extent(data.features, function(d) { return d.year; }))
+            .range([ 0, width ]);
+            svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x));
+
+            // Add Y axis
+            var y = d3.scaleLinear()
+            .domain([0, d3.max(data.features, function(d) { return +d.area; })])
+            .range([ height, 0 ]);
+            svg.append("g")
+            .call(d3.axisLeft(y));
+
+            // Add X axis label:
+            svg.append("text")
+                .attr("text-anchor", "end")
+                .attr("x", width)
+                .attr("y", 290)
+                .text("year")
+                .style('font-size','14px');
+                //.style("fill", "#D7D9DB");
+
+            // Add Y axis label:
+            svg.append("text")
+                .attr("text-anchor", "end")
+                .attr("x", -145)
+                .attr("y", -40)
+                .text("Sea ice area (million km²)")
+                .attr("text-anchor", "start")
+                .attr("transform", "rotate(-90)")
+                .style('font-size','14px');
+                // .style("fill", "#D7D9DB");
+
+
+            //create initial graph
+            var initialGraph = function(month) {
+                // filter the data by month
+                //var chartdata = data.features.filter( d => d.properties.month === month)
+
+                var chartdata = data.features.filter( d => d.properties.month === month)
+
+                console.log(chartdata)
+                console.log('TESTESTTESTTEST')
+
+
+                chartdata.forEach(function(d) {
+                    //d.year = formatYear(d.properties.year);
+                    d.year = parseDate(String(d.properties.year));
+                    d.area = (+d.properties.SHAPE_Area/1000);
+                    console.log(d.year);
+                    console.log(d.area);         
+                });
+            
+/*
+                var initialPath = svg.selectAll(".line")
+                .data(chartdata)
+                .enter()
+                .append("path")
+
+                initialPath
+                    .attr("d", d3.line()
+                        .x(function(d) { return x(d.year) })
+                        .y(function(d) { return y(d.area) })
+                    )
+                    .attr("class", "line")
+
+
+                     // Add the line
+                svg.append("path")
+                .datum(chartdata)
+                .attr("fill", "none")
+                .attr("stroke", "steelblue")
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                    .x(function(d) { return x(d.year) })
+                    .y(function(d) { return y(d.area) })
+                    )
+
+
+            }
+
+            initialGraph(1)
+
+            //https://bl.ocks.org/d3noob/7030f35b72de721622b8
+
+            //update the graph 
+            var updateGraph = function(month) {
+                
+                //filter data
+
+                var chartdata = data.features.filter( d => d.properties.month === month);
+
+                chartdata.forEach(function(d) {
+                    //d.year = formatYear(d.properties.year);
+                    d.year = parseDate(String(d.properties.year));
+                    d.area = (+d.properties.SHAPE_Area/1000);
+                    console.log(d.year);
+                    console.log(d.area);         
+                });
+                
+                svg.selectAll("path")
+                .datum(chartdata)
+                .transition()
+                .duration(1000)
+                .attr("d", d3.line()
+                .x(function(d) { return x(d.year) })
+                .y(function(d) { return y(d.area) }) )
+            }
+        //}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+        
+        if (err) {
+            throw err;
+        }
+
+        let filterYear2 = ['==', ['number', ['get', 'year']], 1980]
+        let filterMonth2 = ['==', ['number', ['get', 'month']], 1];
+
+
+
+        let filterYear1 = ['==', ['number', ['get', 'year']], 1980]
+        let filterMonth1 = ['==', ['number', ['get', 'month']], 1];
+
+        //map.addSource('iceCoverage', {
+        //    "type": 'geojson',
+        //    data: data //data
+       // });
+
+        /////////////////////////-------
+*/
+
+          
+       // }
+
+    </script>
+
+</body>
+
+</html>
