@@ -298,7 +298,7 @@ function jsonCallback(err, data) {
     data.features.forEach(function(d) {
         //d.year = formatYear(d.properties.year);
         d.year = parseDate(String(d.properties.year));
-        d.area = (+d.properties.SHAPE_Area/1000);
+        d.area = ((+d.properties.SHAPE_Area/1000)*2.59);
        // console.log(d.year);
         //console.log(d.area);
     });
@@ -327,7 +327,7 @@ function jsonCallback(err, data) {
 
     // Add Y axis
     var y = d3.scaleLinear()
-    .domain([3, d3.max(data.features, function(d) { return +d.area; })])
+    .domain([6, d3.max(data.features, function(d) { return +d.area; })])
     .range([ height, 0 ]);
     svg.append("g")
     .call(d3.axisLeft(y));
@@ -358,8 +358,8 @@ function jsonCallback(err, data) {
     // Add Y axis label:
     svg.append("text")
         .attr("text-anchor", "end")
-        .attr("x", -145)
-        .attr("y", -40)
+        .attr("x", -150)
+        .attr("y", -38)
         .text("Sea ice area (million km²)")
         .attr("text-anchor", "start")
         .attr("transform", "rotate(-90)")
@@ -378,7 +378,7 @@ function jsonCallback(err, data) {
 
         chartdata.forEach(function(d) {
             d.year = parseDate(String(d.properties.year));
-            d.area = (+d.properties.SHAPE_Area/1000);
+            d.area =((+d.properties.SHAPE_Area/1000 )*2.59);
             console.log(d.year);
             console.log(d.area);         
         });
@@ -409,7 +409,7 @@ function jsonCallback(err, data) {
 
         chartdata.forEach(function(d) {
             d.year = parseDate(String(d.properties.year));
-            d.area = (+d.properties.SHAPE_Area/1000);
+            d.area = ((+d.properties.SHAPE_Area/1000)*2.59);
             console.log(d.year);
             console.log(d.area);         
         });
@@ -445,6 +445,20 @@ map.addLayer({
     },
     "filter": ["all",filterMonth2,filterYear2]
 });
+
+
+// get month filter first
+document.getElementById('filters').addEventListener('change', (event) => {
+        const month = parseInt(event.target.value);
+        //update the map filter
+        filterMonth2 = ["==", ["number", ["get", "month"]], month];
+        map.setFilter("iceCoverage-area", ["all", filterYear2, filterMonth2]);
+
+        //update the chart 
+        updateGraph(month)
+    });
+
+
 
 //update Year filter when the slider is dragged
 document.getElementById('slider').addEventListener('input', (event) => {
