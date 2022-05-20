@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="index-page">
+    <title>30-degrees-rising</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) fixed center center;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: scroll;
+
+        }
+
+        .section {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .home-title {
+            text-align: center;
+            margin-top: 22%;
+            width: 97.916667%;
+            letter-spacing: 7px;
+
+        }
+
+        .menu {
+            position: absolute;
+            bottom: 0.5%;
+            right: 0;
+            width: auto;
+            height: auto;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: top;
+        }
+
+        .menu li {
+            position: relative;
+            width: auto;
+            height: 10px;
+            list-style: none;
+            float: right;
+            color: #646FD4;
+            display:block;
+            padding: 4em;
+
+        }
+
+
+        .btn {
+            position:relative;
+            font-family:"Cabin Condensed";
+            letter-spacing: 3px;
+            background-color: #cccccc;
+            bottom:50%;
+            border: none;
+            color: black;
+            height:2em;
+            width:7em;
+            left: calc((100% - 14em)/2);
+            text-align: center;
+            font-size: 24px;
+            margin: 6px 4px;
+            transition: 0.3s;
+            border-radius: 10px;
+        }
+
+        .btn:hover {
+            background-color: #646FD4;
+            color: white;
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;   
+            width:auto;
+            margin-top: -60px;
+            padding-left: calc((100% - 780px)/2);
+            margin-left: -225px
+        }
+    </style>
+
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        width="1400px" height="240px" xml:space="preserve">
+        <defs>
+            <pattern id="water" width=".25" height="1.1" patternContentUnits="objectBoundingBox">
+                <path fill="#000"
+                    d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z" />
+            </pattern>
+
+            <text id="text" transform="translate(2,116)" font-family="Cabin Condensed" letter-spacing= "7px"
+
+                font-size="161">30-Degrees-Rising</text>
+
+            <mask id="text-mask">
+                <use x="0" y="0" xlink:href="#text" opacity="1" fill="#ffffff" />
+            </mask>
+
+            <g id="eff">
+                <use x="0" y="0" xlink:href="#text" fill="#a2a3a5" />
+
+                <rect class="water-fill" mask="url(#text-mask)" fill="url(#water)" x="-300" y="50" width="2500"
+                    height="120" opacity="0.3">
+                    <animate attributeType="xml" attributeName="x" from="-300" to="0" repeatCount="indefinite"
+                        dur="5s" />
+                </rect>
+                <rect class="water-fill" mask="url(#text-mask)" fill="url(#water)" y="45" width="1800" height="120"
+                    opacity="0.3">
+                    <animate attributeType="xml" attributeName="x" from="-400" to="0" repeatCount="indefinite"
+                        dur="5s" />
+                </rect>
+
+                <rect class="water-fill" mask="url(#text-mask)" fill="url(#water)" y="55" width="1500" height="120"
+                    opacity="0.3">
+                    <animate attributeType="xml" attributeName="x" from="-200" to="0" repeatCount="indefinite"
+                        dur="4s" />
+                </rect>
+                <rect class="water-fill" mask="url(#text-mask)" fill="url(#water)" y="55" width="2900" height="120"
+                    opacity="0.3">
+                    <animate attributeType="xml" attributeName="x" from="-500" to="0" repeatCount="indefinite"
+                        dur="6s" />
+                </rect>
+            </g>
+        </defs>
+
+        <use xlink:href="#eff" opacity="0.9" style="mix-blend-mode:color-burn" />
+
+    </svg>
+
+<body>
+    <div class="section">
+
+        <div class="menu">
+            <ul>
+                <li><button class="btn">Team</button></li>
+                <li><button class="btn">Sea Level</button></li>
+                <li><button class="btn">Glacier</button></li>
+                <li><button class="btn">Sea Ice</button></li>
+                <li><button class="btn">Temperature</button></li>
+            </ul>
+        </div>
+</body>
