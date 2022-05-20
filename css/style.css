@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'PT Sans', Helvetica, Arial, Sans-serif;
+    font-family: 'PT Sans', Helvetica, Sans-serif;
 }
 
 #container {
@@ -77,11 +77,11 @@ h1 {
 h2 {
     font-family: 'PT Sans', sans-serif;
     font-weight: normal;
-    color: #f1f1f1;
-    margin-bottom: 50px;
     font-size: 27px;
+    color: #f1f1f1;
+
+    
     /* to ensure in line with other story content */
-    margin-left: 0.2em;
 }
 
 .title-span {
@@ -101,6 +101,20 @@ h3 {
     font-weight: normal;
     color: #FFFFFF;
     font-size: 70px;
+}
+
+h4 {
+    font-family: 'PT Sans Narrow';
+    font-weight: normal;
+    color: #1e1e1e;
+    font-size: 70px;
+}
+
+h5 {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+    font-size: 40px;
+    color: #1e1e1e;
 }
 
 p {
@@ -352,16 +366,45 @@ p .fa-info-circle:hover {
     fill: none;
 }
 
-.wrapper {
-    top: 100px;
-    left: calc((100% - 1200px)/2 + 10px);
-    max-width: 1400px;
+
+#wrapper-1 {
+    top: 5%;
+    left: 26%;
+    max-width: 2000px;
+    z-index: 999999;
+    position: fixed;
+    height: 670px;
+}
+
+#wrapper-2 {
+    top: 208%;
+    left: 9.5%;
+    max-width: 2000px;
+    z-index: 999999;
+    position: fixed;
+    height: 670px;
+}
+
+#wrapper-3 {
+    top: 520%;
+    left: 15%;
+    max-width: 2000px;
+    z-index: 999999;
+    position: fixed;
+    height: 670px;
+}
+
+#wrapper-4 {
+    top: 720%;
+    left: 37%;
+    max-width: 2000px;
     z-index: 999999;
     position: fixed;
     height: 670px;
 }
 
 .intro {
+
     top: 0px;
     position: relative;
     /* margin-left: 20px; */
@@ -662,7 +705,7 @@ footer p {
     width: auto;
     height: auto;
     top: 0px;
-    z-index: -1;
+    z-index: 11;
     overflow: hidden;
 }
 

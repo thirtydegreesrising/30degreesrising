@@ -127,6 +127,13 @@
         myChart.legends = []
 
         var filterValues = dimple.getUniqueValues(data, "Region");
+        var myRect = myLegend.shapes.selectAll("rect")
+            .attr("stroke-color", "black")
+
+            .attr("stroke-width", 0.5)
+
+            .style("cursor", "pointer");
+
 
         myLegend.shapes.selectAll("rect").on("click", function (e) {
             var highlight = false;
@@ -140,16 +147,16 @@
             }
 
             if (highlight) {
-                d3.selectAll("rect").style("stroke-width", 1)
+                d3.selectAll("rect").style("stroke-width", 0.5)
                 d3.select(this).style("stroke-width", 3);
                 var local_click = e.aggField.slice(-1)[0]
                 document.getElementById("local").innerHTML = local_click
-                
+
 
             } else {
                 newFilters.push(e.aggField.slice(-1)[0]);
-                d3.selectAll("rect").style("stroke-width", 1)
-                d3.select(this).style("stroke-width", 1);
+                d3.selectAll("rect").style("stroke-width", 0.5)
+                d3.select(this).style("stroke-width", 0.5);
                 document.getElementById("local").innerHTML = "None"
 
             }
@@ -159,9 +166,9 @@
 
             var message = document.getElementById("local").innerHTML
             var event = new CustomEvent('myCustomEvent', {
-                    detail: message,
-                })
-                window.parent.document.dispatchEvent(event)
+                detail: message,
+            })
+            window.parent.document.dispatchEvent(event)
         })
 
     })

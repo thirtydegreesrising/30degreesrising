@@ -1,0 +1,146 @@
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+    
+        }
+        
+
+        .right-box {
+            position: absolute;
+            top: 40px;
+            right: 0px;
+            z-index: 5;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            width: 450px;
+            border-radius: 5px;
+            max-height: calc(100% - 20px);
+            overflow: auto;
+        }
+
+        ul {
+            padding-left:0px;
+            list-style-type: none;
+            padding-bottom: 25px;
+        }
+
+        li {
+
+            color: #141414;
+            font-size: 14px;
+            float: center;
+            padding-right: 0px;
+            padding-bottom: 8px;
+
+        }
+
+        .title {
+            cursor: pointer;
+         text-decoration: underline black;
+        }
+
+        .legend-box {
+            margin-bottom:20px;
+
+        }
+
+        .right-legend-box {
+            padding: 0px 20px;
+        }
+
+        .radius {
+            display: inline-block;
+            border-radius: 50%;
+            height: 5px;
+            width: 5px;
+            margin-right: 5px;
+            border: 1px;
+            border-style: solid;
+            border-color: #141414;
+        }
+
+        .value {
+            display: inline-block;
+            width: 180px;
+          
+        }
+
+        .left-legend-item {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .right-legend-item {
+            display: flex;
+            align-items: center;
+            width: 200px;
+        }
+
+        .right-raduio {
+            display: inline-block;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #24ADF3;
+        }
+
+        .select-box {
+            position: absolute;
+            left: 10px;
+            top: 20px;
+        }
+
+        .legend-label {
+            margin-top: 8px;
+            margin-left: 20px;
+            margin-bottom: 4px;
+            display: block;
+            text-align: center;
+        }
+        .scale-key {
+            width: 1px;
+            height: 1px;
+            margin-left: 20px;
+
+            -webkit-border-radius: 1px;
+            -moz-border-radius: 1px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-bottom: 0px;
+            border: 1px;
+            border-style: solid;
+            border-color: #141414;
+
+        }
+        .legend {
+            display: inline-block;
+            margin-left: 0px;
+            text-align: center;
+        }
+
+        
+        .label {
+            line-height: 100%;
+            font-size: 4px;
+            width: 24%;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .br {
+            height: 10px;
+            border-radius: 10px;
+            margin-bottom: 1px;
+            background: linear-gradient(90deg, #007CFE, #24ADF3, #FF6C37, #FF0000);
+            border: 1px;
+            border-style: solid;
+            border-color: #141414;
+        }
