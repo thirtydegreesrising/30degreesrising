@@ -72,6 +72,16 @@ h1 {
     font-weight: normal;
     color: #ffffff;
     font-size: 42px;
+
+}
+
+h1plus {
+    font-family: 'PT Sans Narrow';
+    font-weight: normal;
+    color: #ffffff;
+    font-size: 42px;
+    letter-spacing: 6px;
+
 }
 
 h2 {
@@ -79,10 +89,16 @@ h2 {
     font-weight: normal;
     font-size: 27px;
     color: #f1f1f1;
+    }
 
     
-    /* to ensure in line with other story content */
-}
+h2plus {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+    font-size: 27px;
+    color: #f1f1f1;
+    letter-spacing: 6px;
+    }
 
 .title-span {
     padding: 0.2em;
@@ -99,28 +115,56 @@ h2 {
 h3 {
     font-family: 'PT Sans Narrow';
     font-weight: normal;
-    color: #FFFFFF;
+    color: #f1f3f4;
     font-size: 70px;
+}
+
+h3plus {
+    font-family: 'PT Sans Narrow';
+    font-weight: normal;
+    color: #f1f3f4;
+    font-size: 70px;
+    letter-spacing: 6px;
+
 }
 
 h4 {
     font-family: 'PT Sans Narrow';
     font-weight: normal;
     color: #1e1e1e;
-    font-size: 70px;
+    font-size: 40px;
+}
+
+h4plus {
+    font-family: 'PT Sans Narrow';
+    font-weight: normal;
+    color: #1e1e1e;
+    font-size: 40px;
+    letter-spacing: 6px;
+
 }
 
 h5 {
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'PT Sans Narrow';
     font-weight: normal;
-    font-size: 40px;
-    color: #1e1e1e;
+    color: #f1f3f4;
+    font-size: 20px;
 }
 
+h6 {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+    color: #f1f3f4;
+    font-size: 30px;
+}
+
+
 p {
-    font-family: 'PT Serif', serif;
-    color: #e6e6e6;
+    font-family: 'Arial', serif;
+    font-size:24px;
+    color: #1e1e1e;
     line-height: 1.7em;
+    display: block;
 }
 
 a {
@@ -369,7 +413,7 @@ p .fa-info-circle:hover {
 
 #wrapper-1 {
     top: 5%;
-    left: 26%;
+    text-align:right;
     max-width: 2000px;
     z-index: 999999;
     position: fixed;
@@ -378,8 +422,8 @@ p .fa-info-circle:hover {
 
 #wrapper-2 {
     top: 208%;
-    left: 9.5%;
-    max-width: 2000px;
+    text-align:right;
+        max-width: 2000px;
     z-index: 999999;
     position: fixed;
     height: 670px;
@@ -387,8 +431,8 @@ p .fa-info-circle:hover {
 
 #wrapper-3 {
     top: 520%;
-    left: 15%;
-    max-width: 2000px;
+    text-align:right;
+        max-width: 2000px;
     z-index: 999999;
     position: fixed;
     height: 670px;
@@ -396,15 +440,15 @@ p .fa-info-circle:hover {
 
 #wrapper-4 {
     top: 720%;
-    left: 37%;
-    max-width: 2000px;
+    text-align:right;
+        max-width: 2000px;
     z-index: 999999;
     position: fixed;
     height: 670px;
 }
 
 .intro {
-
+    text-align:right;
     top: 0px;
     position: relative;
     /* margin-left: 20px; */

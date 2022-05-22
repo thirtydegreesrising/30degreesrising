@@ -58,9 +58,9 @@
         }
 
         .menu {
-            position: absolute;
-            bottom: 0.5%;
-            right: 0;
+            position: fixed;
+            top: -3%;
+            right: -6%;
             width: auto;
             height: auto;
             display: flex;
@@ -76,7 +76,7 @@
             float: right;
             color: #646FD4;
             display: block;
-            padding: 4em;
+            padding: 2em;
 
         }
 
@@ -90,16 +90,17 @@
             border: none;
             color: #cccccc;
             height: 2em;
-            width: 8em;
+            width: 7em;
             left: calc((100% - 16em)/2);
             text-align: center;
-            font-size: 21px;
+            font-size: 18px;
             margin: 6px 4px;
-            transition: 0.3s;
+            transition: 0.5s;
         }
 
         .btn:hover {
-            color: white;
+            font-weight: bold;
+            color: #AF6B58;
             border-bottom: 2px solid #ffffff;
             cursor:pointer;
         }
@@ -203,29 +204,11 @@
         #conclusion-section {
             background-color: #a49f9b;
         }
-        .arrow2 {
-            position: fixed;
-            bottom: 30%;
-            left: 50%;
-            width: 3vmin;
-            height: 3vmin;
-            background: transparent;
-            border-top: 1vmin solid white;
-            border-right: 1vmin solid white;
-            box-shadow: 0 0 0 lightgray;
-            transition: all 200ms ease;
 
-            transform: translate3d(0, -50%, 0) rotate(135deg);
-        }
-
-        .arrow2:hover {
-            border-color: orange;
-            box-shadow: 0.5vmin -0.5vmin 0 white;
-        }
 
         .arrow {
             position: absolute;
-            top: 65%;
+            bottom: 15%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
@@ -234,8 +217,8 @@
             display: block;
             width: 15px;
             height: 15px;
-            border-bottom: 5px solid rgba(0, 0, 0, 0.2);
-            border-right: 5px solid rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid #ffffff;
+            border-right: 5px solid #ffffff;
             transform: rotate(45deg);
             margin: -10px;
             animation: animate 2s infinite;
@@ -298,7 +281,13 @@
                 <text text-anchor="middle" x="50" y="13" font-size="13" font-family="Cabin Condensed" letter-spacing= "3px" fill="url(#gradient)"
                     fill-opacity="0.5">30&nbsp;degrees&nbsp;rising</text>
             </svg>
-            <a href="#" class="arrow2"></a>
+            <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
             <div class="menu">
                 <ul>
                     <li><button class="btn">Team</button></li>
@@ -403,12 +392,7 @@
                 <div>
                     <hheading>See GitHub repository</hheading>
                 </div>
-                <div class="arrow">
-                    <span></span>
-                    <span></span>
-                    <span></span>
 
-                </div>
                 <div style="padding-top:6%">
                     <a href="https://github.com/thirtydegreesrising/30degreesrising">
                         <img src="/github.png" height="60"></a></div>
