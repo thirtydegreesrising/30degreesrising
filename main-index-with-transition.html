@@ -64,9 +64,9 @@
         }
 
         .menu {
-            position: fixed;
-            top: 1%;
-            padding-left: 5%;
+            position: absolute;
+            top: 0;
+            right: 0;
             width: auto;
             height: auto;
             display: flex;
@@ -96,8 +96,8 @@
             border: none;
             color: #cccccc;
             height: 2em;
-            width: 7em;
-            left: calc((100% - 14em)/2);
+            width: 6em;
+            left: calc((100% - 12em)/2);
             text-align: center;
             font-size: 16px;
             margin: 6px 4px;
@@ -130,7 +130,7 @@
 
         #text-wrapper {
             position: absolute;
-            right: 30% ;
+            right: 30%;
             top: 150px;
             z-index: 999;
             height: aauto;
@@ -256,7 +256,6 @@
             max-width: 1800px;
             height: auto;
         }
-
     </style>
 
 
@@ -266,26 +265,25 @@
     <div id="fullpage">
 
         <div class="section" id="title-page">
-                <svg viewbox="-42 0 200 20">
-                    <defs>
-                        <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
-                            <stop offset="50%" stop-color="#ffffff" />
-                            <stop offset="98%" stop-color="#ffffff" />
-                        </linearGradient>
-                        <pattern id="wave" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
-                            <path id="wavePath"
-                                d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z"
-                                mask="url(#mask)" fill="url(#gradient)">
-                                <animateTransform attributeName="transform" begin="0s" dur="1.5s" type="translate"
-                                    from="0,0" to="40,0" repeatCount="indefinite" />
-                            </path>
-                        </pattern>
-                    </defs>
-                    <text text-anchor="middle" x="50" y="13" font-size="13" font-family="Cabin Condensed"
-                        letter-spacing="3px" fill="url(#wave)" fill-opacity="0.8">30&nbsp;degrees&nbsp;rising</text>
-                    <text text-anchor="middle" x="50" y="13" font-size="13" font-family="Cabin Condensed"
-                        letter-spacing="3px" fill="url(#gradient)" fill-opacity="0.5">30&nbsp;degrees&nbsp;rising</text>
-                </svg>
+            <svg viewbox="-42 0 200 20">
+                <defs>
+                    <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="50%" stop-color="#ffffff" />
+                        <stop offset="98%" stop-color="#ffffff" />
+                    </linearGradient>
+                    <pattern id="wave" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
+                        <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z"
+                            mask="url(#mask)" fill="url(#gradient)">
+                            <animateTransform attributeName="transform" begin="0s" dur="1.5s" type="translate"
+                                from="0,0" to="40,0" repeatCount="indefinite" />
+                        </path>
+                    </pattern>
+                </defs>
+                <text text-anchor="middle" x="50" y="13" font-size="13" font-family="Cabin Condensed"
+                    letter-spacing="3px" fill="url(#wave)" fill-opacity="0.8">30&nbsp;degrees&nbsp;rising</text>
+                <text text-anchor="middle" x="50" y="13" font-size="13" font-family="Cabin Condensed"
+                    letter-spacing="3px" fill="url(#gradient)" fill-opacity="0.5">30&nbsp;degrees&nbsp;rising</text>
+            </svg>
             <a href="#" class="arrow" id="arrow1"></a>
 
             <div class="menu">
@@ -300,7 +298,7 @@
         </div>
 
         <div class="section" id="intro-section-globe">
-            <div class="dotstyle dotstyle-scaleup" >
+            <div class="dotstyle dotstyle-scaleup">
                 <ul style="top:50%;right:-6%">
                     <li><a href="#">Home</a></li>
                     <li class="current"><a href="#">Temperature</a></li>
@@ -310,10 +308,14 @@
                     <li><a href="#">Team</a></li>
                 </ul>
             </div>
-            <div id="globeViz"></div>
+            <div position="absolute" style="height:50%;width:50%">
+                <iframe name="iframe-0" id="globe-0" height="50%" width="50%" class="embed-responsive-item"
+                    style="left:50%;overflow:hidden;height:100%;width:100%;background-color:rgba(255, 255, 255, 0.9);"
+                    src="/globe/globe.html" frameborder="no" frameborder="0" marginwidth="0" marginheight="0"
+                    scrolling="no" allowtransparency="true"></iframe>
+            </div>
             <div id="text-wrapper">2019</div>
         </div>
-
         <div class="section" id="intro-section-seaice">
             <div class="title" style="text-align:left;margin-left:5em;margin-top:-5%">
                 <hheading>The Arctic, it seems, is at 30 degrees...and perhaps rising.</hheading>
