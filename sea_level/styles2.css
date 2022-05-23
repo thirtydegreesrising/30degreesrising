@@ -44,10 +44,12 @@
         .title {
             cursor: pointer;
          text-decoration: underline black;
+         font-family: Arial;
         }
 
         .legend-box {
             margin-bottom:20px;
+            font-family: Arial;
 
         }
 
