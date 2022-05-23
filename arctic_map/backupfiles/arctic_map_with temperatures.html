@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Mapbox test-projections</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+    <script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <style>
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .map-overlay {
+            font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            position: absolute;
+            width: 25%;
+            height: auto;
+            top: 40px;
+            right: 1%;
+            padding: 10px;
+            background-color: hsla(0, 0%, 100%, 0.85);
+            border-radius: 10px;
+        }
+
+
+        .map-overlay table {
+            border: none;
+            width: 100%;
+        }
+
+        .map-overlay h2 {
+            line-height: 24px;
+            display: block;
+            margin: 0 0 10px;
+        }
+
+        .colour-key {
+            width: 15px;
+            height: 15px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 25px;
+            box-shadow: 4px 2px 4px rgba(0, 0, 0, 0.20);
+            display: inline-block;
+            margin-right: 3px;
+        }
+
+        .scale-key {
+            width: 1px;
+            height: 1px;
+            margin-left: 20px;
+            -webkit-border-radius: 1px;
+            -moz-border-radius: 1px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-bottom: 0px;
+            border: 1px;
+            border-style: solid;
+            border-color: #141414;
+
+        }
+
+
+        ul {
+            padding-left:10px;
+            width:130%;
+            list-style-type: none;
+            padding-bottom: 25px;
+        }
+
+        .toggle {
+
+            column-count: 2;
+        }
+
+        .toggle input[type="radio"] {
+            opacity: 0;
+            position: fixed;
+            width: 0;
+            }
+
+        .toggle label {
+            display: inline-block;
+            background-color: #ddd;
+            padding: 5px 20px;
+            font-family: sans-serif, Arial;
+            font-size: 13px;
+            border-bottom: 1px solid #a5a5a5;
+            width: 100px;
+            text-align: center;
+        }
+
+        .toggle input[type="radio"]:checked + label {
+            background-color:#ddd;
+            border-color: #444;
+        }
+
+        .toggle input[type="radio"]:focus + label {
+              
+                background-color: rgb(241, 241, 241);
+                width: 100px;
+            }
+
+        .toggle label:hover {
+        background-color: rgb(241, 241, 241);
+        }
+
+        .legend {
+            display: inline-block;
+            margin-left: 12px;
+            text-align: center;
+        }
+
+        .legend-label {
+            margin-top: 8px;
+            margin-left: 20px;
+            margin-bottom: 4px;
+            display: block;
+            text-align: center;
+
+        }
+        .session{
+            margin-bottom:20px;
+        }
+
+        .br {
+            height: 10px;
+            border-radius: 10px;
+            margin-bottom: 1px;
+            background: linear-gradient(90deg, #610000, #a50025, #e14832, #f88e52, #fefebf, #85b9d7, #313695);
+            border: 1px;
+            border-style: solid;
+            border-color: #141414;
+        }
+
+  
+        #title {
+            font-size: 34px; 
+            margin-bottom: 50px;  
+        }
+
+        #slider {
+            margin-left: 65px;
+            width: 310px ;
+          
+            
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            margin-right: 15px;
+            width: 50px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 5px;
+            background-image: linear-gradient( black, black);
+            background-size: 70% 100%;
+            background-repeat: repeat;
+            }
+
+        input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 50px;
+        width: 50px;
+        border-radius: 20%;
+        background: #CBEAF6;
+        cursor: ew-resize;
+        box-shadow: 0 0 2px 0 #555;
+        transition: background .3s ease-in-out;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track  {
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        }
+
+
+    
+
+        .grid line {
+            stroke: rgb(211, 211, 211);
+        }
+    </style>
+
+
+<div id='map' style="background-color: #CBEAF6;"></div>
+
+    <div class='map-overlay top'>
+
+        
+        <p>The sea ice extend in the arctic has significantly reduced over the years, especially over the summer months </p>
+
+        <h3>Sea Ice Extend in <label id="display-year"></label></h3>
+
+        
+        <div id="my_dataviz"></div>
+        <input id="slider" type="range" min="1980" max="2015" step="1" value= '1980' >
+
+        <p>During a year, as the seasons change the sea ice coverage in the arctic changes significantly <br> Choose a month to update the map</p>      
+
+            <h3> Month of the year</h3>
+
+            <div class="toggle" id="filters" style="margin-left:10%">
+                <div id='left'>
+
+                    <input id='Jan' type='radio' name="toggle" value=1 >
+                    <label for="Jan"> January </label>
+                    <input id='Feb' type='radio' name="toggle" value=2>
+                    <label for="Feb"> February </label>
+                    <input id='Mar' type='radio' name="toggle" value=3 />
+                    <label for="Mar"> March </label>
+                    <input id='Apr' type='radio' name="toggle" value=4 />
+                    <label for="Apr"> April </label>
+                    <input id='May' type='radio' name="toggle" value=5 />
+                    <label for="May"> May </label>
+                    <input id='Jun' type='radio' name="toggle" value=6 />
+                    <label for="Jun"> June </label>
+                </div>
+
+                <div id='right'>
+                    <input id='Jul' type='radio' name="toggle" value=7 />
+                    <label for="Jul"> July </label>
+                    <input id='Aug' type='radio' name="toggle" value=8 />
+                    <label for="Aug"> August </label>
+                    <input id='Sep' type='radio' name="toggle" value=9 />
+                    <label for="Sep"> September </label>
+                    <input id='Oct' type='radio' name="toggle" value=10 />
+                    <label for="Oct"> October </label>
+                    <input id='Nov' type='radio' name="toggle" value=11 />
+                    <label for="Nov"> November </label>
+                    <input id='Dec' type='radio' name="toggle" value=12 />
+                    <label for="Dec"> December </label>
+                </div>
+
+                
+            </div>
+
+            <p>Data Source:  <a href="https://arctic-nga.opendata.arcgis.com/datasets/nga::july-1979/explore" target="_blank">NATIONAL GEOSPATIAL-INTELLIGENCE AGENCY</a> </p>
+
+
+    </div>
+
+
+
+    <script>
+         mapboxgl.accessToken = 'pk.eyJ1IjoiZGFwaG5lYmRuIiwiYSI6ImNreWtjamFzYjBmczkybnVmOTM1Z3B0YjkifQ.ygTqt_apbGM5eZFZqesskQ'; // Put your Mapbox Public Access token here
+
+// Load a new map in the 'map' HTML div
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/daphnebdn/cl3g21spz003o15o45h3qc47s', // stylesheet location
+    center: [90, 90], // starting position [lng, lat]
+    projection: {
+        name: 'albers',
+        //name: "mercator",
+        center: [60, 0],
+        parallels: [90, 90]       
+    },
+    zoom: 3.25,  // starting zoom
+    maxZoom: 4,
+    minZoom: 1
+    
+});
+
+// disable map rotation using right click + drag
+//map.dragRotate.disable();
+
+// disable map rotation using touch rotation gesture
+//map.touchZoomRotate.disableRotation();
+
+
+map.on('load', function () {
+
+    //d3.json('Data/NSIDC_SeaIceExtent/Sea_Ice_Extents.geojson', jsonCallback);
+    d3.json('Data/sea_ice_temperatures.geojson', jsonCallback);
+
+});
+
+function jsonCallback(err, data) {
+    //console.log(data)
+   // console.log(data.features)
+   // console.log(data.features[1])
+   // console.log(data.features[1].properties)
+   // console.log(data.features[1].properties.name)
+   // console.log(data.features[18].properties.month)
+   // console.log(data.features[18].properties.SHAPE_Area)
+   
+
+// set the dimensions and margins of the graph
+    var margin = {top: 10, right: 30, bottom: 30, left: 60},
+        width = 400 - margin.left - margin.right,
+        height = 300 - margin.top - margin.bottom;
+   
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+    // Parse the date / time
+    var	parseDate = d3.timeParse("%Y");
+    var formatYear = d3.timeFormat("%Y");
+
+    data.features.forEach(function(d) {
+        //d.year = formatYear(d.properties.year);
+        d.year = parseDate(String(d.properties.year));
+        d.area = ((+d.properties.SHAPE_Area/1000)*2.59);
+        d.temperature = d.properties.temperature;
+       // console.log(d.year);
+        //console.log(d.area);
+    });
+
+    
+    // Add X axis 
+    
+    var xAxis = d3.scaleTime()
+    .domain(d3.extent(data.features, function(d) { return d.year; }))
+    .range([ 0, width ]);
+    svg.append("g")
+    .attr("transform", "translate(0,"  + height + ")")
+    .call(d3.axisBottom(xAxis));
+
+
+     // Gridlines for X (parallel to Y)
+    var gridlinesX = d3.axisBottom()
+                    .tickFormat("")
+                    .tickSize(-height)
+                    .scale(xAxis);
+
+    svg.append("g")
+        .attr("transform", "translate(0,"  + height + ")")
+        .attr("class", "grid")
+        .call(gridlinesX)
+     
+
+    // Add Y axis
+    var yAxis = d3.scaleLinear()
+    .domain([-30, d3.max(data.features, function(d) { return +d.area; }) +15])
+    .range([ height, 0 ]);
+    svg.append("g")
+    .call(d3.axisLeft(yAxis));
+
+/*
+    // Gridlines for Y (parallel to x) 
+    var gridlinesY = d3.axisLeft()
+                .tickFormat("")
+                .tickSize( -width)
+                .scale(yAxis);
+
+    svg.append("g")
+      .attr("transform", "translate(0,"  +  height + ")")
+        .attr("class", "grid")
+        .call(gridlinesYAxis);
+*/
+    // Add X axis label:
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", width)
+        .attr("y", 290)
+        .text("year")
+        .style('font-size','14px');
+
+    // Add Y axis label:
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", -150)
+        .attr("y", -38)
+        .text("Sea ice area (million km²)")
+        .attr("text-anchor", "start")
+        .attr("transform", "rotate(-90)")
+        .style('font-size','14px');
+
+   /*
+    ///////////////test for slider
+
+    var startYear = 1979,
+    endYear = 2016,
+    initialYear = 1980;
+
+   brushHeight = 200
+
+    var brush = d3.brushX(xAxis)
+       // .extent([[xAxis.range()[0], 0], [xAxis.range()[1], brushHeight]])
+        //.extent([[xAxis.range()[0], 0], [xAxis.range()[1], brushHeight]])
+        .extent([parseDate(String(initialYear)), parseDate(String(initialYear))])
+        .on('brush', brushed);
+
+    var slider = svg.append('g')
+        .attr('class', 'slider')
+        .call(brush)
+
+   // slider.selectAll('.extent,.resize,.background')
+    //    .remove();
+    
+    var handle = slider.append('g')
+        .attr('transform', 'translate(0' + -8 + ')');
+
+    handle.append('circle')
+        .attr('class', 'handle')
+        .attr('r', 7);
+
+    handle.append('path')
+        .attr('d','M0,0L0,' + height)
+        .attr('transform', 'translate(0, 8)')
+        .attr('class', 'indicator');
+
+    svg.on('click', function() {
+        var value = xAxis.invert(d3.mouse(svg.node())[0]);
+
+        slider
+        .call(brush.event)
+        .transition()
+            .duration(600)
+            .call(brush.extent([value, value]))
+            .call(brush.event);
+    });
+
+    function brushed() {
+        var value = brush.extent() [0] ;
+        if (d3.event.sourceEvent) { //not a programmatic event
+        d3.select('.hide-hint').remove();
+        value = xAxis.invert(d3.mouse(this)[0]);
+        brush.extent([value,value]);
+    }
+
+    handle.attr('transfrom', 'translate(' + x(value) + ',-8')
+
+    var year = Math.round(value);
+
+    //move indicator needle
+    setYear(year);
+    }
+    d3.selectAll('.line').style('stroke-dashoffset', '0');
+
+  document.body.addEventListener('mousemove', intro);
+
+  function intro() {
+    document.body.removeEventListener('mousemove', intro);
+    slider
+      .call(brush.event)
+      .transition()
+        .duration(7000)
+        .call(brush.extent([parseDate(String(endYear)), parseDate(String(endYear))]))
+        .call(brush.event);
+  }
+  */
+/////////////////////////////
+
+
+
+    //create initial graph
+
+    //glacier-dark-blue:#417ce9
+    //glacier-light-vlue:#83b0f4
+
+    needleColor = 'black'
+    //lineColor = '#417ce9'
+    lineColor = '#313E58'
+    
+
+    var initialGraph = function(month) {
+        // filter the data by month
+
+        var chartdata = data.features.filter( d => d.properties.month === month)
+        //var tempChart = data.filter( d => d.month === month)
+
+
+        //console.log(chartdata)
+        //console.log('TESTESTTESTTEST')
+
+        chartdata.forEach(function(d) {
+            d.year = parseDate(String(d.properties.year));
+            d.area =((+d.properties.SHAPE_Area/1000 )*2.59);
+            d.temperature = d.properties.temperature;
+            console.log(d.year);
+            console.log(d.area);         
+        });
+
+        
+        // Add the line
+        svg.append("path")
+        .datum(chartdata)
+        .attr("fill", "none")
+        .attr("class", "line") //
+        .attr("stroke", lineColor)
+        .attr("stroke-width", 3)
+        .attr("d", d3.line()
+            .x(function(d) { return xAxis(d.year) })
+            .y(function(d) { return yAxis(d.area) })
+            )
+
+
+        // Add the temperature line
+        svg.append("path")
+        .datum(chartdata)
+        .attr("fill", "none")
+        .attr("class", "line2") //
+        .attr("stroke", 'red')
+        .attr("stroke-width", 3)
+        .attr("d", d3.line()
+            .x(function(d) { return xAxis(d.year) })
+            .y(function(d) { return yAxis(d.temperature) })    
+            )
+
+
+            svg.append('line')
+        .attr('class','yearLine')
+        .attr('x1', xAxis(parseDate(String(1980))))
+        .attr('y1', 0)
+        .attr('x2', xAxis(parseDate(String(1980))))
+        .attr('y2', height)
+        .style('stroke-width', 1.5)
+        .style('stroke', needleColor)
+        .style('fill', 'none')
+
+/*
+ year = parseDate(String(1980))
+    svg.append('line')
+    .style("stroke", "blue")
+    .style("stroke-width", 2)
+    .attr("x1", xAxis(year))
+    .attr("y1", 220)
+    .attr("x2", xAxis(year))
+    .attr("y2", 0);  
+*/
+    }
+
+    initialGraph(1)
+
+
+
+    //https://bl.ocks.org/d3noob/7030f35b72de721622b8
+
+    //update the graph 
+    var updateGraph = function(month) {
+        
+        //filter data
+        var chartdata = data.features.filter( d => d.properties.month === month);
+
+        chartdata.forEach(function(d) {
+            d.year = parseDate(String(d.properties.year));
+            d.area = ((+d.properties.SHAPE_Area/1000)*2.59);
+            d.temperature = d.properties.temperature;
+            console.log(d.year);
+            console.log(d.area);         
+        });
+        
+       var newchart =   svg.selectAll("path.line")
+                .datum(chartdata)
+                .transition()
+                .duration(1000)
+                .attr("d", d3.line()
+                .x(function(d) { return xAxis(d.year) })
+                .y(function(d) { return yAxis(d.area) }) )
+
+        svg.selectAll("path.line2")
+        .datum(chartdata)
+                .transition()
+                .duration(1000)
+                .attr("d", d3.line()
+                .x(function(d) { return xAxis(d.year) })
+                .y(function(d) { return yAxis(d.temperature) }) )
+  
+
+
+    }   
+    var updateYear =  function(year) {
+        svg.selectAll('line.yearLine')
+        .transition()
+        .duration(1)
+        .attr('x1', xAxis(parseDate(String(year))))
+        .attr('y1', 0)
+        .attr('x2', xAxis(parseDate(String(year))))
+        .attr('y2', height)
+  
+        
+
+        }
+    
+
+
+if (err) {
+    throw err;
+}
+
+let filterYear2 = ['==', ['number', ['get', 'year']], 1980]
+let filterMonth2 = ['==', ['number', ['get', 'month']], 1];
+
+map.addSource('iceCoverage', {
+    "type": 'geojson',
+    data: data //data
+});
+
+map.addLayer({
+    "id": "iceCoverage-area",
+    "type": 'fill',
+    "source": 'iceCoverage',
+    "paint": {
+        'fill-color': '#CBEAF6', // blue color fill
+        // 'fill-opacity': 0.3
+    },
+    "filter": ["all",filterMonth2,filterYear2]
+});
+
+
+// get month filter first
+document.getElementById('filters').addEventListener('change', (event) => {
+        const month = parseInt(event.target.value);
+        //update the map filter
+        filterMonth2 = ["==", ["number", ["get", "month"]], month];
+        map.setFilter("iceCoverage-area", ["all", filterYear2, filterMonth2]);
+
+        //update the chart 
+        updateGraph(month)
+    });
+
+
+
+//update Year filter when the slider is dragged
+document.getElementById('slider').addEventListener('input', (event) => {
+
+    const year = parseInt(event.target.value);
+    //update map
+    //currentYear = year
+        updateYear(year)
+
+    document.getElementById('filters').addEventListener('change', (event) => {
+        const month = parseInt(event.target.value);
+        //update the map filter
+        filterMonth2 = ["==", ["number", ["get", "month"]], month];
+        map.setFilter("iceCoverage-area", ["all", filterYear2, filterMonth2]);
+
+        //update the chart 
+        updateGraph(month)
+    });
+
+    filterYear2 = ['==', ['number', ['get', 'year']], year]
+    map.setFilter("iceCoverage-area", ["all", filterYear2, filterMonth2]);
+
+    //update text on UI
+    document.getElementById("display-year").innerText = year;
+
+    //update month filter by toggle
+    
+
+});
+
+
+
+
+}
+
+        
+    </script>
+
+</body>
+
+</html>
