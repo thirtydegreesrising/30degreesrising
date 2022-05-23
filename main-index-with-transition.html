@@ -166,6 +166,41 @@
 
         }
 
+
+        /* new */
+
+        hTitle {
+
+            display: inline-block;
+            color: #f1f3f4;
+            font-size: 60px;
+            font-weight: bold;
+            font-family: 'PT Sans Narrow';
+            letter-spacing: 4px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+
+            text-align: right;
+        }
+
+
+        hText {
+            color: #f1f3f4;
+            font-size: 24px;
+            font-family: 'Arial';
+            text-align: justify;
+
+
+        }
+
+
+
+        /* new end*/
+
+
+
+
+
         #title-page {
             background-color: #000000
         }
@@ -180,32 +215,71 @@
         }
 
         #intro-section-glacier {
-            background-color: #65758f;
+            background-color: #8D8C8A  ; /* #CECECE  #7B7672 */
         }
 
 
         #intro-section-sealevel {
-            background-color: #b6c0cf;
+            background-color: #65758f ;  /* #94add3 */
         }
 
 
+
+        /* new*/
+
+        .chapterBox {
+            position: absolute;
+            width: 28%;
+            height: auto;
+            top: 5%;
+            right: 5%;
+            background-color: transparent;
+        }
+
+        #seaice-section-1 {
+
+            background: rgb(46, 54, 72) url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") no-repeat center right;
+        }
+
+        #seaice-section-2 {
+            text-align: center;
+            background: rgb(46, 54, 72);
+        }
+
+
+
+        /* new end*/
+
+
         #glacier-section-1 {
-            text-align: right;
-            background: rgba(0, 0, 0, 0.1) url("/glacier_map/glacier_background3.jpg") fixed center center;
+
+            background: rgba(0, 0, 0, 0.1) url("/glacier_map/glacier_background3flipped.jpg") fixed center center;
         }
 
         #glacier-section-2 {
             text-align: center;
-            background: rgba(0, 0, 0, 0.1) url("/glacier_map/glacier_background3.jpg") fixed center center;
+            background: #8D8C8A ;
         }
 
         #glacier-section-3 {
             text-align: center;
-            background: rgba(0, 0, 0, 0.1) url("/glacier_map/glacier_background5.jpg") fixed center center;
+            background: #8D8C8A ;
+        }
+
+        #sealevel-section-1 {
+            
+            background: #333d58 url("/sea_level/sealevel_back.png") fixed  no-repeat center center ;
+            background-size:cover
+        }
+
+        #sealevel-section-2 {
+            text-align: center;
+
+            background-color: #65758f;
         }
 
         #conclusion-section {
-            background-color: #a49f9b;
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
 
@@ -253,8 +327,6 @@
             max-width: 1800px;
             height: auto;
         }
-
-
     </style>
 
 
@@ -315,43 +387,109 @@
             </div>
             <div id="text-wrapper">2019</div>
         </div>
+
+
+
+        <!-- ------------------------------------- SEA ICE   --------------------------------------------------------------->
+
+
         <div class="section" id="intro-section-seaice">
-            <div class="title" style="text-align:left;margin-left:5em;margin-top:-5%">
+            <div class="title" style="text-align:left;margin-left:5em;margin-top:-15%">
                 <hheading>The Arctic, it seems, is at 30 degrees...and perhaps rising.</hheading>
             </div>
             <div class="title" style="margin-top:4%">
-                <h3 style="font-size:160px;display:inline-block">X</h3>
+                <h3 style="font-size:160px;display:inline-block">14</h3>
                 <hheading style="font-size:60px">&nbsp%</hheading>
                 <div style="margin-top:-8%"></div>
-                <hheading>decline in sea ice</hheading>
+                <hheading>sea ice decline per decade</hheading>
             </div>
         </div>
 
+
+        <div class="section" id="seaice-section-1">
+
+            <div class="chapterBox">
+
+                <div>
+                    <hTitle> The Arctic Sea Ice </hTitle>
+                </div>
+
+                <hText>
+                    Approximately 30° South of the North Pole the Arctic Circle defines the extent of the Arctic, the
+                    northernmost region of Earth. <br>
+
+                    The Arctic sea ice is frozen ocean water that increases and decreases in extent with the seasons.
+                    Normally, during September it reaches its smallest extent while in March it reaches its largest
+                    extent.
+                    <br> <br>
+                    However there has been a dramatic decline of the arctic sea ice extent in the past 30 years.
+                    <br>
+                    Specifically, September 2012 marked a record minimum
+
+                    Sea ice melting contributes to the acceleration of global warming since the large ice sheets are
+                    replaced by the dark ocean that absorbes more sunlight which further heats up the water.
+                    <br>
+                    In April 2022 the NCIDC recorded 14.06 million km2 of sea ice, which is 630,000 km2 below 1981-2010
+                    average
+                </hText>
+
+            </div>
+
+
+        </div>
+
+        <div class="section" id="seaice-section-2">
+            <h1 style="margin-top:-16px">Arctic Sea Ice</h1>
+            <div style="margin-top:-10px">
+                <iframe name="iframe-0" id="chart-0" height="850" width="90%" class="embed-responsive-item"
+                    style=" background-color: rgb(46, 54, 72);" src="/arctic_map/arctic_map.html" frameborder="no"
+                    frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
+            </div>
+
+        </div>
+
+
+
+
+        <!-- ------------------------------------- GLACIER   --------------------------------------------------------------->
+
+
+
+
         <div class="section" id="intro-section-glacier">
-            <div class="title" style="text-align:left;margin-left:5em;margin-top:-5%">
+            <div class="title" style="text-align:left;margin-left:5em;margin-top:-15%">
                 <hheading>Text, text, text.</hheading>
             </div>
             <div class="title" style="margin-top:4%">
-                <h3 style="font-size:160px;display:inline-block">X</h3>
+                <h3 style="font-size:160px;display:inline-block">267</h3>
                 <hheading style="font-size:60px">&nbspgigatons</hheading>
                 <div style="margin-top:-8%"></div>
-                <hheading>of glaciers</hheading>
+                <hheading>of glacial ice disappeared</hheading>
             </div>
         </div>
 
         <div class="section" id="glacier-section-1">
-            <div class="section-header" id="header">
-                <video class="videoback" data-autoplay muted="muted" loop id="glacier-vid"
-                    style="width:100%; object-fit: fill" class="section-vid">
-                    <source src="/glacier_map/glacier_video.mp4" type="video/mp4">
-                </video>
 
-                <div id="wrapper-2">
-                    <div class="intro">
+            <div class="chapterBox">
 
-                    </div>
+                <div>
+                    <hTitle> Arctic Glaciers </hTitle>
                 </div>
+
+                <hText>
+                    Glaciers are more sensitive to global warming than than we' ve even thought.
+                    <br>
+                    Whether seen or not, the world's glaciers are losing 267 gigatonnes of ice every year.
+                    <br>
+                    Specifically, September 2012 marked a record minimum.
+
+                    As most freshwater ice is found in the polar ice caps and glaciers. Let us take a look at what is
+                    truly happenning.
+
+                </hText>
+
             </div>
+
         </div>
 
         <div class="section" id="glacier-section-2">
@@ -376,19 +514,55 @@
                 frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe>
         </div>
 
-        <div class="section" id="intro-section-sealevel">
-            <div class="title" style="text-align:left;margin-left:5em;margin-top:-5%">
+
+         <!-- ------------------------------------- SEA LEVEL   --------------------------------------------------------------->
+
+  
+         <div class="section" id="intro-section-sealevel">
+            <div class="title" style="text-align:left;margin-left:5em;margin-top:-15%">
                 <hheading>What happens in the arctic does't stay in the arctic.</hheading>
             </div>
             <div class="title" style="margin-top:4%">
-                <h3 style="font-size:160px;display:inline-block">X</h3>
-                <hheading style="font-size:60px">&nbspmeters</hheading>
+                <h3 style="font-size:160px;display:inline-block">3</h3>
+                <hheading style="font-size:60px">&nbspmm</hheading>
                 <div style="margin-top:-8%"></div>
-                <hheading>sea level rise</hheading>
+                <hheading>sea level rise per year</hheading>
             </div>
         </div>
 
+        <div class="section" id="sealevel-section-1">
+            <div class="chapterBox">
 
+                <div>
+                    <hTitle> Sea Level </hTitle>
+                </div>
+
+                <hText>
+                    Glaciers are more sensitive to global warming than than we' ve even thought.
+                    <br>
+                    Whether seen or not, the world's glaciers are losing 267 gigatonnes of ice every year.
+                    <br>
+                    Specifically, September 2012 marked a record minimum.
+
+                    As most freshwater ice is found in the polar ice caps and glaciers. Let us take a look at what is
+                    truly happenning.
+
+                </hText>
+
+            </div>
+        </div>
+
+        <div class="section" id="sealevel-section-2">
+       
+
+             <h1 style="margin-top:-16px">Sea Level Change and Population of Coastal Area</h1>
+             <iframe name="iframe-4" id="map-3" height="800" width="80%" class="embed-responsive-item"
+                    style=" background-color:transparent;" src="/sea_level/sealevel-web.html" frameborder="no" frameborder="0"
+                    marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe>
+        </div>
+
+
+         <!-- ------------------------------------- CONCLUSION   --------------------------------------------------------------->
         <div class="section" id="conclusion-section">
             <div class="title" style="margin-top:-5%">
                 <hheading style="font-size:50px;">30&nbsp;degrees&nbsp;rising</hheading>
