@@ -1,0 +1,20 @@
+html {
+    background-color: #000011;
+}
+
+#globeViz {
+    transform: translate(-250px, 0px);
+}
+
+#globeViz2 {
+    transform: translate(250px, 0px);
+}
+
+#globeViz3 {
+    transform: translate(-250px, 0px);
+}
+
+
+
+
+
