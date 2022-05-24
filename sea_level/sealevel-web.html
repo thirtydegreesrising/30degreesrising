@@ -276,7 +276,7 @@
                         let popuLation = parseInt(properties[
                             'coastal_population2010_sum'] / 1000)
                         popup1 = new mapboxgl.Popup({
-                                closeOnClick: false
+                                closeOnClick: true
                             })
                             .setLngLat([e.lngLat.lng, e.lngLat.lat])
                             .setHTML('<div>Location : ' + properties.location + '</div>' +
