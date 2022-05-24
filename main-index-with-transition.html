@@ -24,6 +24,8 @@
 
         body {
             background: rgba(0, 0, 0, 0.1) fixed center center;
+            height: 100%;
+            width: 100%;
             margin: 0;
             padding: 0;
             background-size: cover;
@@ -48,8 +50,8 @@
         }
 
         .section {
-            margin-right: auto;
-            margin-left: auto;
+            height: 100%;
+            width: 100%;
         }
 
 
@@ -63,24 +65,20 @@
 
         .menu {
             position: absolute;
-            top: 0;
-            right: 0;
-            width: auto;
-            height: auto;
-            display: flex;
+            top: calc((-10%) / 2);
+            width: 1600px;
+            left: calc((100% - 1600px)/2);
             flex-direction: row-reverse;
-            justify-content: top;
         }
 
         .menu li {
-            position: relative;
             width: auto;
-            height: 10px;
+            height: auto;
             list-style: none;
             float: right;
             color: #646FD4;
-            display: block;
-            padding-left: 12em;
+            display: inline-flex;
+            padding: 5em;
         }
 
 
@@ -89,16 +87,13 @@
             font-family: "Cabin Condensed";
             letter-spacing: 3px;
             background-color: #000000;
-            bottom: 50%;
             border: none;
             color: #cccccc;
             height: 2em;
-            width: 7em;
-            left: calc((100% - 12em)/2);
+            width: 8em;
             text-align: center;
             font-size: 20px;
-            margin: 6px 4px;
-            transition: 0.5s;
+            transition: 0.1s;
         }
 
         .btn:hover {
@@ -108,13 +103,18 @@
             cursor: pointer;
         }
 
+        .btn:focus {
+            outline: 0;
+        }
+
         svg {
             position: absolute;
-            top: 50%;
-            width: auto;
-            margin-top: -60px;
-            padding-left: calc((100% - 780px)/2);
-            margin-left: -225px
+            top: 40%;
+            width: 1500;
+            left: calc((100% - 1500px)/2);
+            font-weight: bold;
+            max-width: 1800px;
+            height: auto;
         }
 
         .title {
@@ -202,7 +202,7 @@
 
 
         #title-page {
-            background-color: #000000
+            background: #000000;
         }
 
         #intro-section-globe {
@@ -215,12 +215,14 @@
         }
 
         #intro-section-glacier {
-            background-color: #8D8C8A  ; /* #CECECE  #7B7672 */
+            background-color: #4a4547;
+            /* #CECECE  #7B7672 */
         }
 
 
         #intro-section-sealevel {
-            background-color: #65758f ;  /* #94add3 */
+            background-color: #65758f;
+            /* #94add3 */
         }
 
 
@@ -238,12 +240,12 @@
 
         #seaice-section-1 {
 
-            background: rgb(46, 54, 72) url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") no-repeat center right;
+            background: rgb(46, 54, 72) url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") fixed center center;
         }
 
         #seaice-section-2 {
             text-align: center;
-            background: rgb(46, 54, 72);
+            background: rgb(46, 54, 72) fixed center center;
         }
 
 
@@ -258,36 +260,36 @@
 
         #glacier-section-2 {
             text-align: center;
-            background: #8D8C8A ;
+            background: #4a4547 fixed center center;
         }
 
         #glacier-section-3 {
             text-align: center;
-            background: #8D8C8A ;
+            background: #4a4547 fixed center center;
         }
 
         #sealevel-section-1 {
-            
-            background: #333d58 url("/sea_level/sealevel_back.png") fixed  no-repeat center center ;
-            background-size:cover
+
+            background: #333d58 url("/sea_level/sealevel_back.png") fixed center center;
+            background-size: cover
         }
 
         #sealevel-section-2 {
             text-align: center;
 
-            background-color: #65758f;
+            background: #65758f fixed center center;
         }
 
         #conclusion-section {
-            background-color: rgba(0, 0, 0, 0.5);
+            background: #a49f9b fixed center center;
         }
 
 
 
 
         .arrow {
-            position: fixed;
-            bottom: 30%;
+            position: absolute;
+            bottom: 20%;
             left: 49%;
             width: 3vmin;
             height: 3vmin;
@@ -302,6 +304,10 @@
         .arrow:hover {
             border-color: #808080;
             box-shadow: 0.5vmin -0.5vmin 0 white;
+        }
+
+        .arrow:focus {
+            outline: 0;
         }
 
 
@@ -322,10 +328,20 @@
             }
         }
 
-        svg {
-            font-weight: bold;
-            max-width: 1800px;
-            height: auto;
+
+        #navibar {
+            z-index:9;
+            display: block;
+            opacity: 1;
+            transition: opacity 1s;
+        }
+
+        #navibar.fade {
+            opacity: 0;
+        }
+
+        #navibar.nofade {
+            opacity: 1;
         }
     </style>
 
@@ -333,6 +349,18 @@
 
 
 <body>
+    <div id="navibar">
+        <div class="dotstyle dotstyle-scaleup">
+            <ul style="top:50%;right:calc((-12%)/2)">
+                <li><a href="#" id="navi-home">Home</a></li>
+                <li><a href="#" id="navi-temp">Temperature</a></li>
+                <li><a href="#" id="navi-seaice">SeaIce</a></li>
+                <li><a href="#" id="navi-glacier">Glacier</a></li>
+                <li><a href="#" id="navi-sealevel">SeaLevel</a></li>
+                <li><a href="#" id="navi-team">Team</a></li>
+            </ul>
+        </div>
+    </div>
     <div id="fullpage">
 
         <div class="section" id="title-page">
@@ -355,31 +383,22 @@
                 <text text-anchor="middle" x="50" y="13" font-size="13" font-family="Cabin Condensed"
                     letter-spacing="3px" fill="url(#gradient)" fill-opacity="0.5">30&nbsp;degrees&nbsp;rising</text>
             </svg>
-            <a href="#" class="arrow" id="arrow1"></a>
+            <a href="#" class="arrow" id="arrow"></a>
 
             <div class="menu">
                 <ul>
-                    <li><button class="btn">Team</button></li>
-                    <li><button class="btn">Sea Level</button></li>
-                    <li><button class="btn">Glacier</button></li>
-                    <li><button class="btn">Sea Ice</button></li>
-                    <li><button class="btn">Temperature</button></li>
+                    <li><a href="#"><button class="btn" id="btn-team">Team</button></a></li>
+                    <li><a href="#"><button class="btn" id="btn-sealevel">Sea Level</button></a></li>
+                    <li><a href="#"><button class="btn" id="btn-glacier">Glacier</button></a></li>
+                    <li><a href="#"><button class="btn" id="btn-seaice">Sea Ice</button></a></li>
+                    <li><a href="#"><button class="btn" id="btn-temperature">Temperature</button></a></li>
                 </ul>
             </div>
         </div>
 
         <div class="section" id="intro-section-globe">
-            <div class="dotstyle dotstyle-scaleup">
-                <ul style="top:50%;right:-6%">
-                    <li><a href="#">Home</a></li>
-                    <li class="current"><a href="#">Temperature</a></li>
-                    <li><a href="#">SeaIce</a></li>
-                    <li><a href="#">Glacier</a></li>
-                    <li><a href="#">SeaLevel</a></li>
-                    <li><a href="#">Team</a></li>
-                </ul>
-            </div>
-            <div position="absolute" style="height:50%;width:50%">
+
+            <div position="absolute" style="height:50%;width:80%">
                 <iframe name="iframe-0" id="globe-0" height="50%" width="50%" class="embed-responsive-item"
                     style="left:50%;overflow:hidden;height:100%;width:100%;background-color:rgba(255, 255, 255, 0.9);"
                     src="/globe/globe.html" frameborder="no" frameborder="0" marginwidth="0" marginheight="0"
@@ -495,11 +514,11 @@
         <div class="section" id="glacier-section-2">
             <h1 style="margin-top:-16px">Mean Elevation Change Rate for Glaciers over ~60°N</h1>
             <div style="margin-top:-10px">
-                <iframe name="iframe-1" id="chart-1" height="360" width="70%" class="embed-responsive-item"
+                <iframe name="iframe-1" id="chart-1" height="340" width="80%" class="embed-responsive-item"
                     style=" background-color:rgba(255, 255, 255, 0.9);" src="/glacier_map/chart1.html" frameborder="no"
                     frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
             </div>
-            <div style="margin-top:10px"><iframe name="iframe-2" id="map-1" height="460" width="70%"
+            <div style="margin-top:30px"><iframe name="iframe-2" id="map-1" height="460" width="80%"
                     class="embed-responsive-item" style=" background-color:transparent;"
                     src="/glacier_map/map_glacier_glance.html" frameborder="no" frameborder="0" marginwidth="0"
                     border-radius="25px" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
@@ -509,16 +528,16 @@
         <div class="section" id="glacier-section-3">
             <h1 style="margin-top:-10px">Glacier Photographs Comparison From Historic to Recent (Scroll to Explore)
             </h1>
-            <iframe name="iframe-3" id="map-2" height="800" width="90%" class="embed-responsive-item"
+            <iframe name="iframe-3" id="map-2" height="85%" width="90%" class="embed-responsive-item"
                 style=" background-color:transparent;" src="/glacier_map/map_glacier_story.html" frameborder="no"
                 frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe>
         </div>
 
 
-         <!-- ------------------------------------- SEA LEVEL   --------------------------------------------------------------->
+        <!-- ------------------------------------- SEA LEVEL   --------------------------------------------------------------->
 
-  
-         <div class="section" id="intro-section-sealevel">
+
+        <div class="section" id="intro-section-sealevel">
             <div class="title" style="text-align:left;margin-left:5em;margin-top:-15%">
                 <hheading>What happens in the arctic does't stay in the arctic.</hheading>
             </div>
@@ -553,16 +572,16 @@
         </div>
 
         <div class="section" id="sealevel-section-2">
-       
 
-             <h1 style="margin-top:-16px">Sea Level Change and Population of Coastal Area</h1>
-             <iframe name="iframe-4" id="map-3" height="800" width="80%" class="embed-responsive-item"
-                    style=" background-color:transparent;" src="/sea_level/sealevel-web.html" frameborder="no" frameborder="0"
-                    marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe>
+
+            <h1 style="margin-top:3%">Sea Level Change and Population of Coastal Area</h1>
+            <iframe name="iframe-4" id="map-3" height="85%" width="90%" class="embed-responsive-item"
+                style=" background-color:transparent;" src="/sea_level/sealevel-web.html" frameborder="no"
+                frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe>
         </div>
 
 
-         <!-- ------------------------------------- CONCLUSION   --------------------------------------------------------------->
+        <!-- ------------------------------------- CONCLUSION   --------------------------------------------------------------->
         <div class="section" id="conclusion-section">
             <div class="title" style="margin-top:-5%">
                 <hheading style="font-size:50px;">30&nbsp;degrees&nbsp;rising</hheading>
@@ -588,25 +607,82 @@
     </div>
 </body>
 
+
 <script type="text/javascript" src="/js/fullpage.js"></script>
 <script>
     new fullpage('#fullpage', {
         licenseKey: 'gplv3-license',
         navigation: false,
-        responsiveWidth: 700,
+        responsiveWidth: 1500,
+        css3: false,
         parallax: true,
         onLeave: function (origin, destination, direction) {
-            console.log("Leaving section" + origin.index);
-        },
-    });
+            var navibar = document.getElementById('navibar');
+
+            if (destination.index != 0) {
+                document.getElementById("navibar").style.display = "block";
+            }
+            if (destination.index == 0) {
+                document.getElementById("navibar").style.display = "block";
+            }
+        }
+    })
 
 
 
-    document.querySelector('#arrow1').addEventListener('click', function (e) {
+    document.querySelector('#arrow').addEventListener('click', function (e) {
         e.preventDefault();
         fullpage_api.moveSectionDown();
     });
+
+    document.querySelector('#btn-temperature').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(2);
+
+    });
+    document.querySelector('#btn-seaice').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(3);
+    });
+    document.querySelector('#btn-glacier').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(6);
+    });
+    document.querySelector('#btn-sealevel').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(10);
+    });
+    document.querySelector('#btn-team').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(13);
+    });
+
+    document.querySelector('#navi-home').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(1);
+    });
+    document.querySelector('#navi-temp').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(2);
+    });
+    document.querySelector('#navi-seaice').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(3);
+    });
+    document.querySelector('#navi-glacier').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(6);
+    });
+    document.querySelector('#navi-sealevel').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(10);
+    });
+    document.querySelector('#navi-team').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(13);
+    });
 </script>
+
 
 <script>
     window.document.addEventListener('myCustomEvent', handleEvent, false)
@@ -624,10 +700,6 @@
 <script src="//unpkg.com/d3-dsv"></script>
 <script src="//unpkg.com/globe.gl"></script>
 <script src="/globe/globe.js"></script>
-
 <script>
-    $('.dots li').click(function () {
-        $('.active').removeClass('active');
-        $(this).addClass('active');
-    });
+
 </script>
