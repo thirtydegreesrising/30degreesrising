@@ -7,12 +7,9 @@ d3.csv("https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/ma
 }).then(function (data) {
     anomaly = anomaly.map(Number); // Need to convert array entries from strings to floats or extent won't be correct
     var extent = d3.extent(anomaly);
-    console.log(extent)
     weightColor = d3.scaleDiverging(t => d3.interpolateRdBu(1 - t))
     .domain([extent[0], 0, extent[1]]);
-    console.log(weightColor(extent[0]));
-    console.log(weightColor(extent[1]));
-    console.log(weightColor(0));
+
 });
 
 

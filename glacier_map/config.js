@@ -244,6 +244,28 @@ var config = {
             ]
         },
 
+        {
+            id: '',
+            alignment: 'left',
+            title: '',
+            image: '',
+            description: 'xxxxxxxxxxxxxxxxxx',
+            location: {
+                center: [-10, 65],
+                zoom: 2,
+                pitch: 0,
+                bearing: 0
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer:'glacier',
+                opacity: 0,
+            }],
+            onChapterExit: []
+        },
+
 
     ]
 };

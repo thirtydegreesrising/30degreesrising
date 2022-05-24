@@ -15,335 +15,390 @@
     <link rel="stylesheet" type="text/css" href="/css/dots/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/css/dots/demo.css" />
     <link rel="stylesheet" type="text/css" href="/css/dots/component.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="//unpkg.com/d3-dsv"></script>
+    <script src="//unpkg.com/globe.gl"></script>
+    <link rel="stylesheet" href="/globe/style.css">
+</head>
+<style>
+    html {
+        scroll-behavior: unset;
+    }
+
+    body {
+        background: rgba(0, 0, 0, 0.1) fixed center center;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-attachment: fixed;
+        overflow: scroll;
+    }
+
+    .videoback {
+        position: relative;
+        width: 100%;
+        z-index: -11
+    }
+
+    .image {
+        width: auto;
+        height: auto;
+        min-width: 100%;
+        min-height: 100%;
+        position: relative;
+        width: 100%;
+        z-index: -2
+    }
+
+    .section {
+        height: 100%;
+        width: 100%;
+    }
+
+
+    .home-title {
+        text-align: center;
+        margin-top: 22%;
+        width: 97.916667%;
+        letter-spacing: 7px;
+
+    }
+
+    .menu {
+        position: absolute;
+        top: calc((-10%) / 2);
+        width: 1600px;
+        left: calc((100% - 1600px)/2);
+        flex-direction: row-reverse;
+    }
+
+    .menu li {
+        width: auto;
+        height: auto;
+        list-style: none;
+        float: right;
+        color: #646FD4;
+        display: inline-flex;
+        padding: 5em;
+    }
+
+
+    .btn {
+        position: relative;
+        font-family: "Cabin Condensed";
+        letter-spacing: 3px;
+        background-color: #000000;
+        border: none;
+        color: #cccccc;
+        height: 2em;
+        width: 8em;
+        text-align: center;
+        font-size: 20px;
+        transition: 0.1s;
+    }
+
+    .btn:hover {
+        font-weight: bold;
+        color: white;
+        border-bottom: 3px solid #ffffff;
+        cursor: pointer;
+    }
+
+    .btn:focus {
+        outline: 0;
+    }
+
+    svg {
+        position: absolute;
+        top: 40%;
+        width: 1500;
+        left: calc((100% - 1500px)/2);
+        font-weight: bold;
+        max-width: 1800px;
+        height: auto;
+    }
 
+    .title {
+        color: black;
+        text-align: center;
+        margin-top: 10em;
 
-    <style>
-        html {
-            scroll-behavior: unset;
-        }
-
-        body {
-            background: rgba(0, 0, 0, 0.1) fixed center center;
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            background-size: cover;
-            background-attachment: fixed;
-            overflow: scroll;
-        }
-
-        .videoback {
-            position: relative;
-            width: 100%;
-            z-index: -11
-        }
-
-        .image {
-            width: auto;
-            height: auto;
-            min-width: 100%;
-            min-height: 100%;
-            position: relative;
-            width: 100%;
-            z-index: -2
-        }
-
-        .section {
-            height: 100%;
-            width: 100%;
-        }
-
-
-        .home-title {
-            text-align: center;
-            margin-top: 22%;
-            width: 97.916667%;
-            letter-spacing: 7px;
-
-        }
-
-        .menu {
-            position: absolute;
-            top: calc((-10%) / 2);
-            width: 1600px;
-            left: calc((100% - 1600px)/2);
-            flex-direction: row-reverse;
-        }
-
-        .menu li {
-            width: auto;
-            height: auto;
-            list-style: none;
-            float: right;
-            color: #646FD4;
-            display: inline-flex;
-            padding: 5em;
-        }
-
-
-        .btn {
-            position: relative;
-            font-family: "Cabin Condensed";
-            letter-spacing: 3px;
-            background-color: #000000;
-            border: none;
-            color: #cccccc;
-            height: 2em;
-            width: 8em;
-            text-align: center;
-            font-size: 20px;
-            transition: 0.1s;
-        }
-
-        .btn:hover {
-            font-weight: bold;
-            color: white;
-            border-bottom: 3px solid #ffffff;
-            cursor: pointer;
-        }
-
-        .btn:focus {
-            outline: 0;
-        }
-
-        svg {
-            position: absolute;
-            top: 40%;
-            width: 1500;
-            left: calc((100% - 1500px)/2);
-            font-weight: bold;
-            max-width: 1800px;
-            height: auto;
-        }
+        width: 100%;
+    }
 
-        .title {
-            color: black;
-            text-align: center;
-            margin-top: 10em;
+    #text-wrapper {
+        position: absolute;
+        right: 30%;
+        top: 150px;
+        z-index: 999;
+        height: aauto;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 200;
+    }
 
-            width: 100%;
-        }
+    hheading {
+        text-align: center;
+        color: #f1f3f4;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: 'PT Sans Narrow';
+        letter-spacing: 4px;
+        cursor: default;
+    }
 
-        #text-wrapper {
-            position: absolute;
-            right: 30%;
-            top: 150px;
-            z-index: 999;
-            height: aauto;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            font-size: 200;
-        }
+    hheading span {
+        transition: .5s linear
+    }
 
-        hheading {
-            text-align: center;
-            color: #f1f3f4;
-            font-size: 30px;
-            font-weight: bold;
-            font-family: 'PT Sans Narrow';
-            letter-spacing: 4px;
-            cursor: default;
-        }
+    hheading:hover span:nth-child(1) {
+        margin-right: 5px
+    }
 
-        hheading span {
-            transition: .5s linear
-        }
 
-        hheading:hover span:nth-child(1) {
-            margin-right: 5px
-        }
 
+    hheading:hover span:nth-child(2) {
+        margin-left: 30px
+    }
 
+    hheading:hover span {
+        color: #63372c;
 
-        hheading:hover span:nth-child(2) {
-            margin-left: 30px
-        }
+    }
 
-        hheading:hover span {
-            color: #63372c;
 
-        }
+    /* new */
 
+    hTitle {
 
-        /* new */
+        display: inline-block;
+        color: #f1f3f4;
+        font-size: 60px;
+        font-weight: bold;
+        font-family: 'PT Sans Narrow';
+        letter-spacing: 4px;
+        margin-top: 20px;
+        margin-bottom: 50px;
 
-        hTitle {
+        text-align: right;
+    }
 
-            display: inline-block;
-            color: #f1f3f4;
-            font-size: 60px;
-            font-weight: bold;
-            font-family: 'PT Sans Narrow';
-            letter-spacing: 4px;
-            margin-top: 20px;
-            margin-bottom: 50px;
 
-            text-align: right;
-        }
+    hText {
+        color: #f1f3f4;
+        font-size: 24px;
+        font-family: 'Arial';
+        text-align: justify;
 
 
-        hText {
-            color: #f1f3f4;
-            font-size: 24px;
-            font-family: 'Arial';
-            text-align: justify;
+    }
 
 
-        }
 
+    /* new end*/
 
 
-        /* new end*/
 
+    #title-page {
+        background: #000000;
+    }
 
+    #intro-section-globe {
+        text-align: center;
 
+        background-color: #000000;
+    }
 
 
-        #title-page {
-            background: #000000;
-        }
+    #intro-section-seaice {
+        background-color: #333d58;
+    }
 
-        #intro-section-globe {
-            background-color: #000000;
-        }
+    #intro-section-glacier {
+        background-color: #4a4547;
+        /* #CECECE  #7B7672 */
+    }
 
 
-        #intro-section-seaice {
-            background-color: #333d58;
-        }
+    #intro-section-sealevel {
+        background-color: #65758f;
+        /* #94add3 */
+    }
 
-        #intro-section-glacier {
-            background-color: #4a4547;
-            /* #CECECE  #7B7672 */
-        }
 
 
-        #intro-section-sealevel {
-            background-color: #65758f;
-            /* #94add3 */
-        }
+    #globe-section-1 {
+        background-color: #000000;
+    }
 
+    #globe-section-2 {
+        background-color: #000000;
+    }
 
+    #globe-section-3 {
+        background-color: #000000;
+    }
 
-        /* new*/
+    /* new*/
 
-        .chapterBox {
-            position: absolute;
-            width: 28%;
-            height: auto;
-            top: 5%;
-            right: 5%;
-            background-color: transparent;
-        }
+    .chapterBox {
+        position: absolute;
+        width: 28%;
+        height: auto;
+        top: 5%;
+        right: 5%;
+        background-color: transparent;
+    }
 
-        #seaice-section-1 {
+    #seaice-section-1 {
 
-            background: rgb(46, 54, 72) url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") fixed center center;
-        }
+        background: rgb(46, 54, 72) url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") fixed center center;
+    }
 
-        #seaice-section-2 {
-            text-align: center;
-            background: rgb(46, 54, 72) fixed center center;
-        }
+    #seaice-section-2 {
+        text-align: center;
+        background: rgb(46, 54, 72) fixed center center;
+    }
 
 
 
-        /* new end*/
+    /* new end*/
 
 
-        #glacier-section-1 {
+    #glacier-section-1 {
 
-            background: rgba(0, 0, 0, 0.1) url("/glacier_map/glacier_background3flipped.jpg") fixed center center;
-        }
+        background: rgba(0, 0, 0, 0.1) url("/glacier_map/glacier_background3flipped.jpg") fixed center center;
+    }
 
-        #glacier-section-2 {
-            text-align: center;
-            background: #4a4547 fixed center center;
-        }
+    #glacier-section-2 {
+        text-align: center;
+        background: #4a4547 fixed center center;
+    }
 
-        #glacier-section-3 {
-            text-align: center;
-            background: #4a4547 fixed center center;
-        }
+    #glacier-section-3 {
+        text-align: center;
+        background: #4a4547 fixed center center;
+    }
 
-        #sealevel-section-1 {
+    #sealevel-section-1 {
 
-            background: #333d58 url("/sea_level/sealevel_back.png") fixed center center;
-            background-size: cover
-        }
+        background: #333d58 url("/sea_level/sealevel_back.png") fixed center center;
+        background-size: cover
+    }
 
-        #sealevel-section-2 {
-            text-align: center;
+    #sealevel-section-2 {
+        text-align: center;
 
-            background: #65758f fixed center center;
-        }
+        background: #65758f fixed center center;
+    }
 
-        #conclusion-section {
-            background: #a49f9b fixed center center;
-        }
+    #conclusion-section {
+        background: #a49f9b fixed center center;
+    }
 
 
 
 
-        .arrow {
-            position: absolute;
-            bottom: 20%;
-            left: 49%;
-            width: 3vmin;
-            height: 3vmin;
-            background: transparent;
-            border-top: 1vmin solid white;
-            border-right: 1vmin solid white;
-            box-shadow: 0 0 0 lightgray;
-            transition: all 200ms ease;
-            transform: translate3d(0, -50%, 0) rotate(135deg);
-        }
+    .arrow {
+        position: absolute;
+        bottom: 20%;
+        left: 49%;
+        width: 3vmin;
+        height: 3vmin;
+        background: transparent;
+        border-top: 1vmin solid white;
+        border-right: 1vmin solid white;
+        box-shadow: 0 0 0 lightgray;
+        transition: all 200ms ease;
+        transform: translate3d(0, -50%, 0) rotate(135deg);
+    }
 
-        .arrow:hover {
-            border-color: #808080;
-            box-shadow: 0.5vmin -0.5vmin 0 white;
-        }
+    .arrow:hover {
+        border-color: #808080;
+        box-shadow: 0.5vmin -0.5vmin 0 white;
+    }
 
-        .arrow:focus {
-            outline: 0;
-        }
+    .arrow:focus {
+        outline: 0;
+    }
 
 
 
-        @keyframes animate {
-            0% {
-                opacity: 0;
-                transform: rotate(45deg) translate(-10px, -10px);
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0;
-                transform: rotate(45deg) translate(20px, 20px);
-            }
-        }
-
-
-        #navibar {
-            z-index:9;
-            display: block;
-            opacity: 1;
-            transition: opacity 1s;
-        }
-
-        #navibar.fade {
+    @keyframes animate {
+        0% {
             opacity: 0;
+            transform: rotate(45deg) translate(-10px, -10px);
         }
 
-        #navibar.nofade {
+        50% {
             opacity: 1;
         }
-    </style>
+
+        100% {
+            opacity: 0;
+            transform: rotate(45deg) translate(20px, 20px);
+        }
+    }
+
+    .loader {
+        width: 280px;
+        color: #FFF;
+        display: inline-block;
+        font-family: "Cabin Condensed";
+        font-size: 60px;
+        box-sizing: border-box;
+        letter-spacing: 15px;
+    }
+
+    .loader::after {
+        content: '';
+        width: 5px;
+        height: 5px;
+        background: currentColor;
+        position: absolute;
+        bottom: 10px;
+        right: -5px;
+        box-sizing: border-box;
+        animation: animloader 1s linear infinite;
+    }
+
+    @keyframes animloader {
+        0% {
+            box-shadow: 10px 0 rgba(255, 255, 255, 0), 20px 0 rgba(255, 255, 255, 0);
+        }
+
+        50% {
+            box-shadow: 10px 0 white, 20px 0 rgba(255, 255, 255, 0);
+        }
+
+        100% {
+            box-shadow: 10px 0 white, 20px 0 white;
+        }
+    }
+
+
+
+
+    .container-loader {
+        position: fixed;
+        left: calc((100% - 280px) / 2);
+        top: 50%;
+
+    }
+
+
+
+
+
+    #navibar {
+        display: none;
+        opacity: 1;
+
+    }
+</style>
 
 
 
@@ -361,30 +416,42 @@
             </ul>
         </div>
     </div>
+
     <div id="fullpage">
+        <div class="section" id="loading-page">
+            <div class="container-loader" position="relative">
+                <span class="loader">Loading</span>
+            </div>
+            <div class="container-loader" id="thermo" position="relative">
+                <span class="thermometer"></span>
+            </div>
+        </div>
 
         <div class="section" id="title-page">
-            <svg height="100%" width="100%" viewbox="-42 0 200 40">
-                <defs>
-                    <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="50%" stop-color="#ffffff" />
-                        <stop offset="98%" stop-color="#ffffff" />
-                    </linearGradient>
-                    <pattern id="wave" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
-                        <path id="wavePath" d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z"
-                            mask="url(#mask)" fill="url(#gradient)">
-                            <animateTransform attributeName="transform" begin="0s" dur="1.5s" type="translate"
-                                from="0,0" to="40,0" repeatCount="indefinite" />
-                        </path>
-                    </pattern>
-                </defs>
-                <text text-anchor="middle" x="50" y="13" font-size="13" font-family="Cabin Condensed"
-                    letter-spacing="3px" fill="url(#wave)" fill-opacity="0.8">30&nbsp;degrees&nbsp;rising</text>
-                <text text-anchor="middle" x="50" y="13" font-size="13" font-family="Cabin Condensed"
-                    letter-spacing="3px" fill="url(#gradient)" fill-opacity="0.5">30&nbsp;degrees&nbsp;rising</text>
-            </svg>
-            <a href="#" class="arrow" id="arrow"></a>
 
+            <div id="test" style="height:100%;width:100%">
+                <svg height="100%" width="100%" viewbox="-42 0 200 40">
+                    <defs>
+                        <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="50%" stop-color="#ffffff" />
+                            <stop offset="98%" stop-color="#ffffff" />
+                        </linearGradient>
+                        <pattern id="wave" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
+                            <path id="wavePath"
+                                d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z"
+                                mask="url(#mask)" fill="url(#gradient)">
+                                <animateTransform attributeName="transform" begin="0s" dur="1.5s" type="translate"
+                                    from="0,0" to="40,0" repeatCount="indefinite" />
+                            </path>
+                        </pattern>
+                    </defs>
+                    <text text-anchor="middle" x="50" y="13" font-size="13" font-family="Cabin Condensed"
+                        letter-spacing="3px" fill="url(#wave)" fill-opacity="0.8">30&nbsp;degrees&nbsp;rising</text>
+                    <text text-anchor="middle" x="50" y="13" font-size="13" font-family="Cabin Condensed"
+                        letter-spacing="3px" fill="url(#gradient)" fill-opacity="0.5">30&nbsp;degrees&nbsp;rising</text>
+                </svg>
+                <a href="#" class="arrow" id="arrow"></a>
+            </div>
             <div class="menu">
                 <ul>
                     <li><a href="#"><button class="btn" id="btn-team">Team</button></a></li>
@@ -396,17 +463,25 @@
             </div>
         </div>
 
-        <div class="section" id="intro-section-globe">
+        <div class="section fp-auto-height" id="globe-section-1">
+            <div>
+                <div id="globeViz"></div>
 
-            <div position="absolute" style="height:50%;width:80%">
-                <iframe name="iframe-0" id="globe-0" height="50%" width="50%" class="embed-responsive-item"
-                    style="left:50%;overflow:hidden;height:100%;width:100%;background-color:rgba(255, 255, 255, 0.9);"
-                    src="/globe/globe.html" frameborder="no" frameborder="0" marginwidth="0" marginheight="0"
-                    scrolling="no" allowtransparency="true"></iframe>
             </div>
             <div id="text-wrapper">2019</div>
         </div>
+        <div class="section fp-auto-height" id="globe-section-2">
+            <div>
+                <div id="globeViz2"></div>
 
+            </div>
+        </div>
+        <div class="section fp-auto-height" id="globe-section-3">
+            <div>
+                <div id="globeViz3"></div>
+
+            </div>
+        </div>
 
 
         <!-- ------------------------------------- SEA ICE   --------------------------------------------------------------->
@@ -603,7 +678,6 @@
                         <img src="/github.png" height="60"></a></div>
             </div>
         </div>
-
     </div>
 </body>
 
@@ -618,16 +692,33 @@
         parallax: true,
         onLeave: function (origin, destination, direction) {
             var navibar = document.getElementById('navibar');
+            if (destination.index == 1) {
+                fullpage_api.setAllowScrolling(false, 'up');
+            } else {
+                //disabling the scrolling up when reaching 1st section
+                fullpage_api.setAllowScrolling(true, 'up');
+            }
 
-            if (destination.index != 0) {
+            if (destination.index != 1 || destination.index != 0) {
                 document.getElementById("navibar").style.display = "block";
             }
-            if (destination.index == 0) {
-                document.getElementById("navibar").style.display = "block";
+            if (destination.index == 1 || destination.index == 0) {
+                document.getElementById("navibar").style.display = "none";
             }
-        }
+        },
+
     })
 
+    fullpage_api.setScrollingSpeed(700);
+
+    fullpage_api.setAllowScrolling(false, 'down');
+
+
+    var timer = setTimeout(function () {
+        fullpage_api.setAllowScrolling(true, 'down');
+        fullpage_api.moveSectionDown();
+        
+    }, 8000);
 
 
     document.querySelector('#arrow').addEventListener('click', function (e) {
@@ -637,53 +728,53 @@
 
     document.querySelector('#btn-temperature').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(2);
+        fullpage_api.moveTo(3);
 
     });
     document.querySelector('#btn-seaice').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(3);
+        fullpage_api.moveTo(6);
     });
     document.querySelector('#btn-glacier').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(6);
+        fullpage_api.moveTo(9);
     });
     document.querySelector('#btn-sealevel').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(10);
+        fullpage_api.moveTo(13);
     });
     document.querySelector('#btn-team').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(13);
+        fullpage_api.moveTo(16);
     });
 
     document.querySelector('#navi-home').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(1);
+        fullpage_api.moveTo(2);
     });
     document.querySelector('#navi-temp').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(2);
+        fullpage_api.moveTo(3);
     });
     document.querySelector('#navi-seaice').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(3);
+        fullpage_api.moveTo(6);
     });
     document.querySelector('#navi-glacier').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(6);
+        fullpage_api.moveTo(9);
     });
     document.querySelector('#navi-sealevel').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(10);
+        fullpage_api.moveTo(13);
     });
     document.querySelector('#navi-team').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(13);
+        fullpage_api.moveTo(16);
     });
 </script>
 
-
+<script src="/globe/globe.js"></script>
 <script>
     window.document.addEventListener('myCustomEvent', handleEvent, false)
 
@@ -694,12 +785,4 @@
         })
         document.querySelector('#map-1').contentDocument.dispatchEvent(event)
     }
-</script>
-
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="//unpkg.com/d3-dsv"></script>
-<script src="//unpkg.com/globe.gl"></script>
-<script src="/globe/globe.js"></script>
-<script>
-
 </script>
