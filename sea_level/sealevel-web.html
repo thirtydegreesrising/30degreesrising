@@ -24,12 +24,13 @@
 
     <div class="right-box">
         <div>
-            <h3 class="title" onclick="load()">
+            <h3 class="title" >
                 RISING SEA LEVELS
             </h3>
             <p id="content">
-                Here you can track the change in sea levels at 500 monitoring points worldwide. To start, chose a
-                continent fron the list.
+                Here you can track the change in sea levels at 417 monitoring points worldwide from 1985 to 2018. 
+
+               <br><br>To start,  zoom to your area of interst and click on one spot on the map.
             </p>
         </div>
         <div id="COUNTRY" style="font-size:20px"></div>
@@ -46,7 +47,7 @@
             <ul id="list-group" style="margin-left: 20%;">
                 <li class="list-group-item">
                     <div class="legend">
-                        <div class="scale-key" style="height: 6px;width: 6px;"></div>
+                        <div class="scale-key" style="height: 3px;width: 3px;"></div>
                         <div class="legend-label">100k</div>
                     </div>
                     <div class="legend">
@@ -54,11 +55,11 @@
                         <div class="legend-label">1000k</div>
                     </div>
                     <div class="legend">
-                        <div class="scale-key" style="height: 15px;width: 15px;"></div>
+                        <div class="scale-key" style="height: 20px;width: 20px;"></div>
                         <div class="legend-label">5000k</div>
                     </div>
                     <div class="legend">
-                        <div class="scale-key" style="height: 20px;width: 20px;"></div>
+                        <div class="scale-key" style="height: 30px;width: 30px;"></div>
                         <div class="legend-label">20000k</div>
                     </div>
                 </li>
@@ -129,9 +130,9 @@
                 projection: {
                     name: "naturalEarth"
                 },
-                zoom: 2,  //starting zoom 
-                maxZoom: 5,
-                minZoom: 1.5
+                zoom: 1.5,  //starting zoom 
+                maxZoom: 6,
+                minZoom: 1
                 // minZoom: 2
             });
 
@@ -158,7 +159,7 @@
                                 [{
                                     zoom: 0,
                                     value: 927234
-                                }, 2],
+                                }, 1],
                                 [{
                                     zoom: 0,
                                     value: 1558272
@@ -166,11 +167,11 @@
                                 [{
                                     zoom: 0,
                                     value: 2983590
-                                }, 3.5],
+                                }, 4],
                                 [{
                                     zoom: 0,
                                     value: 6662984
-                                }, 4],
+                                }, 7],
                                 [{
                                     zoom: 0,
                                     value: 29241996
@@ -194,7 +195,7 @@
                                 [{
                                     zoom: 6,
                                     value: 29241996
-                                }, 20],
+                                }, 25],
 
                             ]
                         },
@@ -301,9 +302,7 @@
             })
         }
 
-        function load() {
-            location.reload()
-        }
+   
 
         function changeCity() {
             console.log("---------")
