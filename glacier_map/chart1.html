@@ -15,7 +15,7 @@
             width: 1000px;
             margin: auto;
             margin-top: -5px;
-            margin-left: -5px;
+            margin-left: calc((80% - 1000px)/2);
             margin-bottom: -10px;
             font-size: 50;
         }
@@ -26,8 +26,8 @@
             font-size: 14px;
             width: 500px;
             margin-top: 10px;
-            top: 280px;
-            left: 930px;
+            top: 270px;
+            left: calc((80% - 1000px)/2 + 1000px);
         }
 
         #local {
@@ -71,7 +71,7 @@
 
         var myChart = new dimple.chart(svg, filter);
 
-        myChart.setBounds(100, 40, 0.4 * width, 0.25 * height);
+        myChart.setBounds(100, 40, 0.43 * width, 0.25 * height);
 
         var x = myChart.addCategoryAxis("x", "year");
         x.addOrderRule("year");
@@ -98,7 +98,7 @@
         ];
 
 
-        var myLegend = myChart.addLegend(900, 90, 0.1 * width, height, "right")
+        var myLegend = myChart.addLegend(1000, 90, 0.1 * width, height, "right")
 
         myChart.draw(800);
 
@@ -106,9 +106,9 @@
             .data(["Click on the Legend to", "Show Spatial Domain."])
             .enter()
             .append("text")
-            .attr("x", 935)
+            .attr("x", 1000)
             .attr("y", function (d, i) {
-                return 45 + i * 19;
+                return 40 + i * 19;
             })
             .style("font-weight", "bold")
             .style("font-family", "Arial")
@@ -126,16 +126,15 @@
             .style("font-size", "14px")
 
         var test = svg.selectAll("text")
-        console.log(test)
         svg.selectAll("text.dimple-legend")
-            .attr("x", 970)
+            .attr("x", 1040)
             .attr("y", function (d, i) {
                 return 85 + i * 22
             })
 
 
         d3.selectAll("rect")
-            .attr("x", 936)
+            .attr("x", 1000)
             .attr("y", function (d, i) {
                 return 75 + i * 22
             })
@@ -184,7 +183,6 @@
             }
             filterValues = newFilters;
             var message = document.getElementById("local").innerHTML
-            console.log(message)
 
             var event = new CustomEvent('myCustomEvent', {
                 detail: message,
