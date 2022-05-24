@@ -15,7 +15,7 @@
         .right-box {
             position: absolute;
             top: 40px;
-            right: 0px;
+            right: 1%;
             z-index: 5;
             background: rgba(255, 255, 255, 0.8);
             padding: 10px 20px;
@@ -23,6 +23,7 @@
             border-radius: 5px;
             max-height: calc(100% - 20px);
             overflow: auto;
+            
         }
 
         ul {
@@ -43,7 +44,7 @@
 
         .title {
             cursor: pointer;
-         text-decoration: underline black;
+         
          font-family: Arial;
         }
 
