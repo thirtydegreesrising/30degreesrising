@@ -172,8 +172,6 @@
     }
 
 
-    /* new */
-
     hTitle {
 
         display: inline-block;
@@ -182,6 +180,7 @@
         font-weight: bold;
         font-family: 'PT Sans Narrow';
         letter-spacing: 4px;
+
         margin-top: 20px;
         margin-bottom: 50px;
 
@@ -192,15 +191,13 @@
     hText {
         color: #f1f3f4;
         font-size: 24px;
-        font-family: 'Arial';
+        font-family: 'PT Sans Narrow';
         text-align: justify;
 
-
+        line-height: 40px;
+        font-weight: bold;
+        letter-spacing: 3px;
     }
-
-
-
-    /* new end*/
 
 
 
@@ -210,13 +207,12 @@
 
     #intro-section-globe {
         text-align: center;
-
         background-color: #000000;
     }
 
 
     #intro-section-seaice {
-        background-color: #333d58;
+        background-color: rgb(46, 54, 72);
     }
 
     #intro-section-glacier {
@@ -230,6 +226,10 @@
         /* #94add3 */
     }
 
+    
+    #introduction {
+        background-color: #000000;
+    }
 
 
     #globe-section-1 {
@@ -244,7 +244,14 @@
         background-color: #000000;
     }
 
-    /* new*/
+    .BoxIntro {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%;
+        text-align: left;
+    }
 
     .chapterBox {
         position: absolute;
@@ -257,17 +264,13 @@
 
     #seaice-section-1 {
 
-        background: rgb(46, 54, 72) url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") fixed center center;
+        background: #333d58 url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") fixed center center;
     }
 
     #seaice-section-2 {
         text-align: center;
-        background: rgb(46, 54, 72) fixed center center;
+        background: rgb(46, 54, 72)  fixed center center;
     }
-
-
-
-    /* new end*/
 
 
     #glacier-section-1 {
@@ -298,10 +301,17 @@
     }
 
     #conclusion-section {
-        background: #a49f9b fixed center center;
+
+        background: #90959e fixed center center;
     }
 
+    #end-section {
+        background: #90959e fixed center center;
+        
+        /* #a49f9b */
 
+       /* #F0F1FA  */
+    }
 
 
     .arrow {
@@ -315,7 +325,7 @@
         border-right: 1vmin solid white;
         box-shadow: 0 0 0 lightgray;
         transition: all 200ms ease;
-        transform: translate3d(0, -50%, 0) rotate(135deg);
+        transform: translate3d(0, -70%, 0) rotate(135deg);
     }
 
     .arrow:hover {
@@ -420,6 +430,8 @@
     </div>
 
     <div id="fullpage">
+
+        <!--------------------------------------------------- LOADING PAGE -------------------------------------------------------------->
         <div class="section" id="loading-page">
             <div class="container-loader" position="relative">
                 <span class="loader">Loading</span>
@@ -429,6 +441,7 @@
             </div>
         </div>
 
+        <!--------------------------------------------------- TITLE PAGE  --------------------------------------------------------------->
         <div class="section" id="title-page">
 
             <div id="test" style="height:100%;width:100%">
@@ -465,6 +478,36 @@
             </div>
         </div>
 
+        <!--------------------------------------------------- INTRO TEXT  --------------------------------------------------------------->
+
+        <div class="section" id="introduction">
+
+            <div id="test" style="height:100%;width:100%">
+
+                <div class="BoxIntro">
+
+                    <hText>
+                        Late March 2022, the tail end of the 6-month Arctic winter. <br>
+                        Temperature readings at a number of weather stations in the Arctic reach 30 degrees Celsius
+                        above seasonal norms. <br>
+                        Was this just a one-off event? Perhaps not. 
+                        <br> <br>
+                        Research by the Arctic Assessment and Monitoring Programme (AMAP) suggests that between 1979 and
+                        2019,
+                        average surface temperatures in the Arctic increased 3 times faster than the global average.
+                        How did we get to 30 degrees (and rising)? <br>
+                        How has the Arctic been affected by surging temperatures and what are the implications for the
+                        planet as a whole?
+                    </hText>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--------------------------------------------------- GLOBE  --------------------------------------------------------------->
+
         <div class="section fp-auto-height" id="globe-section-1">
             <div>
                 <div id="globeViz"></div>
@@ -486,7 +529,7 @@
         </div>
 
 
-        <!-- ------------------------------------- SEA ICE   --------------------------------------------------------------->
+        <!--------------------------------------------------- SEA ICE   --------------------------------------------------------------->
 
 
         <div class="section" id="intro-section-seaice">
@@ -512,21 +555,16 @@
 
                 <hText>
                     Approximately 30° South of the North Pole the Arctic Circle defines the extent of the Arctic, the
-                    northernmost region of Earth. <br>
-
+                    northernmost region of Earth.
+                    <br> <br>
                     The Arctic sea ice is frozen ocean water that increases and decreases in extent with the seasons.
-                    Normally, during September it reaches its smallest extent while in March it reaches its largest
-                    extent.
                     <br> <br>
                     However there has been a dramatic decline of the arctic sea ice extent in the past 30 years.
-                    <br>
                     Specifically, September 2012 marked a record minimum
-
+                    <br> <br>
                     Sea ice melting contributes to the acceleration of global warming since the large ice sheets are
                     replaced by the dark ocean that absorbes more sunlight which further heats up the water.
-                    <br>
-                    In April 2022 the NCIDC recorded 14.06 million km2 of sea ice, which is 630,000 km2 below 1981-2010
-                    average
+
                 </hText>
 
             </div>
@@ -545,11 +583,7 @@
         </div>
 
 
-
-
         <!-- ------------------------------------- GLACIER   --------------------------------------------------------------->
-
-
 
 
         <div class="section" id="intro-section-glacier">
@@ -659,8 +693,29 @@
 
 
         <!-- ------------------------------------- CONCLUSION   --------------------------------------------------------------->
+
         <div class="section" id="conclusion-section">
-            <div class="title" style="margin-top:-5%">
+
+            <div class="BoxIntro">
+
+                <hText>
+                The above visualisations illustrate how the global and local phenomena are interlinked: <br>
+                The rising temperatures, cause glacial melting which in turn cause rising sea levels. 
+                With this project we aim to contribute towards raising awareness about climate change, 
+                and about the change already happening in the remote, but valuable region of the arctic.
+                <br> 
+                The point of no return might still be uncertain, but we hope that we will never need to find out which one it was.  
+                </hText>
+
+            </div>
+
+        </div>
+
+        <!----------------------------------------- FINAL PAGE   --------------------------------------------------------------->
+
+
+        <div class="section" id="end-section">
+            <div class="title" style="margin-top:-5%" >
                 <hheading style="font-size:50px;">30&nbsp;degrees&nbsp;rising</hheading>
             </div>
             <div class="title" style="margin-top:10%">
@@ -671,15 +726,26 @@
                     @ CASA UCL</hheading>
             </div>
             <div class="title" style="margin-top:2%">
-                <div>
-                    <hheading>See GitHub repository</hheading>
-                </div>
 
                 <div style="padding-top:6%">
                     <a href="https://github.com/thirtydegreesrising/30degreesrising">
-                        <img src="/github.png" height="60"></a></div>
+                        <img src="/github.png" height="60"></a>
+                </div>
             </div>
+            
+            <div class="title">
+
+                <hheading>Image sources:</hheading>
+
+                <li> <p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice" target="_blank">NASA visible earth</a> </p> </li>
+                <li> <p></p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice" target="_blank">NASA visible earth</a> </p></li>
+                <li> <p> </p><a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice" target="_blank">NASA visible earth</a></p> </li>
+              
+            </div>
+            
         </div>
+
+
     </div>
 </body>
 
@@ -719,7 +785,7 @@
     var timer = setTimeout(function () {
         fullpage_api.setAllowScrolling(true, 'down');
         fullpage_api.moveSectionDown();
-        
+
     }, 8000);
 
 
