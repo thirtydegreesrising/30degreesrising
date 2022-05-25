@@ -45,13 +45,10 @@
     }
 
     .image {
-        width: auto;
-        height: auto;
-        min-width: 100%;
-        min-height: 100%;
-        position: relative;
-        width: 100%;
-        z-index: -2
+        margin-top:2%;
+        left: calc((100% - 150px) / 2);
+        position: fixed;
+        width: 150px;
     }
 
     .section {
@@ -226,7 +223,7 @@
         /* #94add3 */
     }
 
-    
+
     #introduction {
         background-color: #000000;
     }
@@ -269,7 +266,7 @@
 
     #seaice-section-2 {
         text-align: center;
-        background: rgb(46, 54, 72)  fixed center center;
+        background: rgb(46, 54, 72) fixed center center;
     }
 
 
@@ -307,10 +304,10 @@
 
     #end-section {
         background: #90959e fixed center center;
-        
+
         /* #a49f9b */
 
-       /* #F0F1FA  */
+        /* #F0F1FA  */
     }
 
 
@@ -490,7 +487,7 @@
                         Late March 2022, the tail end of the 6-month Arctic winter. <br>
                         Temperature readings at a number of weather stations in the Arctic reach 30 degrees Celsius
                         above seasonal norms. <br>
-                        Was this just a one-off event? Perhaps not. 
+                        Was this just a one-off event? Perhaps not.
                         <br> <br>
                         Research by the Arctic Assessment and Monitoring Programme (AMAP) suggests that between 1979 and
                         2019,
@@ -699,12 +696,13 @@
             <div class="BoxIntro">
 
                 <hText>
-                The above visualisations illustrate how the global and local phenomena are interlinked: <br>
-                The rising temperatures, cause glacial melting which in turn cause rising sea levels. 
-                With this project we aim to contribute towards raising awareness about climate change, 
-                and about the change already happening in the remote, but valuable region of the arctic.
-                <br> 
-                The point of no return might still be uncertain, but we hope that we will never need to find out which one it was.  
+                    The above visualisations illustrate how the global and local phenomena are interlinked: <br>
+                    The rising temperatures, cause glacial melting which in turn cause rising sea levels.
+                    With this project we aim to contribute towards raising awareness about climate change,
+                    and about the change already happening in the remote, but valuable region of the arctic.
+                    <br>
+                    The point of no return might still be uncertain, but we hope that we will never need to find out
+                    which one it was.
                 </hText>
 
             </div>
@@ -715,7 +713,7 @@
 
 
         <div class="section" id="end-section">
-            <div class="title" style="margin-top:-5%" >
+            <div class="title" style="margin-top:-5%">
                 <hheading style="font-size:50px;">30&nbsp;degrees&nbsp;rising</hheading>
             </div>
             <div class="title" style="margin-top:10%">
@@ -725,24 +723,30 @@
                 <hheading>
                     @ CASA UCL</hheading>
             </div>
-            <div class="title" style="margin-top:2%">
-
-                <div style="padding-top:6%">
-                    <a href="https://github.com/thirtydegreesrising/30degreesrising">
-                        <img src="/github.png" height="60"></a>
-                </div>
+            <div class="image">
+                <a href="https://github.com/thirtydegreesrising/30degreesrising">
+                    <img src="/github.png" width="150"></a>
             </div>
-            
+
             <div class="title">
 
                 <hheading>Image sources:</hheading>
 
-                <li> <p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice" target="_blank">NASA visible earth</a> </p> </li>
-                <li> <p></p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice" target="_blank">NASA visible earth</a> </p></li>
-                <li> <p> </p><a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice" target="_blank">NASA visible earth</a></p> </li>
-              
+                <li>
+                    <p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
+                            target="_blank">NASA visible earth</a> </p>
+                </li>
+                <li>
+                    <p></p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
+                        target="_blank">NASA visible earth</a> </p>
+                </li>
+                <li>
+                    <p> </p><a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
+                        target="_blank">NASA visible earth</a></p>
+                </li>
+
             </div>
-            
+
         </div>
 
 
@@ -786,7 +790,7 @@
         fullpage_api.setAllowScrolling(true, 'down');
         fullpage_api.moveSectionDown();
 
-    }, 8000);
+    }, 3000);
 
 
     document.querySelector('#arrow').addEventListener('click', function (e) {
@@ -796,24 +800,24 @@
 
     document.querySelector('#btn-temperature').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(3);
+        fullpage_api.moveTo(4);
 
     });
     document.querySelector('#btn-seaice').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(6);
+        fullpage_api.moveTo(7);
     });
     document.querySelector('#btn-glacier').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(9);
+        fullpage_api.moveTo(10);
     });
     document.querySelector('#btn-sealevel').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(13);
+        fullpage_api.moveTo(14);
     });
     document.querySelector('#btn-team').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(16);
+        fullpage_api.moveTo(18);
     });
 
     document.querySelector('#navi-home').addEventListener('click', function (e) {
@@ -822,23 +826,23 @@
     });
     document.querySelector('#navi-temp').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(3);
+        fullpage_api.moveTo(4);
     });
     document.querySelector('#navi-seaice').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(6);
+        fullpage_api.moveTo(7);
     });
     document.querySelector('#navi-glacier').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(9);
+        fullpage_api.moveTo(10);
     });
     document.querySelector('#navi-sealevel').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(13);
+        fullpage_api.moveTo(14);
     });
     document.querySelector('#navi-team').addEventListener('click', function (e) {
         e.preventDefault();
-        fullpage_api.moveTo(16);
+        fullpage_api.moveTo(18);
     });
 </script>
 
