@@ -3,23 +3,16 @@
 <head>
     <meta charset='utf-8' />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <meta name="intro">
-    <title>Introduction</title>
+    <meta name="main-index">
+    <title>thirtydegreesrising</title>
     <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/fullpage.css" />
-    <link rel="stylesheet" type="text/css" href="/css/dots/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/css/dots/demo.css" />
-    <link rel="stylesheet" type="text/css" href="/css/dots/component.css" />
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="//unpkg.com/d3-dsv"></script>
     <script src="//unpkg.com/globe.gl"></script>
     <script src="/globe/globe.js"></script>
-
     <link rel="stylesheet" href="/globe/style.css">
 </head>
 <style>
@@ -45,10 +38,10 @@
     }
 
     .image {
-        left:calc((100% - 150px) / 2);
-        margin-top: 2em;
-        width: 150px;
+        margin-top: 2%;
+        left: calc((100% - 150px) / 2);
         position: fixed;
+        width: 150px;
     }
 
     .section {
@@ -82,6 +75,7 @@
         display: inline-flex;
         padding: 5em;
     }
+
 
 
     .btn {
@@ -132,7 +126,7 @@
         right: 30%;
         top: 150px;
         z-index: 999;
-        height: aauto;
+        height: auto;
         color: white;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
@@ -196,7 +190,24 @@
         letter-spacing: 3px;
     }
 
+    li {
+        list-style-type: none;
+        font-family: 'PT Sans', sans-serif;
+    }
 
+
+    ul {
+        padding: 0px;
+    }
+
+    a {
+        color: #e6e6e6;
+    }
+
+    #loading-page {
+        background: #000000;
+        visibility: visible;
+    }
 
     #title-page {
         background: #000000;
@@ -311,7 +322,6 @@
     }
 
 
-
     .arrow {
         position: absolute;
         bottom: 20%;
@@ -334,7 +344,6 @@
     .arrow:focus {
         outline: 0;
     }
-
 
 
     @keyframes animate {
@@ -401,12 +410,78 @@
 
 
 
-
-
     #navibar {
         display: none;
         opacity: 1;
 
+    }
+
+    .dotstyle ul {
+        top: 50%;
+        right: calc((-12%)/2);
+        position: absolute;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        cursor: default;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        transform: rotate(90deg);
+        z-index: 9999;
+    }
+
+    .dotstyle li {
+        position: relative;
+        display: inline;
+        float: left;
+        margin: 0 16px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+    .dotstyle li a {
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+        outline: none;
+        border-radius: 50%;
+        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.3);
+        text-indent: -999em;
+        /* make the text accessible to screen readers */
+        cursor: pointer;
+        position: absolute;
+    }
+
+    .dotstyle li a:focus {
+        outline: none;
+    }
+
+    .dotstyle-scaleup li a {
+        -webkit-transition: -webkit-transform 0.3s ease, background-color 0.3s ease;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+
+    .dotstyle-scaleup li a:hover,
+    .dotstyle-scaleup li a:focus {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+        background-color: white;
+    }
+
+
+    .dotstyle-scaleup li.current a {
+        background-color: white;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
     }
 </style>
 
@@ -416,9 +491,9 @@
 <body>
     <div id="navibar">
         <div class="dotstyle dotstyle-scaleup">
-            <ul style="top:50%;right:calc((-12%)/2)">
-                <li><a href="#" id="navi-home">Home</a></li>
-                <li><a href="#" id="navi-temp">Temperature</a></li>
+            <ul>
+                <li><a href="#" id="navi-home"> <span class="label">Home</span></a></li>
+                <li><a href="#" id="navi-temp"><span class="label">Temperature</span></a></li>
                 <li><a href="#" id="navi-seaice">SeaIce</a></li>
                 <li><a href="#" id="navi-glacier">Glacier</a></li>
                 <li><a href="#" id="navi-sealevel">SeaLevel</a></li>
@@ -724,32 +799,31 @@
                 <hheading>
                     @ CASA UCL</hheading>
             </div>
-
             <div class="image">
                 <a href="https://github.com/thirtydegreesrising/30degreesrising">
                     <img src="/github.png" width="150"></a>
             </div>
 
-        <div class="title">
+            <div class="title">
 
-            <hheading>Image sources:</hheading>
+                <hheading>Image sources:</hheading>
 
-            <li>
-                <p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
+                <li>
+                    <p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
+                            target="_blank">NASA visible earth</a> </p>
+                </li>
+                <li>
+                    <p></p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
                         target="_blank">NASA visible earth</a> </p>
-            </li>
-            <li>
-                <p></p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
-                    target="_blank">NASA visible earth</a> </p>
-            </li>
-            <li>
-                <p> </p><a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
-                    target="_blank">NASA visible earth</a></p>
-            </li>
+                </li>
+                <li>
+                    <p> </p><a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
+                        target="_blank">NASA visible earth</a></p>
+                </li>
+
+            </div>
 
         </div>
-
-    </div>
 
 
     </div>
@@ -791,8 +865,8 @@
     var timer = setTimeout(function () {
         fullpage_api.setAllowScrolling(true, 'down');
         fullpage_api.moveSectionDown();
-
-    }, 5000);
+        document.getElementById("loading-page").style.visibility = "hidden";
+    }, 6500);
 
 
     document.querySelector('#arrow').addEventListener('click', function (e) {

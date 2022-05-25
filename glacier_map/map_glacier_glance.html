@@ -8,8 +8,6 @@
     <meta name="author of the part" content="Haisu Chen">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
-    <script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://unpkg.com/scrollama"></script>
 </head>
 
 <style>
@@ -101,10 +99,8 @@
     }
 
     .label {
-        line-height: 100%;
-
-        font-size: 4px;
-        width: 12%;
+        font-size: 14px;
+        width: calc((22% - 5px) / 1.7);
         display: inline-block;
         text-align: left;
     }
@@ -123,10 +119,17 @@
         text-align: center;
     }
 
-    .session {
+    #session-circle {
         margin-bottom: 20px;
+        line-height: 30%;
     }
 
+    #session-scalebar {
+        width:22% - 5px;
+        margin-bottom: 20px;
+
+    }
+    
     .br {
         height: 10px;
         border-radius: 10px;
@@ -147,7 +150,7 @@
             <center>Annual Change Rate for Glaciers on Tiles</center>
         </h2>
         <h3 style="line-height: 30%;">
-            <center>Map Features</center>
+            <center>Map Components</center>
         </h3>
         <div class="session" id="feature">
             <ul id="list-group">
@@ -178,7 +181,7 @@
         <h3 style="text-align:center;line-height: 80%;">
             Glacier Area (km²)
         </h3>
-        <div class="session" id="circle" style="line-height: 30%;">
+        <div id="session-circle">
             <ul id="list-group">
                 <li class="list-group-item">
                     <div class="legend">
@@ -200,7 +203,7 @@
         <h3 style="padding-top:25px;margin-bottom:3px;line-height: 140%;">
             <center>Mean Elevation Change Rate 2000-2019 (m yr-1)</center>
         </h3>
-        <div class="session" id="scalebar">
+        <div id="session-scalebar">
             <div class="br"></div>
             <div class="label">-3.2</div>
             <div class="label">-2.5</div>

@@ -21,7 +21,7 @@ fetch('https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/mai
 {
 
     // Initial view for the globe 
-    const MAP_CENTRE1 = { lat: 10, lng: 20, altitude: 1.75 };
+    const MAP_CENTRE1 = { lat: 10, lng: 20, altitude: 3.5 };
 
     const world = Globe()
     (document.getElementById('globeViz'))
@@ -32,7 +32,7 @@ fetch('https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/mai
     .pointOfView(MAP_CENTRE1, 0)
     .hexBinPointsData(data)
     .hexAltitude(0.01)
-    .hexBinResolution(2.8)
+    .hexBinResolution(3)
     .hexMargin(0.1)
     .hexTopColor(data => weightColor(data.points[0].tas))
     .hexSideColor(data => weightColor(data.points[0].tas))
@@ -52,7 +52,7 @@ fetch('https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/mai
 .then(data => // Create the globe and map locations using parsed data
 {
     // Initial view for the globe 
-    const MAP_CENTRE2 = { lat: 10, lng: 20, altitude: 1.75 };
+    const MAP_CENTRE2 = { lat: 10, lng: 20, altitude: 3.5 };
 
     const world = Globe()
     (document.getElementById('globeViz2'))
@@ -63,7 +63,7 @@ fetch('https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/mai
     .pointOfView(MAP_CENTRE2, 0)
     .hexBinPointsData(data)
     .hexAltitude(0.01)
-    .hexBinResolution(2.8)
+    .hexBinResolution(3)
     .hexMargin(0.1)
     .hexTopColor(data => weightColor(data.points[0].tas))
     .hexSideColor(data => weightColor(data.points[0].tas))
@@ -83,8 +83,8 @@ fetch('https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/mai
 {
     // Initial and zoomed-in views for the globe
     //Zoomed in view centres on lat and lng for the North Pole
-    const MAP_CENTRE_INITIAL = { lat: 10, lng: 20, altitude: 1.75 }; 
-    const MAP_CENTRE_ZOOM = { lat: 90.0, lng: 0.0, altitude: 1.50 };
+    const MAP_CENTRE_INITIAL = { lat: 10, lng: 20, altitude: 3.5 }; 
+    const MAP_CENTRE_ZOOM = { lat: 90.0, lng: 0.0, altitude: 3 };
 
     const world = Globe()
     (document.getElementById('globeViz3'))
@@ -95,7 +95,7 @@ fetch('https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/mai
     .pointOfView(MAP_CENTRE_INITIAL, 0)
     .hexBinPointsData(data)
     .hexAltitude(0.01)
-    .hexBinResolution(2.8)
+    .hexBinResolution(3)
     .hexMargin(0.1)
     .hexTopColor(data => weightColor(data.points[0].tas))
     .hexSideColor(data => weightColor(data.points[0].tas))

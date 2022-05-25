@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<head>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+
+<style>
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section,
+  main {
+    display: block;
+  }
+
+  body {
+    line-height: 1;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+    content: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  /*************************************/
+  html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *,
+  *:after,
+  *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-size: 100%;
+    font-family: "Ubuntu", sans-serif;
+    color: #3e3947;
+    background-color: white;
+  }
+
+  body,
+  html {
+    height: 100%;
+  }
+
+  a {
+    color: #3e3947;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  /**************************************/
+
+  .section {
+    min-height: 100%;
+    position: relative;
+    padding: 2em 0;
+  }
+
+  .section:nth-of-type(odd) {
+    background-color: #3e3947;
+  }
+
+  .section:nth-of-type(even) {
+    background-color: #745360;
+  }
+
+  .section:nth-of-type(odd) p {
+    color: #898099;
+  }
+
+  .section:nth-of-type(even) p {
+    color: #bda3ad;
+  }
+
+  .section h1,
+  .section p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    width: 90%;
+    max-width: 768px;
+    text-align: center;
+  }
+
+  .section h1 {
+    color: white;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+
+  .section p {
+    line-height: 1.6;
+  }
+
+  @media only screen and (min-width:768px) {
+    .section h1 {
+      font-size: 30px;
+      font-size: 1.875rem;
+    }
+
+    .section p {
+      font-size: 20px;
+      font-size: 1.25rem;
+      line-height: 2;
+    }
+  }
+
+  .scroll_down {
+    position: absolute;
+    left: 50%;
+    right: auto;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 20px;
+    width: 38px;
+    height: 44px;
+    background: url("../img/cd-arrow-bottom.svg") no-repeat center center;
+  }
+
+  .nav_trig {
+    display: none;
+  }
+
+  #navigation {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  #navigation li {
+    text-align: right;
+  }
+
+  #navigation a {
+    display: inline-block;
+  }
+
+  #navigation a:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  #navigation a span {
+    float: right;
+    display: inline-block;
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
+    transform: scale(0.6);
+  }
+
+  #navigation a:hover span {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+
+  #navigation a:hover .label {
+    opacity: 1;
+  }
+
+  #navigation a.is-selected .dot {
+    background-color: white;
+  }
+
+  #navigation a.is-selected .label {
+    opacity: 1;
+  }
+
+  #navigation .dot {
+    position: relative;
+    /* we set a top value in order to align the dot with the label. If you change label's font, you may need to change this top value*/
+    top: 8px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #d88683;
+    -webkit-transition: -webkit-transform 0.2s, background-color 0.5s;
+    -moz-transition: -moz-transform 0.2s, background-color 0.5s;
+    transition: transform 0.2s, background-color 0.5s;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+
+  #navigation .label {
+    position: relative;
+    margin-right: 10px;
+    padding: .4em .5em;
+    color: white;
+    font-size: 14px;
+    font-size: 0.875rem;
+    -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
+    opacity: 0;
+    -webkit-transform-origin: 100% 50%;
+    -moz-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    -o-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+  }
+</style>
+<html>
+<nav id="navigation">
+  <ul>
+    <li>
+      <a href="#section1" data-number="1">
+        <span class="dot"></span>
+        <span class="label">Intro</span>
+      </a>
+    </li>
+    <li>
+      <a href="#section2" data-number="2">
+        <span class="dot"></span>
+        <span class="label">About</span>
+      </a>
+    </li>
+    <li>
+      <a href="#section3" data-number="3">
+        <span class="dot"></span>
+        <span class="label">Features</span>
+      </a>
+    </li>
+    <li>
+      <a href="#section4" data-number="4">
+        <span class="dot"></span>
+        <span class="label">Portfolio</span>
+      </a>
+    </li>
+    <li>
+      <a href="#section5" data-number="5">
+        <span class="dot"></span>
+        <span class="label">Pricing</span>
+      </a>
+    </li>
+    <li>
+      <a href="#section6" data-number="6">
+        <span class="dot"></span>
+        <span class="label">Contact</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<a class="nav_trig">Open navigation<span></span></a>
+
+<section id="section1" class="section">
+  <h1>Vertical Fixed Navigation</h1>
+  <a href="#section2" class="scroll_down">scroll down</a>
+</section>
+
+<section id="section2" class="section">
+  <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto numquam, totam iusto officia earum
+    perferendis, culpa ad atque eveniet praesentium nobis expedita similique beatae tenetur. Distinctio vel tenetur, id
+    cum.&rdquo;</p>
+</section>
+
+<section id="section3" class="section">
+  <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto numquam, totam iusto officia earum
+    perferendis, culpa ad atque eveniet praesentium nobis expedita similique beatae tenetur. Distinctio vel tenetur, id
+    cum.&rdquo;</p>
+</section>
+
+</html>
+
+<script>
+  $(document).ready(function () {
+    var section_items = $('.section'),
+      navigation_items = $('#navigation a');
+
+    updateNavigation();
+    $(window).on('scroll', function () {
+      updateNavigation();
+    });
+
+    navigation_items.on('click', function (event) {
+      event.preventDefault();
+      smoothScroll($(this.hash));
+    });
+
+    $('.scroll_down').on('click', function (event) {
+      event.preventDefault();
+      smoothScroll($(this.hash));
+    });
+
+    function updateNavigation() {
+      section_items.each(function () {
+        $this = $(this);
+        var activeSection = $('#navigation a[href="#' + $this.attr('id') + '"]').data('number') - 1;
+        if (($this.offset().top - $(window).height() / 2 < $(window).scrollTop()) && ($this.offset().top + $this
+            .height() - $(window).height() / 2 > $(window).scrollTop())) {
+          navigation_items.eq(activeSection).addClass('is-selected');
+        } else {
+          navigation_items.eq(activeSection).removeClass('is-selected');
+        }
+      });
+    }
+
+    function smoothScroll(target) {
+      $('body,html').animate({
+        'scrollTop': target.offset().top
+      }, 600);
+    }
+  });
+</script>
