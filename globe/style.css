@@ -2,6 +2,29 @@ html {
     background-color: #000011;
 }
 
+.year {
+    z-index: 999;
+    position: absolute;
+    left: 1050px;
+    top: 150px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 25;
+}
+
+.text {
+    z-index: 999;
+    position: absolute;
+    left: 1050px;
+    top: 300px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12;
+
+}
+
+
 #globeViz {
     transform: translate(-250px, 0px);
 }
