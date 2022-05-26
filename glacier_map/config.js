@@ -183,7 +183,7 @@ var config = {
             alignment: 'right',
             title: 'Alaska - Muir',
             image: 'Muir.gif',
-            description: 'Credit: B/W Image by William Osgood from American Geographical Society/World Data Center-A for Glaciology; Color Image by Molnia, Bruce F. from U.S. Geological Survey.',
+            description: 'This set of photographic comparison shows the continued retreat and thinning of the glacier. In fact, Muir Glacier has been significantly retreated since the 19th century. According to the National Snow and Ice Data Center, the front of the glacier moved backward about 7 miles from 1941 to 2004, while its thickness decreased by more than 2,625 feet. Credit: B/W Image by William Osgood from American Geographical Society/World Data Center-A for Glaciology; Color Image by Molnia, Bruce F. from U.S. Geological Survey.',
             location: {
                 center: [-136.30, 59.17830],
                 zoom: 10,
@@ -216,7 +216,7 @@ var config = {
             alignment: 'right',
             title: 'Alaska - Lechner',
             image: 'Lechner.gif',
-            description: 'Credit: 1990 Image by Tetreau, M. from Kenai Fjords National Park (U.S. National Park Service); 2018 Image by Collins, A. from Kenai Fjords National Park (U.S. National Park Service).',
+            description: 'Compared to the other three glaciers listed, Lechner Glacier is the smallest one. Worryingly, the comparison may reveal that small glacier landscapes are likely to disappear gradually. Credit: 1990 Image by Tetreau, M. from Kenai Fjords National Park (U.S. National Park Service); 2018 Image by Collins, A. from Kenai Fjords National Park (U.S. National Park Service).',
             location: {
                 center: [-149.6, 59.94361],
                 zoom: 11,
@@ -249,7 +249,7 @@ var config = {
             alignment: 'left',
             title: '',
             image: '',
-            description: 'xxxxxxxxxxxxxxxxxx',
+            description: 'Although we cannot fully determine whether this change in glaciers is a just short-term fluctuation or an intial stage for long-term change. All we can see and know is that a large proportion of glaciers are currently exhibiting a accelerated pattern of retreating. And the concerning thing is that meltwater from glacier retreating is hight likely to result in global sea level rising',
             location: {
                 center: [-10, 65],
                 zoom: 2,

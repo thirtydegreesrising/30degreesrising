@@ -527,14 +527,14 @@
     <div id="navibar">
         <div class="dotstyle dotstyle-scaleup">
             <ul>
-                <li id="2"><a href="#" id="navi-home"> <span class="label">Home</span></a></li>
+                <li class="li-default" id="2"><a href="#" id="navi-home"> <span class="label">Home</span></a></li>
                 <li class="current" id="3"><a href="#" id="navi-intro">Intro</a></li>
-                <li id="4"><a href="#" id="navi-temp">Temperature</a></li>
-                <li id="7"><a href="#" id="navi-seaice">SeaIce</a></li>
-                <li id="10"><a href="#" id="navi-glacier">Glacier</a></li>
-                <li id="14"><a href="#" id="navi-sealevel">SeaLevel</a></li>
-                <li id="17"><a href="#" id="navi-conclusion">Conclusion</a></li>
-                <li id="18"><a href="#" id="navi-team">Team</a></li>
+                <li class="li-default" id="4"><a href="#" id="navi-temp">Temperature</a></li>
+                <li class="li-default" id="7"><a href="#" id="navi-seaice">SeaIce</a></li>
+                <li class="li-default" id="10"><a href="#" id="navi-glacier">Glacier</a></li>
+                <li class="li-default" id="14"><a href="#" id="navi-sealevel">SeaLevel</a></li>
+                <li class="li-default" id="17"><a href="#" id="navi-conclusion">Conclusion</a></li>
+                <li class="li-default" id="18"><a href="#" id="navi-team">Team</a></li>
             </ul>
         </div>
     </div>
@@ -682,7 +682,7 @@
         <div class="section" id="seaice-section-2">
             <h1 style="margin-top:-16px">Arctic Sea Ice</h1>
             <div style="margin-top:-10px">
-                <iframe name="iframe-0" id="chart-0" height="850" width="90%" class="embed-responsive-item"
+                <iframe name="iframe-0" id="chart-0" height="860" width="91%" class="embed-responsive-item"
                     style=" background-color: rgb(46, 54, 72);" src="/arctic_map/arctic_map.html" frameborder="no"
                     frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
             </div>
@@ -745,7 +745,7 @@
         </div>
 
         <div class="section" id="glacier-section-3">
-            <h1 style="margin-top:-10px">Glacier Photographs Comparison From Historic to Recent (Scroll to Explore)
+            <h1 style="margin-top:-10px">Past and Present Glacier Comparison (Scroll to Explore)
             </h1>
             <iframe name="iframe-3" id="map-2" height="85%" width="90%" class="embed-responsive-item"
                 style=" background-color:transparent;" src="/glacier_map/map_glacier_story.html" frameborder="no"
@@ -758,7 +758,7 @@
 
         <div class="section" id="intro-section-sealevel">
             <div class="footnote">
-                <hheading>What happens in the arctic does't stay in the arctic.</hheading>
+                <hheading>What happens in the Arctic doesn't stay in the Arctic.</hheading>
             </div>
             <div class="stati">
                 <h3 style="font-size:160px;display:inline-block">3</h3>
@@ -796,7 +796,7 @@
         <div class="section" id="sealevel-section-2">
 
 
-            <h1 style="margin-top:3%">Global sea level change</h1>
+            <h1>Global Sea Level Change</h1>
             <iframe name="iframe-4" id="map-3" height="85%" width="90%" class="embed-responsive-item"
                 style=" background-color:transparent;" src="/sea_level/sealevel-web.html" frameborder="no"
                 frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe>
@@ -891,7 +891,10 @@
             if (destination.index == 1 || destination.index == 0) {
                 document.getElementById("navibar").style.display = "none";
             }
+            const navDots = destination.index
+            document.getElementById("2").
             console.log(destination.index)
+            // 2 3 4 7 10 14 17 18
 
         },
 
