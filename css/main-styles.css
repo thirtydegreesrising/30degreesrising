@@ -1,0 +1,617 @@
+
+    html {
+        scroll-behavior: unset;
+        background-color: #000000;
+    }
+
+    body {
+        background: rgba(0, 0, 0, 0.1) fixed center center;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-attachment: fixed;
+        overflow: scroll;
+    }
+
+    .videoback {
+        position: relative;
+        width: 100%;
+        z-index: -11
+    }
+
+    .image {
+        margin-top: 2%;
+        left: calc((100% - 150px) / 2);
+        position: fixed;
+        width: 150px;
+    }
+
+    .section {
+        height: 100%;
+        width: 100%;
+    }
+
+
+    .home-title {
+        text-align: center;
+        margin-top: 22%;
+        width: 97.916667%;
+        letter-spacing: 7px;
+
+    }
+
+    .menu {
+        position: absolute;
+        top: calc((-10%) / 2);
+        width: 1600px;
+        left: calc((100% - 1600px)/2);
+        flex-direction: row-reverse;
+    }
+
+    .menu li {
+        width: auto;
+        height: auto;
+        list-style: none;
+        float: right;
+        color: #646FD4;
+        display: inline-flex;
+        padding: 5em;
+    }
+
+
+
+    .btn {
+        position: relative;
+        font-family: "Cabin Condensed";
+        letter-spacing: 3px;
+        background-color: #000000;
+        border: none;
+        color: #cccccc;
+        height: 2em;
+        width: 8em;
+        text-align: center;
+        font-size: 20px;
+        transition: 0.1s;
+    }
+
+    .btn:hover {
+        font-weight: bold;
+        color: white;
+        border-bottom: 3px solid #ffffff;
+        cursor: pointer;
+    }
+
+    .btn:focus {
+        outline: 0;
+    }
+
+    svg {
+        position: absolute;
+        top: 40%;
+        width: 1500;
+        left: calc((100% - 1550px) / 2);
+        font-weight: bold;
+        max-width: 1800px;
+        height: auto;
+    }
+
+    .title {
+        color: black;
+        text-align: center;
+        margin-top: 10em;
+    }
+
+    .footnote {
+        color: black;
+        margin-top: 10em;
+        text-align: left;
+        margin-left: 5em;
+        margin-top: -15%
+    }
+
+    .stati {
+        color: black;
+        text-align: center;
+        margin-top: 4%;
+    }
+
+    #text-wrapper {
+        position: absolute;
+        right: 30%;
+        top: 150px;
+        z-index: 999;
+        height: auto;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 200;
+    }
+
+    hheading {
+        text-align: center;
+        color: #f1f3f4;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: 'PT Sans Narrow';
+        letter-spacing: 4px;
+        cursor: default;
+    }
+    hheading2 {
+        text-align: center;
+        color: #f1f3f4;
+        font-size: 60px;
+        font-weight: bold;
+        font-family: 'PT Sans Narrow';
+        letter-spacing: 4px;
+        cursor: default;
+    }
+
+
+    hTitle {
+
+        display: inline-block;
+        color: #f1f3f4;
+        font-size: 60px;
+        font-weight: bold;
+        font-family: 'PT Sans Narrow';
+        letter-spacing: 4px;
+
+        margin-top: 20px;
+        margin-bottom: 50px;
+
+        text-align: right;
+    }
+
+
+    hText {
+        color: #f1f3f4;
+        font-size: 24px;
+        font-family: 'PT Sans Narrow';
+        text-align: justify;
+
+        line-height: 40px;
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
+
+    vizHeading {
+        font-family: 'PT Sans Narrow';
+        font-weight: normal;
+        color: #ffffff;
+        font-size: 42px;
+    }
+    
+    h1plus {
+        font-family: 'PT Sans Narrow';
+        font-weight: normal;
+        color: #ffffff;
+        font-size: 42px;
+        letter-spacing: 6px;
+    
+    }
+    
+    h2 {
+        font-family: 'PT Sans', sans-serif;
+        font-weight: normal;
+        font-size: 27px;
+        color: #f1f1f1;
+        }
+    
+        
+    h2plus {
+        font-family: 'PT Sans', sans-serif;
+        font-weight: normal;
+        font-size: 27px;
+        color: #f1f1f1;
+        letter-spacing: 6px;
+        }
+    
+    
+    
+    h3 {
+        font-family: 'PT Sans Narrow';
+        font-weight: normal;
+        color: #f1f3f4;
+        font-size:160px;
+        display:inline-block
+    }
+    
+    h3plus {
+        font-family: 'PT Sans Narrow';
+        font-weight: normal;
+        color: #f1f3f4;
+        font-size: 70px;
+        letter-spacing: 6px;
+    
+    }
+    
+    h4 {
+        font-family: 'PT Sans Narrow';
+        font-weight: normal;
+        color: #1e1e1e;
+        font-size: 40px;
+    }
+    
+    h4plus {
+        font-family: 'PT Sans Narrow';
+        font-weight: normal;
+        color: #1e1e1e;
+        font-size: 40px;
+        letter-spacing: 6px;
+    
+    }
+    
+    h5 {
+        font-family: 'PT Sans Narrow';
+        font-weight: normal;
+        color: #f1f3f4;
+        font-size: 20px;
+    }
+    
+    h6 {
+        font-family: 'PT Sans', sans-serif;
+        font-weight: normal;
+        color: #f1f3f4;
+        font-size: 30px;
+    }
+    
+    
+    p {
+        font-family: 'Arial', serif;
+        font-size:24px;
+        color: #1e1e1e;
+        line-height: 1.7em;
+        display: block;
+    }
+
+    li {
+        list-style-type: none;
+        font-family: 'PT Sans', sans-serif;
+    }
+
+
+    ul {
+        padding: 0px;
+    }
+
+    a {
+        color: #e6e6e6;
+    }
+
+    #loading-page {
+        background: #000000;
+        visibility: visible;
+    }
+
+    #title-page {
+        background: #000000;
+    }
+
+    #intro-section-globe {
+        text-align: center;
+        background-color: #000000;
+    }
+
+
+    #intro-section-seaice {
+        background-color: rgb(46, 54, 72);
+    }
+
+    #intro-section-glacier {
+        background-color: #4a4547;
+        /* #CECECE  #7B7672 */
+    }
+
+
+    #intro-section-sealevel {
+        background-color: #65758f;
+        /* #94add3 */
+    }
+
+
+    #introduction {
+        background-color: #000000;
+    }
+
+
+    #globe-section-1 {
+        background-color: #000000;
+    }
+
+    #globe-section-2 {
+        background-color: #000000;
+    }
+
+    #globe-section-3 {
+        background-color: #000000;
+    }
+
+    #globeViz {
+        transform: translate(-25%, 0px);
+    }
+
+    #globeViz2 {
+        transform: translate(25%, 0px);
+    }
+
+    #globeViz3 {
+        transform: translate(-25%, 0px);
+    }
+
+    .BoxIntro {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 53%;
+        text-align: justify;
+    }
+
+    .chapterBoxMirror {
+        position: absolute;
+        width: 700px;
+        height: auto;
+        padding: 20px;
+        padding-top: 10px;
+        border-radius: 2%;
+        top: 100px;
+        text-align: justify;
+        right: calc(100% - 850px);
+    }
+
+
+    .chapterBox {
+        position: absolute;
+        width: 700px;
+        height: auto;
+        padding: 20px;
+        padding-top: 10px;
+        border-radius: 2%;
+        top: 100px;
+        text-align: justify;
+        left: calc(100% - 850px);
+    }
+
+    .chart-container {
+        width: 100%;
+        left: 10%;
+    }
+
+    .map-container {
+        padding-top: 20px;
+        width: 100%;
+        left: 10%;
+    }
+
+    #seaice-section-1 {
+
+        background: rgba(0, 0, 0, 0.2) url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") fixed center center;
+        background-size: cover;
+        background-blend-mode: multiply;
+
+    }
+
+    #seaice-section-2 {
+        text-align: center;
+        background: rgb(46, 54, 72) fixed center center;
+    }
+
+
+    #glacier-section-1 {
+        background: rgba(0, 0, 0, 0.4) url("/glacier_map/glacier_background3flipped.jpg") fixed center center;
+        background-size: cover;
+        background-blend-mode: multiply;
+    }
+
+
+    #glacier-section-2 {
+        text-align: center;
+        background: #4a4547 fixed center center;
+    }
+
+    #glacier-section-3 {
+        text-align: center;
+        background: #4a4547 fixed center center;
+    }
+
+    #sealevel-section-1 {
+        background: rgba(0, 0, 0, 0.3) url("/sea_level/sealevel_back.png") fixed center center;
+        background-size: cover;
+        background-blend-mode: multiply;
+
+    }
+
+    #sealevel-section-2 {
+        text-align: center;
+
+        background: #65758f fixed center center;
+    }
+
+    #conclusion-section {
+
+        background: #90959e fixed center center;
+    }
+
+    #end-section {
+        background: #90959e fixed center center;
+
+        /* #a49f9b */
+
+        /* #F0F1FA  */
+    }
+
+
+    .arrow {
+        position: absolute;
+        bottom: 20%;
+        left: 49%;
+        width: 3vmin;
+        height: 3vmin;
+        background: transparent;
+        border-top: 1vmin solid white;
+        border-right: 1vmin solid white;
+        box-shadow: 0 0 0 lightgray;
+        transition: all 200ms ease;
+        transform: translate3d(0, -70%, 0) rotate(135deg);
+    }
+
+    .arrow:hover {
+        border-color: #808080;
+        box-shadow: 0.5vmin -0.5vmin 0 white;
+    }
+
+    .arrow:focus {
+        outline: 0;
+    }
+
+
+    @keyframes animate {
+        0% {
+            opacity: 0;
+            transform: rotate(45deg) translate(-10px, -10px);
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+            transform: rotate(45deg) translate(20px, 20px);
+        }
+    }
+
+    .loader {
+        width: 280px;
+        color: #FFF;
+        display: inline-block;
+        font-family: "Cabin Condensed";
+        font-size: 60px;
+        box-sizing: border-box;
+        letter-spacing: 15px;
+    }
+
+    .loader::after {
+        content: '';
+        width: 5px;
+        height: 5px;
+        background: currentColor;
+        position: absolute;
+        bottom: 10px;
+        right: -5px;
+        box-sizing: border-box;
+        animation: animloader 1s linear infinite;
+    }
+
+    @keyframes animloader {
+        0% {
+            box-shadow: 10px 0 rgba(255, 255, 255, 0), 20px 0 rgba(255, 255, 255, 0);
+        }
+
+        50% {
+            box-shadow: 10px 0 white, 20px 0 rgba(255, 255, 255, 0);
+        }
+
+        100% {
+            box-shadow: 10px 0 white, 20px 0 white;
+        }
+    }
+
+
+
+
+    .container-loader {
+        position: fixed;
+        left: calc((100% - 280px) / 2);
+        top: 50%;
+
+    }
+
+
+
+    #navibar {
+        display: none;
+        opacity: 1;
+
+    }
+
+    .dotstyle ul {
+        top: 50%;
+        right: -10%;
+        position: absolute;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        cursor: default;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        transform: rotate(90deg);
+        z-index: 9999;
+    }
+
+    .dotstyle li {
+        position: relative;
+        display: inline-block;
+        margin: 0 16px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+
+    .dotstyle li a {
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+        outline: none;
+        border-radius: 50%;
+        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.3);
+        text-indent: -999em;
+        /* make the text accessible to screen readers */
+        cursor: pointer;
+        position: absolute;
+    }
+
+    .dotstyle li a:focus {
+        outline: none;
+    }
+
+    .dotstyle-scaleup li a {
+        -webkit-transition: -webkit-transform 0.3s ease, background-color 0.3s ease;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+
+    .dotstyle-scaleup li a:hover,
+    .dotstyle-scaleup li a:focus {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+        background-color: white;
+    }
+
+    .dotstyle-scaleup li a:hover .label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .dotstyle-scaleup li.current a {
+        background-color: white;
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+
+    .SmallText {
+        font-size: 14px;
+        color: #f1f3f4;
+        font-family: 'PT Sans Narrow';
+        line-height: 15px;
+    }
