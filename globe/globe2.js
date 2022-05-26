@@ -7,7 +7,7 @@ fetch('https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/mai
 .then(data => // Create the globe and map locations using parsed data
 {
     // Initial view for the globe 
-    const MAP_CENTRE2 = { lat: 10, lng: 20, altitude: 3.00 };
+    const MAP_CENTRE2 = { lat: 10, lng: 20, altitude: 2.7 };
 
     const world = Globe()
     (document.getElementById('globeViz2'))
