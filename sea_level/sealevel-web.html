@@ -76,17 +76,16 @@
                 <div class="label">> 200</div>
             </div>
         </div>
-        <p id="content"> <a href="https://www.psmsl.org/data/obtaining/complete.php">Data Source</a>
+       <p id="content"> Data Source: <a href="https://www.psmsl.org/data/obtaining/complete.php">Permanent Service for Mean Sea Level (PSMSL)</a>
         </p>
     </div>
     </div>
 
 
-    <script src="./city.js"></script>
+
 
     <script>
         let map = null
-        let popup = null
         let popup1 = null
         let currentType = 1
 
@@ -203,15 +202,13 @@
                             "case",
                             ["<=", ["get", 'color1'], -400],
                             "#007CFE",
-                            // ["<=", ["get", 'color1'], 300],
-                            // "#1CA261",
+                          
                             ["<=", ["get", 'color1'], 0],
                             "#24ADF3",
                             ["<=", ["get", 'color1'], 200],
                             "#FF6C37",
-                            // ["<=", ["get", 'color1'], 1000],
+
                             "#FF0000",
-                            // "#fff"
                         ],
                         "circle-opacity": 0.8
                     }
@@ -239,7 +236,7 @@
                         ]
 
                         let chartData = []
-                        let falge = false
+                        let sealev = false
                         time.map(item => {
                             if (properties[item])
                                 chartData.push({
@@ -247,7 +244,7 @@
                                     "sea level(mm)": properties[item]
                                 })
 
-                            if (!falge && properties[item] < -200) falge = true
+                            if (!sealev && properties[item] < -200) sealev = true
                         })
 
 
@@ -265,13 +262,12 @@
                         console.log(x)
                         // x.addGroupOrderRule("Date");
                         var yAxis = myChart.addMeasureAxis("y", "sea level(mm)");
-                        yAxis.ticks = falge ? 11 : 5
-                        yAxis.overrideMin = falge ? -800 : -200
-                        yAxis.overrideMax = falge ? 0 : 500
+                        yAxis.ticks = sealev ? 11 : 5
+                        yAxis.overrideMin = sealev ? -800 : -200
+                        yAxis.overrideMax = sealev ? 0 : 500
                         var s = myChart.addSeries("", dimple.plot.line);
                         s.barGap = 0.05;
                         myChart.draw(800);
-
 
                         if (popup1) popup1.remove()
                         let popuLation = parseInt(properties[
@@ -295,28 +291,11 @@
         }
 
 
-        function changeMap(text) {
-            map.setCenter(country[text]);
-            map.zoomTo(2.5, {
-                duration: 3000,
-            })
-        }
 
    
 
-        function changeCity() {
-            console.log("---------")
-            var country = document.getElementById("city")
-            var index = country.selectedIndex
-            console.log(city[index])
-            console.log(city[index])
-            var data = city[index]
-            map.setCenter([data.longitude, data.latitude]);
-            map.zoomTo(3, {
-                duration: 3000,
-            })
-            // var countryName = country.options[index].value
-        }
+    
+      
     </script>
 
 </body>
