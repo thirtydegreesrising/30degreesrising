@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <title>title</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
     <link href='styles2.css' rel='stylesheet' />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
     <script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
     <script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
 
@@ -24,13 +24,13 @@
 
     <div class="right-box">
         <div>
-            <h3 class="title" >
+            <h3 class="title">
                 RISING SEA LEVELS
             </h3>
             <p id="content">
-                Here you can track the change in sea levels at 417 monitoring points worldwide from 1985 to 2018. 
+                Here you can track the change in sea levels at 417 monitoring points worldwide from 1985 to 2018.
 
-               <br><br>To start,  zoom to your area of interst and click on one spot on the map.
+                <br><br>To start, zoom to your area of interst and click on one spot on the map.
             </p>
         </div>
         <div id="COUNTRY" style="font-size:20px"></div>
@@ -76,7 +76,8 @@
                 <div class="label">> 200</div>
             </div>
         </div>
-       <p id="content"> Data Source: <a href="https://www.psmsl.org/data/obtaining/complete.php">Permanent Service for Mean Sea Level (PSMSL)</a>
+        <p id="content"> Data Source: <a href="https://www.psmsl.org/data/obtaining/complete.php"
+                target="_blank">Permanent Service for Mean Sea Level (PSMSL)</a>
         </p>
     </div>
     </div>
@@ -129,7 +130,7 @@
                 projection: {
                     name: "naturalEarth"
                 },
-                zoom: 2,  //starting zoom 
+                zoom: 2, //starting zoom 
                 maxZoom: 6,
                 minZoom: 2
                 // minZoom: 2
@@ -202,7 +203,7 @@
                             "case",
                             ["<=", ["get", 'color1'], -400],
                             "#007CFE",
-                          
+
                             ["<=", ["get", 'color1'], 0],
                             "#24ADF3",
                             ["<=", ["get", 'color1'], 200],
@@ -258,7 +259,7 @@
 
 
                         var x = myChart.addCategoryAxis("x", "time");
-                        x.addOrderRule("time", false); 
+                        x.addOrderRule("time", false);
                         console.log(x)
                         // x.addGroupOrderRule("Date");
                         var yAxis = myChart.addMeasureAxis("y", "sea level(mm)");
@@ -289,13 +290,6 @@
 
             })
         }
-
-
-
-   
-
-    
-      
     </script>
 
 </body>

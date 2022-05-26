@@ -16,7 +16,7 @@ var config = {
             description: 'Glacier rephotograph provides effective and objective evidence for visually comparing and assessing landscape changes over time. Scientific agency and volunteers contribute to the glacier rephotographs. Glacier rephotographs are usually conducted during Summer since bare ice and glacier fronts are exposed clearly without seasonal covering of snow. Here, photographs comparison and glacier boundaries for four representative galciers in Iceland, Svabard and Alaska are presented to glance how the climate change may impact on glaciers locally. Glacier boundary used here are from version 6 of the Randolph Glacier Inventory (RGI) provided by NSIDC.',
             location: {
                 center: [-10, 65],
-                zoom: 2,
+                zoom: 2.1,
                 pitch: 0,
                 bearing: 0
             },
