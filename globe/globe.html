@@ -3,33 +3,37 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="//unpkg.com/d3-dsv"></script>
     <script src="//unpkg.com/globe.gl"></script>
+    <script type="module" src = "scale.js"></script>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div>
-        <div id="globeViz"></div>
-       
+    <div class = "container">
+        <div class = "vis-col">
+            <div id = "globeViz"></div>
+        </div>
+        <div class = "text-col">
+            <h1>1979</h1>
+        </div>
     </div>
+
+    <div id = "globeViz"></div>
 
     <div>
         <div id="globeViz2"></div>
-        
+       
+       
     </div>
 
     <div>
         <div id="globeViz3"></div>
        
     </div>
-    
 
-    <script src = "globe.js"></script>
+    
+    <script type="module" src = "globe1.js"></script>
+    <script type="module" src = "globe2.js"></script>
+    <script type="module" src = "globe3.js"></script>
  
-   
-
-    
-
-    
-
 </body>
