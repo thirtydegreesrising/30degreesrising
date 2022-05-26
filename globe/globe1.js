@@ -8,7 +8,7 @@ fetch('https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/mai
 {
 
     // Initial view for the globe 
-    const MAP_CENTRE1 = { lat: 10, lng: 20, altitude: 3.00 };
+    const MAP_CENTRE1 = { lat: 10, lng: 20, altitude: 2.7 };
 
     const world = Globe()
     (document.getElementById('globeViz'))

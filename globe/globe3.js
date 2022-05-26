@@ -8,8 +8,8 @@ fetch('https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/mai
 {
     // Initial and zoomed-in views for the globe
     //Zoomed in view centres on lat and lng for the North Pole
-    const MAP_CENTRE_INITIAL = { lat: 10, lng: 20, altitude: 3.00 }; 
-    const MAP_CENTRE_PAN = { lat: 90.0, lng: 0.0, altitude: 3.00 };
+    const MAP_CENTRE_INITIAL = { lat: 10, lng: 20, altitude: 2.7 }; 
+    const MAP_CENTRE_PAN = { lat: 90.0, lng: 0.0, altitude: 2.7 };
 
     const world = Globe()
     (document.getElementById('globeViz3'))
