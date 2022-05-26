@@ -24,7 +24,8 @@ fetch('https://raw.githubusercontent.com/thirtydegreesrising/30degreesrising/mai
     .hexTopColor(data => weightColor(data.points[0].tas))
     .hexSideColor(data => weightColor(data.points[0].tas))
     .hexBinMerge(true)
-    .enablePointerInteraction(false); // Apparently, this improves performance 
+    .enablePointerInteraction(false) // Apparently, this improves performance 
+    .showAtmosphere(true);
 
     world.controls().enableZoom = false;
     world.controls().autoRotate = true;

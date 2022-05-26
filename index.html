@@ -17,7 +17,7 @@
     <script type="module" src="/globe/globe2.js"></script>
     <script type="module" src="/globe/globe3.js"></script>
     <link rel="stylesheet" href="/globe/style.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 </head>
 <style>
@@ -274,9 +274,22 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 75%;
-        text-align: left;
+        width: 53%;
+        text-align: justify;
     }
+
+    .chapterBoxMirror {
+        position: absolute;
+        width: 700px;
+        height: auto;
+        padding: 20px;
+        padding-top: 10px;
+        border-radius: 2%;
+        top: 100px;
+        text-align: justify;
+        right: calc(100% - 850px);
+    }
+
 
     .chapterBox {
         position: absolute;
@@ -286,7 +299,7 @@
         padding-top: 10px;
         border-radius: 2%;
         top: 100px;
-        text-align: left;
+        text-align: justify;
         left: calc(100% - 850px);
     }
 
@@ -524,6 +537,13 @@
         -webkit-transform: scale(2);
         transform: scale(2);
     }
+
+    .SmallText {
+        font-size: 14px;
+        color: #f1f3f4;
+        font-family: 'PT Sans Narrow';
+        line-height: 15px;
+    }
 </style>
 
 
@@ -640,22 +660,26 @@
                 <div class="BoxIntro">
 
                     <hText>
-                        Late March 2022, the tail end of the 6-month Arctic winter. <br>
-                        Temperature readings at a number of weather stations in the Arctic reach 30 degrees Celsius
-                        above seasonal norms. <br>
-                        Was this just a one-off event? Perhaps not.
+                        Late March 2022, the tail end of the 6-month Arctic winter. Temperature readings at a 
+                        number of weather stations in the Arctic reach 30 degrees Celsius above seasonal 
+                        norms. Was this just a one-off event? <br>
+                        Perhaps not.
                         <br> <br>
-                        Research by the Arctic Assessment and Monitoring Programme (AMAP) suggests that between 1979 and
-                        2019,
-                        average surface temperatures in the Arctic increased 3 times faster than the global average.
-                        How did we get to 30 degrees (and rising)? <br>
-                        How has the Arctic been affected by surging temperatures and what are the implications for the
-                        planet as a whole?
+                        Research by the Arctic Assessment and Monitoring Programme (AMAP) suggests that 
+                        between 1979 and 2019, average surface temperatures in the Arctic increased 3 times 
+                        faster than the global average. 
+                        <br> <br>
+                        How has the Arctic been affected by surging temperatures and what are the 
+                        implications for the planet as a whole? 
+                        <br><br>
+                        How did we get to 30 degrees...and rising? 
+
                     </hText>
 
                 </div>
 
             </div>
+  
 
         </div>
 
@@ -665,17 +689,80 @@
             <div>
                 <div id="globeViz"></div>
 
+                <div class="chapterBox">
+          
+    
+                    <hText>
+                        1979
+                        <br><br>
+                        The start of the AMAP study and the year of the first 
+                        World Climate Conference. Modern debates on made-made climate change have been raging for over 80 years.
+                        <br><br>
+                        The globe on the left shows how much warmer or colder areas of the world were in 1979, compared to the 1951-1980 baseline, 
+                        the so called temperature anomalies. The temperature anomaly range in 1979 was -2.7 to +2.1 °C.
+                        <br><br>
+                        The majority of the warmer than average regions were concentrated in Alaska, the Canadian east coast and present day Russia.
+                        Most of the Arctic was below the baseline temperature in the year. It should be noted that care has to be taken in drawing 
+                        conclusions from a single year as it is recognised that short-term,
+                        temporal variations in temperature occur due to natural variability.
+                        
+    
+                    </hText>
+    
+                </div>
+
             </div>
         </div>
         <div class="section fp-auto-height" id="globe-section-2">
             <div>
                 <div id="globeViz2"></div>
 
+                <div class="chapterBoxMirror">
+
+                    <div>
+                        <hTitle> </hTitle>
+                    </div>
+    
+                    <hText>
+                        1999
+                        <br><br>
+                        Fast forward to the end of the millennium and the warming effect appears far more widespread. 
+                        By 1999, the temperature anomaly had increased to -2.1 to +3.0 °C.
+                        <br><br>
+                        Looking at the Arctic region, a pronounced warming of the area is observable compared to the pattern of temperature anomalies seen in 1979.
+                        <br><br>
+                        How does the pattern evolve? Scroll on to find out.                
+    
+                    </hText>
+    
+                </div>
+
+
             </div>
         </div>
         <div class="section fp-auto-height" id="globe-section-3">
             <div>
                 <div id="globeViz3"></div>
+
+                <div class="chapterBox">
+    
+                    <hText>
+                        2019
+                        <br><br>
+                        Global land average surface temperatures had increased to approximately 1.32°C above 1951-1980 baseline, 
+                        making 2019 the second warmest year on land since 1850.
+                        <br><br>
+                        A 1.5°C increase above pre-industrial temperature levels is widely regarded by climate scientists to be the entry 
+                        point into a surface temperature “danger zone”, beyond which the impact on the Earth’s climate is forecast to be catastrophic.
+                        <br><br>
+                        Some cooler regions visible in North America are likely attributable to natural variability: the overall development of global
+                         temperatures remains consistent with a long term trend towards global warming.
+                        <br><br>
+                        Panning to the Arctic Circle shows the noticeable effect of Arctic Amplification with large sections of the region at over 4°C above the baseline temperature.
+                        
+                    </hText>
+    
+                </div>
 
             </div>
         </div>
@@ -689,7 +776,7 @@
                 <hheading>Between the North Pole and 30° South - the Arctic - is changing.</hheading>
             </div>
             <div class="stati">
-                <h3 style="font-size:160px;display:inline-block">14</h3>
+                <h3 style="font-size:160px;display:inline-block">13</h3>
                 <hheading style="font-size:60px">&nbsp%</hheading>
                 <div style="margin-top:-8%"></div>
                 <hheading>sea ice decline per decade</hheading>
@@ -709,7 +796,8 @@
                     Sea ice - frozen ocean water- forms in the Arctic every winter and retreats in the summer.
                     <br> <br>
                     It is of essential importance for the polar ecosystems, however the global rising temperatures have
-                    lead to more ice loss than gains over the seasons.
+                    lead to more ice loss than gains over the seasons, which resulted in dramatic arctic sea ice decline 
+                    over the last 30 years with September 2012 marking a record minimum.
                     <br> <br>
                     The melting sea ice in turn contributes to the acceleration of global warming since large ice sheets
                     are replaced by dark ocean stretches, further heating up the water.
@@ -853,13 +941,19 @@
             <div class="BoxIntro">
 
                 <hText>
-                    The above visualisations illustrate how the global and local phenomena are interlinked: <br>
-                    The rising temperatures, cause glacial melting which in turn cause rising sea levels.
-                    With this project we aim to contribute towards raising awareness about climate change,
-                    and about the change already happening in the remote, but valuable region of the arctic.
-                    <br>
-                    The point of no return might still be uncertain, but we hope that we will never need to find out
-                    which one it was.
+                    These visualisations show that climate change did not begin yesterday, last week or last year. 
+                    The effects have not only endured over the lifetime of every visitor to this site but have also demonstrably worsened over the last 40 years.
+                    This project also shows that climate change, although almost always referred to in the singular, is actually a series of interlinked changes 
+                    operating at different scales. 
+                    <br><br>
+                    In the case of the Arctic, a global effect -surface temperature increases- drives a local positive feedback loop , sea ice and glacial melting leads
+                     to a reduction in oceanic heat absorption, which leads to further localised heating. Arctic sea ice and glacial melting, in turn, contribute to 
+                     rising global sea levels. 
+                     <br><br>
+                     Climate scientists have warned that global warming of 1.5°C degrees above pre-industrial levels threatens to cause catastrophic
+                    climatic effects. In 2019, we were already at 1.32°C above. 
+                    <br><br>
+                    30 degrees and rising is a phenomenon we can ill afford.
                 </hText>
 
             </div>
@@ -878,7 +972,7 @@
                     Daphne Badounas, Haisu Chen, Tianyi Li</hheading>
                 <div style="margin-top:2%"></div>
                 <hheading>
-                    @ CASA UCL</hheading>
+                    @ CASA UCL (2022)</hheading>
             </div>
             <div class="image">
                 <a href="https://github.com/thirtydegreesrising/30degreesrising">
@@ -887,20 +981,68 @@
 
             <div class="title">
 
-                <hheading>Image sources:</hheading>
 
-                <li>
-                    <p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
-                            target="_blank">NASA visible earth</a> </p>
+                <li class="SmallText"> Image sources:</li>
+
+                <li class="SmallText">
+                     <a href="https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
+                            target="_blank">Sea Ice Image</a> 
                 </li>
-                <li>
-                    <p></p> <a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
-                        target="_blank">NASA visible earth</a> </p>
+                <li class="SmallText">
+                    <a href="https://wall.alphacoders.com/by_sub_category.php?id=168640&name=Glacier+Wallpapers"
+                        target="_blank">Glaciers Image</a> 
                 </li>
-                <li>
-                    <p> </p><a href=" https://visibleearth.nasa.gov/images/49932/flying-over-arctic-sea-ice"
-                        target="_blank">NASA visible earth</a></p>
+                <li class="SmallText">
+                     <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2711892870"
+                        target="_blank">Sea levels image</a>
                 </li>
+
+
+
+
+                <li class="SmallText"> References:</li>
+
+                <div id="refList">
+        
+                    <li class="SmallText">
+                        <a href="https://www.amap.no/documents/download/6759/inline"
+                                target="_blank">ARCTIC CLIMATE CHANGE UPDATE 2021 </a> 
+                    </li>
+
+                    <li class="SmallText">
+                        <a href="https://berkeleyearth.org/2019-temperatures/"
+                                target="_blank">BERKLEY EARTH</a> 
+                    </li>
+
+                    <li class="SmallText">
+                        <a href="https://climate.nasa.gov/news/2865/a-degree-of-concern-why-global-temperatures-matter/"
+                                target="_blank">NASA GLOBAL CLIMATE CHANGE</a> 
+                    </li>
+
+                    <li class="SmallText">
+                        <a href="https://nsidc.org/cryosphere/quickfacts/seaice.html"
+                                target="_blank">NATIONAL SNOW & ICE DATA CENTER</a> 
+                    </li>
+
+                    <li class="SmallText">
+                        <a href="https://climate.nasa.gov/vital-signs/arctic-sea-ice/"
+                                target="_blank">NASA GLOBAL CLIMATE CHANGE</a> 
+                    </li>
+
+                    <li class="SmallText">
+                        <a href="https://www.nature.com/articles/s41586-021-03436-z"
+                                target="_blank">ACCELERATED GLOBAL GLACIER MASS LOSS IN THE EARLY TWENTY-FIRST CENTURY</a>
+                    </li >
+
+                    <li class="SmallText">
+                        <a href="https://www.climate.gov/news-features/understanding-climate/climate-change-global-sea-level"
+                                target="_blank">NOOA CLIMATE.GOV</a> 
+                    </li>
+
+                </div>
+
+                
+
 
             </div>
 

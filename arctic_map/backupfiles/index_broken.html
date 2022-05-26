@@ -12,10 +12,16 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="//unpkg.com/d3-dsv"></script>
     <script src="//unpkg.com/globe.gl"></script>
-    <script src="/globe/globe.js"></script>
+    <script type="module" src="/globe/scale.js"></script>
+    <script type="module" src="/globe/globe1.js"></script>
+    <script type="module" src="/globe/globe2.js"></script>
+    <script type="module" src="/globe/globe3.js"></script>
     <link rel="stylesheet" href="/globe/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 </head>
 <style>
+
     html {
         scroll-behavior: unset;
     }
@@ -117,8 +123,20 @@
         color: black;
         text-align: center;
         margin-top: 10em;
+    }
 
-        width: 100%;
+    .footnote {
+        color: black;
+        margin-top: 10em;
+        text-align: left;
+        margin-left: 5em;
+        margin-top: -15%
+    }
+
+    .stati {
+        color: black;
+        text-align: center;
+        margin-top: 4%;
     }
 
     #text-wrapper {
@@ -257,22 +275,40 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 75%;
-        text-align: left;
+        width: 53%;
+        text-align: justify;
     }
 
-    .chapterBox {
+
+    .chapterBoxMirror {
         position: absolute;
-        width: 28%;
+        width: 700px;
         height: auto;
-        top: 5%;
-        right: 5%;
-        background-color: transparent;
+        padding: 20px;
+        padding-top: 10px;
+        border-radius: 2%;
+        top: 100px;
+        text-align: justify;
+        right: calc(100% - 850px);
+    }
+
+    .chart-container {
+        width: 100%;
+        left: 10%;
+    }
+
+    .map-container {
+        padding-top: 20px;
+        width: 100%;
+        left: 10%;
     }
 
     #seaice-section-1 {
 
-        background: #333d58 url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") fixed center center;
+        background: rgba(0, 0, 0, 0.2) url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") fixed center center;
+        background-size: cover;
+        background-blend-mode: multiply;
+
     }
 
     #seaice-section-2 {
@@ -282,9 +318,11 @@
 
 
     #glacier-section-1 {
-
-        background: rgba(0, 0, 0, 0.1) url("/glacier_map/glacier_background3flipped.jpg") fixed center center;
+        background: rgba(0, 0, 0, 0.4) url("/glacier_map/glacier_background3flipped.jpg") fixed center center;
+        background-size: cover;
+        background-blend-mode: multiply;
     }
+
 
     #glacier-section-2 {
         text-align: center;
@@ -297,9 +335,10 @@
     }
 
     #sealevel-section-1 {
+        background: rgba(0, 0, 0, 0.3) url("/sea_level/sealevel_back.png") fixed center center;
+        background-size: cover;
+        background-blend-mode: multiply;
 
-        background: #333d58 url("/sea_level/sealevel_back.png") fixed center center;
-        background-size: cover
     }
 
     #sealevel-section-2 {
@@ -418,7 +457,7 @@
 
     .dotstyle ul {
         top: 50%;
-        right: calc((-12%)/2);
+        right: -10%;
         position: absolute;
         display: inline-block;
         margin: 0;
@@ -437,13 +476,13 @@
 
     .dotstyle li {
         position: relative;
-        display: inline;
-        float: left;
+        display: inline-block;
         margin: 0 16px;
         width: 20px;
         height: 20px;
         cursor: pointer;
     }
+
 
     .dotstyle li a {
         top: 0;
@@ -477,53 +516,16 @@
         background-color: white;
     }
 
+    .dotstyle-scaleup li a:hover .label {
+        visibility: visible;
+        opacity: 1;
+    }
 
     .dotstyle-scaleup li.current a {
         background-color: white;
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5);
+        -webkit-transform: scale(2);
+        transform: scale(2);
     }
-
-
-
-/* /////////////////////////NEW */
-
-    * {
-        box-sizing: border-box;
-        
-        }
-
-        /* Create two equal columns that floats next to each other */
-        .column {
-        
-        float: left; 
-        margin-top: 10%;
-        width: 50%;
-        padding: 7%;
-        background-color: transparent;
-       
-        
-        }
-
-        /* Clear floats after the columns */
-        .row:after {
-        content: "";
-        display: table;
-        clear: both;
-        }
-
-        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 600px) {
-        .column {
-            width: 100%;
-        }
-        }
-
-/* //////////////////////NEW END */
-
-
-
-
 </style>
 
 
@@ -533,12 +535,51 @@
     <div id="navibar">
         <div class="dotstyle dotstyle-scaleup">
             <ul>
-                <li><a href="#" id="navi-home"> <span class="label">Home</span></a></li>
-                <li><a href="#" id="navi-temp"><span class="label">Temperature</span></a></li>
-                <li><a href="#" id="navi-seaice">SeaIce</a></li>
-                <li><a href="#" id="navi-glacier">Glacier</a></li>
-                <li><a href="#" id="navi-sealevel">SeaLevel</a></li>
-                <li><a href="#" id="navi-team">Team</a></li>
+                <li class="li-default" id="home">
+                    <a href="#" id="navi-home">
+                        <span class="label">Home</span>
+
+                    </a>
+                </li>
+                <li class="li-default" id="intro">
+                    <a href="#" id="navi-intro">
+                        <span class="label">Intro</span>
+
+                    </a>
+                </li>
+                <li class="li-default" id="temp">
+                    <a href="#" id="navi-temp">
+                        <span class="label">Temperature</span>
+
+                    </a>
+                </li>
+                <li class="li-default" id="seaice">
+                    <a href="#" id="navi-seaice">
+                        <span class="label">SeaIce</span>
+
+                    </a>
+                </li>
+                <li class="li-default" id="glacier">
+                    <a href="#" id="navi-glacier">
+                        <span class="label">Glacier</span>
+
+                    </a>
+                </li>
+                <li class="li-default" id="sealevel">
+                    <a href="#" id="navi-sealevel">
+                        <span class="label">SeaLevel</span>
+
+                    </a>
+                </li>
+                <li class="li-default" id="conclusion">
+                    <a href="#" id="navi-conclusion">
+                        <span class="label">Conclusion</span>
+                    </a>
+                </li>
+                <li class="li-default" id="about">
+                    <a href="#" id="navi-about">
+                        <span class="label">About</span>
+                    </a></li>
             </ul>
         </div>
     </div>
@@ -583,7 +624,7 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="#"><button class="btn" id="btn-team">Team</button></a></li>
+                    <li><a href="#"><button class="btn" id="btn-about">About</button></a></li>
                     <li><a href="#"><button class="btn" id="btn-sealevel">Sea Level</button></a></li>
                     <li><a href="#"><button class="btn" id="btn-glacier">Glacier</button></a></li>
                     <li><a href="#"><button class="btn" id="btn-seaice">Sea Ice</button></a></li>
@@ -598,58 +639,26 @@
 
             <div id="test" style="height:100%;width:100%">
 
-
-                <div class="row">
-                    <div class="column" >
-                      
-
-                      <hText>
-                        Late March 2022, the tail end of the 6-month Arctic winter. 
-                        Temperature readings at a number of weather stations in the Arctic reach 30 degrees Celsius
-                        above seasonal norms. 
-                        Was this just a one-off event? <br>
-                        Perhaps not.
-                      </hText>
-
-                    </div>
-                    <div class="column" >
-                     
-
-                      <hText> 
-                        Research by the Arctic Assessment and Monitoring Programme (AMAP) suggests that between 1979 and
-                        2019,average surface temperatures in the Arctic increased 3 times faster than the global average.
-                        How did we get to 30 degrees (and rising)? <br>
-                        How has the Arctic been affected by surging temperatures and what are the implications for the
-                        planet as a whole?
-                    </hText>
-                      
-                    </div>
-                  </div>
-
-
-                <!--
                 <div class="BoxIntro">
 
                     <hText>
-                        Late March 2022, the tail end of the 6-month Arctic winter. <br>
-                        Temperature readings at a number of weather stations in the Arctic reach 30 degrees Celsius
-                        above seasonal norms. <br>
-                        Was this just a one-off event? Perhaps not.
+                        Late March 2022, the tail end of the 6-month Arctic winter. Temperature readings at a 
+                        number of weather stations in the Arctic reach 30 degrees Celsius above seasonal 
+                        norms. Was this just a one-off event? <br>
+                        Perhaps not.
                         <br> <br>
-                        Research by the Arctic Assessment and Monitoring Programme (AMAP) suggests that between 1979 and
-                        2019,
-                        average surface temperatures in the Arctic increased 3 times faster than the global average.
-                        How did we get to 30 degrees (and rising)? <br>
-                        How has the Arctic been affected by surging temperatures and what are the implications for the
-                        planet as a whole?
+                        Research by the Arctic Assessment and Monitoring Programme (AMAP) suggests that 
+                        between 1979 and 2019, average surface temperatures in the Arctic increased 3 times 
+                        faster than the global average. 
+                        <br> <br>
+                        How has the Arctic been affected by surging temperatures and what are the 
+                        implications for the planet as a whole? 
+                        <br><br>
+                        How did we get to 30 degrees...and rising? 
+
                     </hText>
 
                 </div>
-                
-                -->
-
-
-
 
             </div>
 
@@ -661,18 +670,85 @@
             <div>
                 <div id="globeViz"></div>
 
+                <div class="chapterBox">
+
+                
+    
+                    <hText>
+                        1979
+                        <br><br>
+                        The start of the AMAP study and the year of the first 
+                        World Climate Conference. Modern debates on made-made climate change have been raging for over 80 years.
+                        <br><br>
+                        The globe on the left shows how much warmer or colder areas of the world were in 1979, compared to the 1951-1980 baseline, 
+                        the so called temperature anomalies. The temperature anomaly range in 1979 was -2.7 to +2.1 °C.
+                        <br><br>
+                        The majority of the warmer than average regions were concentrated in Alaska, the Canadian east coast and present day Russia.
+                        Most of the Arctic was below the baseline temperature in the year. It should be noted that care has to be taken in drawing 
+                        conclusions from a single year as it is recognised that short-term,
+                        temporal variations in temperature occur due to natural variability.
+                        
+    
+                    </hText>
+    
+                </div>
+
             </div>
-            <div id="text-wrapper">2019</div>
         </div>
         <div class="section fp-auto-height" id="globe-section-2">
             <div>
                 <div id="globeViz2"></div>
+
+                <div class="chapterBoxMirror">
+
+                    <div>
+                        <hTitle> </hTitle>
+                    </div>
+    
+                    <hText>
+                        1999
+                        <br><br>
+                        Fast forward to the end of the millennium and the warming effect appears far more widespread. 
+                        By 1999, the temperature anomaly had increased to -2.1 to +3.0 °C.
+                        <br><br>
+                        Looking at the Arctic region, a pronounced warming of the area is observable compared to the pattern of temperature anomalies seen in 1979.
+                        <br><br>
+                        How does the pattern evolve? Scroll on to find out.
+                        
+    
+                    </hText>
+    
+                </div>
+
 
             </div>
         </div>
         <div class="section fp-auto-height" id="globe-section-3">
             <div>
                 <div id="globeViz3"></div>
+
+                <div class="chapterBox">
+
+        
+    
+                    <hText>
+                        2019
+                        <br><br>
+                        Global land average surface temperatures had increased to approximately 1.32°C above 1951-1980 baseline, 
+                        making 2019 the second warmest year on land since 1850 according to Berkeley Earth. 
+                        <br><br>
+                        A 1.5°C increase above pre-industrial temperature levels is widely regarded by climate scientists to be the entry 
+                        point into a surface temperature “danger zone”, beyond which the impact on the Earth’s climate is forecast to be catastrophic.
+                        <br><br>
+                        Some cooler regions visible in North America are likely attributable to natural variability: the overall development of global
+                         temperatures remains consistent with a long term trend towards global warming.
+                        <br><br>
+                        Panning to the Arctic Circle shows the noticeable effect of Arctic Amplification with large sections of the region at over 4°C above the baseline temperature.
+                        
+    
+                    </hText>
+    
+                </div>
 
             </div>
         </div>
@@ -682,11 +758,11 @@
 
 
         <div class="section" id="intro-section-seaice">
-            <div class="title" style="text-align:left;margin-left:5em;margin-top:-15%">
-                <hheading>The Arctic, it seems, is at 30 degrees...and perhaps rising.</hheading>
+            <div class="footnote">
+                <hheading>Between the North Pole and 30° South - the Arctic - is changing.</hheading>
             </div>
-            <div class="title" style="margin-top:4%">
-                <h3 style="font-size:160px;display:inline-block">14</h3>
+            <div class="stati">
+                <h3 style="font-size:160px;display:inline-block">13</h3>
                 <hheading style="font-size:60px">&nbsp%</hheading>
                 <div style="margin-top:-8%"></div>
                 <hheading>sea ice decline per decade</hheading>
@@ -699,20 +775,19 @@
             <div class="chapterBox">
 
                 <div>
-                    <hTitle> The Arctic Sea Ice </hTitle>
+                    <hTitle>Arctic Sea Ice </hTitle>
                 </div>
 
                 <hText>
-                    Approximately 30° South of the North Pole the Arctic Circle defines the extent of the Arctic, the
-                    northernmost region of Earth.
+                    Sea ice - frozen ocean water- forms in the Arctic every winter and retreats in the summer.
                     <br> <br>
-                    The Arctic sea ice is frozen ocean water that increases and decreases in extent with the seasons.
+                    It is of essential importance for the polar ecosystems, however the global  rising temperatures have 
+                    lead to more ice loss than gains over the seasons which resulted in dramatic arctic sea ice decline over
+                     the last 30 years with September 2012 marking a record minimum.
                     <br> <br>
-                    However there has been a dramatic decline of the arctic sea ice extent in the past 30 years.
-                    Specifically, September 2012 marked a record minimum
-                    <br> <br>
-                    Sea ice melting contributes to the acceleration of global warming since the large ice sheets are
-                    replaced by the dark ocean that absorbes more sunlight which further heats up the water.
+                    The melting sea ice in turn contributes to the acceleration of global warming since large ice sheets
+                    are replaced by dark ocean stretches, further heating up the water.
+
 
                 </hText>
 
@@ -724,7 +799,7 @@
         <div class="section" id="seaice-section-2">
             <h1 style="margin-top:-16px">Arctic Sea Ice</h1>
             <div style="margin-top:-10px">
-                <iframe name="iframe-0" id="chart-0" height="850" width="90%" class="embed-responsive-item"
+                <iframe name="iframe-0" id="chart-0" height="860" width="91%" class="embed-responsive-item"
                     style=" background-color: rgb(46, 54, 72);" src="/arctic_map/arctic_map.html" frameborder="no"
                     frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
             </div>
@@ -736,14 +811,14 @@
 
 
         <div class="section" id="intro-section-glacier">
-            <div class="title" style="text-align:left;margin-left:5em;margin-top:-15%">
-                <hheading>Text, text, text.</hheading>
+            <div class="footnote">
+                <hheading>Not just the ice sheet, potential changes on glaciers are happening.</hheading>
             </div>
-            <div class="title" style="margin-top:4%">
+            <div class="stati">
                 <h3 style="font-size:160px;display:inline-block">267</h3>
                 <hheading style="font-size:60px">&nbspgigatons</hheading>
                 <div style="margin-top:-8%"></div>
-                <hheading>of glacial ice disappeared</hheading>
+                <hheading>of lost glacial ice</hheading>
             </div>
         </div>
 
@@ -757,11 +832,12 @@
 
                 <hText>
                     Glaciers are more sensitive to global warming than than we' ve even thought.
-                    <br>
-                    Whether seen or not, the world's glaciers are losing 267 gigatonnes of ice every year.
-                    <br>
-                    Specifically, September 2012 marked a record minimum.
-
+                    <br> <br>
+                    A glacier retreats when its terminus does not extend as far downvalley as it previously did.
+                    Whether seen or not, the world's glaciers are at a sigificant rate of retreating.
+                    <br> <br>
+                    Through satellite archives of surface elevation, the accelerated pattern of glacier retreating can
+                    be revelled.
                     As most freshwater ice is found in the polar ice caps and glaciers. Let us take a look at what is
                     truly happenning.
 
@@ -772,13 +848,13 @@
         </div>
 
         <div class="section" id="glacier-section-2">
-            <h1 style="margin-top:-16px">Mean Elevation Change Rate for Glaciers over ~60°N</h1>
-            <div style="margin-top:-10px">
+            <h1 style="margin-top:-16px">Elevation Change Rate for Glaciers</h1>
+            <div class="chart-container">
                 <iframe name="iframe-1" id="chart-1" height="340" width="80%" class="embed-responsive-item"
                     style=" background-color:rgba(255, 255, 255, 0.9);" src="/glacier_map/chart1.html" frameborder="no"
                     frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
             </div>
-            <div style="margin-top:30px"><iframe name="iframe-2" id="map-1" height="460" width="80%"
+            <div class="map-container"><iframe name="iframe-2" id="map-1" height="460" width="80%"
                     class="embed-responsive-item" style=" background-color:transparent;"
                     src="/glacier_map/map_glacier_glance.html" frameborder="no" frameborder="0" marginwidth="0"
                     border-radius="25px" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
@@ -786,7 +862,7 @@
         </div>
 
         <div class="section" id="glacier-section-3">
-            <h1 style="margin-top:-10px">Glacier Photographs Comparison From Historic to Recent (Scroll to Explore)
+            <h1 style="margin-top:-10px">Past and Present Glacier Comparison
             </h1>
             <iframe name="iframe-3" id="map-2" height="85%" width="90%" class="embed-responsive-item"
                 style=" background-color:transparent;" src="/glacier_map/map_glacier_story.html" frameborder="no"
@@ -798,10 +874,10 @@
 
 
         <div class="section" id="intro-section-sealevel">
-            <div class="title" style="text-align:left;margin-left:5em;margin-top:-15%">
-                <hheading>What happens in the arctic does't stay in the arctic.</hheading>
+            <div class="footnote">
+                <hheading>What happens in the Arctic doesn't stay in the Arctic.</hheading>
             </div>
-            <div class="title" style="margin-top:4%">
+            <div class="stati">
                 <h3 style="font-size:160px;display:inline-block">3</h3>
                 <hheading style="font-size:60px">&nbspmm</hheading>
                 <div style="margin-top:-8%"></div>
@@ -813,18 +889,21 @@
             <div class="chapterBox">
 
                 <div>
-                    <hTitle> Sea Level </hTitle>
+                    <hTitle>Global Sea Level </hTitle>
                 </div>
 
                 <hText>
-                    Glaciers are more sensitive to global warming than than we' ve even thought.
-                    <br>
-                    Whether seen or not, the world's glaciers are losing 267 gigatonnes of ice every year.
-                    <br>
-                    Specifically, September 2012 marked a record minimum.
-
-                    As most freshwater ice is found in the polar ice caps and glaciers. Let us take a look at what is
-                    truly happenning.
+                    The retreating glaciers in the arctic have global effects: the melting water is added to the oceans,
+                    causing sea level changes and impacting coastal populations.
+                    <br> <br>
+                    Sea-levels are also affected by the thermal expansion of the oceans due to rising temperatures.
+                    <br> <br>
+                    This combined effect has resulted in a 210-240mm sea-level rise globally since 1880, with about a
+                    third of it occurring just in the last two a half decades.
+                    <br> <br>
+                    In the future, sea level will continue to rise, possibly by as much as 1 m by the end of this
+                    century, if we do not address the problem of global warming. Such change poses great problems for
+                    the 250 million people who live close to the sea.
 
                 </hText>
 
@@ -834,7 +913,7 @@
         <div class="section" id="sealevel-section-2">
 
 
-            <h1 style="margin-top:3%">Sea Level Change and Population of Coastal Area</h1>
+            <h1>Global Sea Level Change</h1>
             <iframe name="iframe-4" id="map-3" height="85%" width="90%" class="embed-responsive-item"
                 style=" background-color:transparent;" src="/sea_level/sealevel-web.html" frameborder="no"
                 frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe>
@@ -929,6 +1008,34 @@
             if (destination.index == 1 || destination.index == 0) {
                 document.getElementById("navibar").style.display = "none";
             }
+            map = new Map([
+                [1, 'home'],
+                [2, 'intro'],
+                [3, 'temp'],
+                [4, 'temp'],
+                [5, 'temp'],
+                [6, 'seaice'],
+                [7, 'seaice'],
+                [8, 'seaice'],
+                [9, 'glacier'],
+                [10, 'glacier'],
+                [11, 'glacier'],
+                [12, 'glacier'],
+                [13, 'sealevel'],
+                [14, 'sealevel'],
+                [15, 'sealevel'],
+                [16, 'conclusion'],
+                [17, 'about'],
+            ])
+            const destindex = map.get(destination.index)
+
+            const currentindex = document.getElementById(destindex)
+            $(function () {
+                $(".dotstyle-scaleup li").removeClass("current");
+                $(currentindex).addClass("current");
+            });
+            // 2 3 4 7 10 14 17 18
+
         },
 
     })
@@ -967,7 +1074,7 @@
         e.preventDefault();
         fullpage_api.moveTo(14);
     });
-    document.querySelector('#btn-team').addEventListener('click', function (e) {
+    document.querySelector('#btn-about').addEventListener('click', function (e) {
         e.preventDefault();
         fullpage_api.moveTo(18);
     });
@@ -975,6 +1082,10 @@
     document.querySelector('#navi-home').addEventListener('click', function (e) {
         e.preventDefault();
         fullpage_api.moveTo(2);
+    });
+    document.querySelector('#navi-intro').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(3);
     });
     document.querySelector('#navi-temp').addEventListener('click', function (e) {
         e.preventDefault();
@@ -992,7 +1103,11 @@
         e.preventDefault();
         fullpage_api.moveTo(14);
     });
-    document.querySelector('#navi-team').addEventListener('click', function (e) {
+    document.querySelector('#navi-conclusion').addEventListener('click', function (e) {
+        e.preventDefault();
+        fullpage_api.moveTo(17);
+    });
+    document.querySelector('#navi-about').addEventListener('click', function (e) {
         e.preventDefault();
         fullpage_api.moveTo(18);
     });
