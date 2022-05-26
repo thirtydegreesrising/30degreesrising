@@ -44,7 +44,8 @@
 
 
     ul {
-        margin-bottom:-10%;
+        margin-top:5%;
+        margin-bottom:-6%;
         align-items: center;
         list-style-type: none;
     }
@@ -228,19 +229,7 @@
         font-size: 12px;
     }
 
-    #legend {
 
-        padding-left: 65px;
-        padding-top: 20px;
-    }
-
-    .legend-key {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin-right: 5px;
-        margin-bottom: -5px;
-    }
 </style>
 
 <body>
@@ -499,7 +488,7 @@
             // Add X axis label:
             svg.append("text")
                 .attr("text-anchor", "end")
-                .attr("x", width + 13)
+                .attr("x", 170)
                 .attr("y", 188)
                 .text("year")
                 .style('font-size', '13px');
