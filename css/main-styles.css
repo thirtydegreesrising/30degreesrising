@@ -1,6 +1,5 @@
 
     html {
-        scroll-behavior: unset;
         background-color: #000000;
     }
 
@@ -12,7 +11,7 @@
         padding: 0;
         background-size: cover;
         background-attachment: fixed;
-        overflow: scroll;
+        overflow: hidden;
     }
 
     .videoback {
