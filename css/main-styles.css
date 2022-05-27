@@ -609,9 +609,53 @@
         transform: scale(2);
     }
 
+    .colour-key {
+        width: 5px;
+        height: 5px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        background-color: #fff;
+        display: inline-block;
+        margin-right: 3px;
+    }
+
+
     .SmallText {
-        font-size: 14px;
+        font-size: 20px;
         color: #f1f3f4;
         font-family: 'PT Sans Narrow';
         line-height: 15px;
+    }
+    #Imagesource {
+        
+        text-align: center;
+    }
+    #Imagesource ul {
+        font-size: 13px;
+        text-align: center;
+        width: 100%;
+        color:#000000;
+
+    }
+    #Imagesource li {
+        display: inline-block;
+        padding-left: 3em;
+
+    }
+    #References {
+        text-align: center;
+    }
+    #References ul {
+        font-size: 13px;
+
+        width: 100%;
+
+        color:#000000;
+
+    }
+    #References li {
+        display: inline-block;
+        padding-left: 3em;
+
     }
