@@ -41,11 +41,9 @@
     }
 
 
-
-
     ul {
-        margin-top:5%;
-        margin-bottom:-6%;
+        margin-top: 5%;
+        margin-bottom: -6%;
         align-items: center;
         list-style-type: none;
     }
@@ -228,15 +226,13 @@
     h4 {
         font-size: 12px;
     }
-
-
 </style>
 
 <body>
-
+    <!-- Set background color same as ice to camouflage 'hole in the map'-->
     <div id='map' style="background-color: #CBEAF6;"></div>
 
-
+    <!-- Map legend as overlay -->
     <div class='map-overlay'>
 
         <h3>
@@ -248,6 +244,7 @@
             while in March it reaches its maximum extent.
             Choose a month to update the map:</p>
 
+        <!-- Buttons (months) -->    
         <div class="toggle" id="filters" style="margin-left:10%">
             <div id='left'>
 
@@ -284,7 +281,6 @@
         </div>
 
 
-
         <h3>
             <center>The sea ice extent over the years</center>
         </h3>
@@ -297,9 +293,10 @@
                 <label id="display-month">January</label> </center>
         </h4>
 
-
+        <!-- Chart -->
         <div id="my_dataviz"></div>
 
+        <!-- Slider (years) -->  
         <span id="rs-bullet" class="rs-label">1979</span>
         <input class="sliderClass" id="slider" type="range" min="1979" max="2014" step="1" value='1979'
             oninput="this.nextElementSibling.value = this.value">
@@ -318,9 +315,12 @@
             </ul>
 
         </div>
+
+        <!-- Chart -->
         <div>
             <br> <br>
-            <p style="font-size:12px">Data Source: <a href="https://arctic-nga.opendata.arcgis.com/datasets/nga::july-1979/explore"
+            <p style="font-size:12px">Data Source: <a
+                    href="https://arctic-nga.opendata.arcgis.com/datasets/nga::july-1979/explore"
                     target="_blank">NATIONAL GEOSPATIAL-INTELLIGENCE AGENCY</a> </p>
         </div>
 
@@ -329,7 +329,7 @@
 
 
     <script>
-        // YEAR SLIDER
+        // YEAR INDICATOR FOR SLIDER //////////////////////////////////////////////// 
         var rangeSlider = document.getElementById("slider");
 
         var rangeBullet = document.getElementById("rs-bullet");
@@ -339,15 +339,12 @@
         function showSliderValue() {
             rangeBullet.innerHTML = rangeSlider.value;
 
-            //var bulletPosition = (rangeSlider.value / rangeSlider.max );
-            // rangeBullet.style.left = (bulletPosition * 100) +  "px";
-
             var bulletPosition = ((rangeSlider.value - rangeSlider.min) / (rangeSlider.max - rangeSlider.min));
+            //to mobve in sync with slider
             rangeBullet.style.left = (bulletPosition * 302) + "px";
-
         }
 
-
+        //MAIN MAP  /////////////////////////////////////////////////////////////////// 
         mapboxgl.accessToken =
             'pk.eyJ1IjoiZGFwaG5lYmRuIiwiYSI6ImNreWtjamFzYjBmczkybnVmOTM1Z3B0YjkifQ.ygTqt_apbGM5eZFZqesskQ'; // Put your Mapbox Public Access token here
 
@@ -358,9 +355,8 @@
             center: [90, 90], // starting position [lng, lat]
             projection: {
                 name: 'albers',
-                //name: "mercator",
                 center: [60, 0],
-                parallels: [90, 90]
+                parallels: [90, 90] 
             },
             zoom: 3.3, // starting zoom
             maxZoom: 4,
@@ -371,13 +367,11 @@
         // disable map rotation using right click + drag
         map.dragRotate.disable();
 
-        // disable map rotation using touch rotation gesture
-        //map.touchZoomRotate.disableRotation();
 
 
+        //LOAD DATA (geoJson)  ///////////////////////////////////////////////////
         map.on('load', function () {
 
-            //d3.json('Data/NSIDC_SeaIceExtent/Sea_Ice_Extents.geojson', jsonCallback);
             d3.json('Data/NSIDC_SeaIceExtent/Sea_Ice_Extents.geojson', jsonCallback);
 
         });
@@ -392,7 +386,7 @@
             // console.log(data.features[18].properties.SHAPE_Area)
 
 
-            //MAP LEGEND
+            //MAP LEGEND //////////////////////////////////////////////////////////
             // define layer names
             const layers = [
                 'sea ice',
@@ -401,10 +395,9 @@
             const colors = [
                 '#CBEAF6',
                 '#617188BB'
-
             ];
 
-
+            //CHART//////////////////////////////////////////////////////////////////
             // set the dimensions and margins of the graph
             var margin = {
                     top: 10,
@@ -414,7 +407,6 @@
                 },
                 width = 400 - margin.left - margin.right,
                 height = 200 - margin.top - margin.bottom;
-
 
             // append the svg object to the body of the page
             var svg = d3.select("#my_dataviz")
@@ -430,7 +422,6 @@
             var formatYear = d3.timeFormat("%Y");
 
             data.features.forEach(function (d) {
-                //d.year = formatYear(d.properties.year);
                 d.year = parseDate(String(d.properties.year));
                 d.area = ((+d.properties.SHAPE_Area / 1000) * 2.59);
                 d.temperature = d.properties.temperature;
@@ -461,8 +452,6 @@
                 .attr("transform", "translate(0," + height + ")")
                 .attr("class", "grid")
                 .call(gridlinesX)
-
-
 
             // Add Y axis
             var yAxis = d3.scaleLinear()
@@ -506,24 +495,16 @@
 
             //create initial graph
 
-            //glacier-dark-blue:#417ce9
-            //glacier-light-vlue:#83b0f4
-
             needleColor = 'darkgrey'
             //'rgb(241, 241, 241)'
             //lineColor = '#417ce9'
             lineColor = '#313E58'
 
-
             var initialGraph = function (month) {
                 // filter the data by month
 
                 var chartdata = data.features.filter(d => d.properties.month === month)
-                //var tempChart = data.filter( d => d.month === month)
-
-
                 //console.log(chartdata)
-                //console.log('TESTESTTESTTEST')
 
                 chartdata.forEach(function (d) {
                     d.year = parseDate(String(d.properties.year));
@@ -532,7 +513,6 @@
                     //console.log(d.year);
                     //console.log(d.area);         
                 });
-
 
                 // Add the line
                 svg.append("path")
@@ -551,7 +531,7 @@
                     )
 
                 /*
-                // Add the temperature line (removed)
+                // Add the temperature line (not implemented)
                 svg.append("path")
                 .datum(chartdata)
                 .attr("fill", "none")
@@ -575,15 +555,11 @@
                     .style('stroke', needleColor)
                     .style('fill', 'none')
                     .style('stroke-dasharray', '10,10');
-
-
             }
-
+            //call function to create the first graph for January
             initialGraph(1)
 
-
-
-            //https://bl.ocks.org/d3noob/7030f35b72de721622b8
+            //Code based on this examplle : https://bl.ocks.org/d3noob/7030f35b72de721622b8
 
             //update the graph 
             var updateGraph = function (month) {
@@ -624,6 +600,7 @@
                         }))
 
             }
+
             var updateYear = function (year) {
                 svg.selectAll('line.yearLine')
                     .transition()
@@ -632,19 +609,22 @@
                     .attr('y1', 0)
                     .attr('x2', xAxis(parseDate(String(year))))
                     .attr('y2', height)
-
             }
 
 
-
+            
             if (err) {
                 throw err;
             }
+
+            //MAP FILTERS ///////////////////////////////////////////////////
 
             let filterYear = ['==', ['number', ['get', 'year']], 1979]
             let filterMonth = ['==', ['number', ['get', 'month']], 1];
             let filterOutline = ['==', ['number', ['get', 'year']], 1979];
 
+
+            
             map.addSource('iceCoverage', {
                 "type": 'geojson',
                 data: data //data
@@ -655,8 +635,8 @@
                 "type": 'fill',
                 "source": 'iceCoverage',
                 "paint": {
-                    'fill-color': '#CBEAF6', // blue color fill
-                    // 'fill-opacity': 0.3
+                    'fill-color': '#CBEAF6', // ice blue color fill
+                    // 'fill-opacity': 0.3   // if used, hole in map is visible
                 },
                 "filter": ["all", filterMonth, filterYear]
             });
@@ -679,6 +659,9 @@
                 'October', 'November', 'December'
             ]
 
+
+            // EVENT LISTENERS /////////////////////////////////////////////////////////
+            
             // get month filter first
             document.getElementById('filters').addEventListener('change', (event) => {
                 const month = parseInt(event.target.value);
@@ -693,11 +676,9 @@
                 updateGraph(month)
 
                 // showSliderValue()
-
                 document.getElementById("display-month").innerText = monthlist[month - 1];
 
             });
-
 
 
             //update Year filter when the slider is dragged
@@ -717,16 +698,10 @@
                     //add the 1979 extent
                     map.setFilter("iceCoverage-outline", ['all', filterMonth, filterOutline])
 
-
-
-
                     document.getElementById("display-month").innerText = monthlist[month - 1];
-
-
 
                     //update the chart 
                     updateGraph(month)
-
 
                 });
 
@@ -736,16 +711,7 @@
                 //update text on UI
                 //document.getElementById("display-year").innerText = year;
 
-
-                //update month filter by toggle
-
-                //showSliderValue()
-
-
             });
-
-
-
 
         }
     </script>
