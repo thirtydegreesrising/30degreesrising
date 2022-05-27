@@ -60,6 +60,8 @@
     var svg = dimple.newSvg("#chartContainer", width, height);
     d3.csv("/glacier_map/glacier_height.csv", function (data) {
 
+        // fliter the csv in case there is region of 'Global'
+        // previous work but redundant now
         var filter = new Array()
         for (var i = 0; i < data.length; i++) {
             if (data[i].Region != "Global") {
@@ -82,6 +84,7 @@
         y.title = 'Mean Elevation Change Rate (m y-1)'
 
         var alaph = 1
+        // define the color pallet
         myChart.defaultColors = [
             new dimple.color("#b6c0cf", "#b6c0cf", alaph),
             new dimple.color("#916BBF", "#916BBF", alaph),
@@ -96,11 +99,12 @@
 
         ];
 
-
+        // draw the chart and the legend
         var myLegend = myChart.addLegend(1000, 90, 0.1 * width, height, "right")
 
         myChart.draw(800);
 
+        // adjust the font size and add a subtitle for guidance
         svg.selectAll("title_text")
             .data(["Click on the Legend to", "Show Spatial Domain."])
             .enter()
@@ -124,6 +128,7 @@
         svg.selectAll("text.axis")
             .style("font-size", "14px")
 
+        // adjust the position of the legend
         var test = svg.selectAll("text")
         svg.selectAll("text.dimple-legend")
             .attr("x", 1040)
@@ -131,6 +136,7 @@
                 return 85 + i * 22
             })
 
+        // adjust the position of the rectangles of the legend
 
         d3.selectAll("rect")
             .attr("x", 1000)
@@ -142,6 +148,8 @@
 
 
         myChart.legends = []
+
+        // interactivity of clicking on the legend
 
         var filterValues = dimple.getUniqueValues(data, "Region");
         all = dimple.getUniqueValues(data, "Region")
@@ -165,14 +173,14 @@
                 }
             });
 
-
+            // change the size and write the name of region in one div when clicked on for a new selection or reselection
             if (highlight) {
                 d3.selectAll("rect").style("stroke-width", 1)
                 d3.select(this).style("stroke-width", 5);
                 var local_click = e.aggField.slice(-1)[0]
                 document.getElementById("local").innerHTML = local_click
 
-
+                // change the size when cancel a selection
             } else {
                 newFilters.push(e.aggField.slice(-1)[0]);
                 d3.selectAll("rect").style("stroke-width", 1)
@@ -181,6 +189,9 @@
                 i = 1
             }
             filterValues = newFilters;
+
+            // report the selection to other iframe by dispatchEvent
+
             var message = document.getElementById("local").innerHTML
 
             var event = new CustomEvent('myCustomEvent', {
@@ -188,6 +199,7 @@
             })
             window.parent.document.dispatchEvent(event)
 
+            // redraw the chart when selection applied
             if (i == 0) {
 
                 myChart.data = dimple.filterData(data, "Region", e.aggField.slice(-1)[0]);

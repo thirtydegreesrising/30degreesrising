@@ -618,10 +618,6 @@
         background-color: white;
     }
 
-    .dotstyle-scaleup li a:hover .label {
-        visibility: visible;
-        opacity: 1;
-    }
 
     .dotstyle-scaleup li.current a {
         background-color: white;
@@ -678,4 +674,62 @@
         display: inline-block;
         padding-left: 3em;
 
+    }
+
+    .globelegend {
+        bottom:6%;  
+        position:absolute;
+    }
+
+    #globelegend1 {
+        left: calc((100% - 500px)/4)
+    }
+    #globelegend2 {
+        right: calc((100% - 500px)/4)
+    }
+    #globelegend3 {
+        bottom:2%;  
+        left: calc((100% - 500px)/4)
+    }
+
+    .globelegend ul{
+        align-items: center;
+        list-style-type: none;
+    }
+
+    .globelegend li{
+        color: #cccccc;
+        font-size: 14px;
+        display: inline-block;
+
+    }
+    .colour {
+        
+        width: 50px;
+        height: 15px;
+        display: inline-block;
+    }
+    .colour2 {
+        border-style: solid;
+        border-width: thin;
+        border-color: #cccccc;
+        width: 15px;
+        height: 10px;
+        display: inline-block;
+    }
+
+    .label {
+        position:relative;
+        display:block;
+        text-align: center;
+    }
+    .rightlabel {
+        position:relative;
+        display:inline-block;
+        text-align: center;
+    }
+    .sourcelabel {
+        position:relative;
+        display:block;
+        text-align: right;
     }
