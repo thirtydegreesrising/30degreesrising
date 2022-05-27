@@ -13,7 +13,7 @@ var config = {
             alignment: 'right',
             title: 'Overall (Scroll to Explore)',
             image: '',
-            description: 'Glacier rephotograph provides effective and objective evidence for visually comparing and assessing landscape changes over time. Scientific agency and volunteers contribute to the glacier rephotographs. Glacier rephotographs are usually conducted during Summer since bare ice and glacier fronts are exposed clearly without seasonal covering of snow. Here, photographs comparison and glacier boundaries for four representative galciers in Iceland, Svabard and Alaska are presented to glance how the climate change may impact on glaciers locally. Glacier boundary used here are from version 6 of the Randolph Glacier Inventory (RGI) provided by NSIDC.',
+            description: 'Glacier rephotograph provides effective and objective evidence for visually comparing and assessing landscape changes over time. Scientific agencies and volunteers contribute to the glacier rephotographs. Glacier rephotographs are usually conducted during summer when bare ice and glacier fronts are exposed clearly without seasonal snow covering. Here, a photograph comparison and glacier boundaries for four representative glaciers in Iceland, Svabard and Alaska are presented, allowing a glance at how global climate change has impacted local glaciers. The glacier boundary data used here are from version 6 of the Randolph Glacier Inventory (RGI) provided by NSIDC.',
             location: {
                 center: [-10, 65],
                 zoom: 2.1,
@@ -34,7 +34,7 @@ var config = {
             alignment: 'right',
             title: 'Iceland',
             image: '',
-            description: 'The glaciers and ice caps cover 11% of the land area of the whole Iceland (around 11,400 km² out of the total area of 103,125 km²). Most of the Icelandic glaciers retreated rapidly during the warm decades from 1930 to 1960, slowing down as the climate cooled during the following decade, and started to advance after 1970. The rate of advance peaked in the 1980s, after which it slowed down until about 1990. As a consequence of rapid warming of the climate that has taken place since the mid-1980s, most glaciers in Iceland began to retreat after 1990, and by 2000 all monitored non-surge type glaciers in Iceland were retreating.',
+            description: 'Glaciers and ice caps cover 11% of the land area of the whole Iceland (around 11,400 km² out of a total area of 103,125 km²). Most of the Icelandic glaciers retreated rapidly during the warm decades from 1930 to 1960, slowing down as the climate cooled during the following decade, and started again to retract after 1970. The rate peaked in the 1980s, after which it slowed down until about 1990. As a consequence of the rapid warming decades, most glaciers in Iceland began to diminish after 1990, and by 2000 all monitored non-surge type glaciers in Iceland were retreating.',
             location: {
                 center: [-12, 65],
                 zoom: 5,
@@ -58,7 +58,7 @@ var config = {
             alignment: 'right',
             title: 'Iceland - Breiðamerkurjökull',
             image: 'Iceland.gif',
-            description: 'Breiðamerkurjökull is the outlet glacier of Vatna Glacier and the Mountain-front glacier in the south of Vatna Glacier National Park, Iceland.These images record the decline of Breiðamerkurjökull between 1982 and now. Credit: National Land Survey of Iceland/Dr Kieran Baxter, University of Dundee',
+            description: 'Breiðamerkurjökull is the outlet glacier of Vatna Glacier and the Mountain-front glacier in the south of Vatna Glacier National Park, Iceland. These images record the decline of Breiðamerkurjökull between 1982 and now. Credit: National Land Survey of Iceland/Dr Kieran Baxter, University of Dundee',
             location: {
                 center: [-16.08, 64.1],
                 zoom: 9,
@@ -93,7 +93,7 @@ var config = {
             alignment: 'left',
             title: 'Svabard',
             image: '',
-            description: 'Approximately 60% of Svabard (about 36,502 km²) is covered with glaciers. Affected by global warming, significant climate change in Svalbard has occurred - average temperature increased by 4 degrees Celsius, and by 7 degrees in winter since 1970.',
+            description: 'Approximately 60% of Svalbard (about 36,502 km²) is covered by glaciers. Affected by global warming, significant climate change in Svalbard has occurred - average temperature increased by 4 degrees Celsius, and by 7 degrees in winter since 1970.',
             location: {
                 center: [12.3, 78.2],
                 zoom: 4.8,
