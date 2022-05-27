@@ -285,10 +285,11 @@
         </div>
 
         <div class="section" id="seaice-section-2">
-            <vizHeading style="margin-bottom:2%">Arctic Sea Ice</vizHeading>
-            <iframe name="iframe-0" id="chart-0" height="90%" width="90%" class="embed-responsive-item"
+            <vizHeading>Arctic Sea Ice</vizHeading>
+            <div class="map-container2">
+            <iframe name="iframe-0" id="chart-0" height="95%" width="90%" class="embed-responsive-item"
                 style=" background-color:#333d58;" src="/arctic_map/arctic_map.html" frameborder="no" frameborder="0"
-                marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
+                marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe></div>
 
 
         </div>
@@ -341,19 +342,20 @@
                     style=" background-color:rgba(255, 255, 255, 0.9);" src="/glacier_map/chart1.html" frameborder="no"
                     frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
             </div>
-            <div class="map-container"><iframe name="iframe-2" id="map-1" height="460" width="80%"
+            <div class="map-container"><iframe name="iframe-2" id="map-1" height="455" width="80%"
                     class="embed-responsive-item" style=" background-color:transparent;"
                     src="/glacier_map/map_glacier_glance.html" frameborder="no" frameborder="0" marginwidth="0"
-                    border-radius="25px" marginheight="0" scrolling="no" allowtransparency="true"></iframe>
+                     marginheight="0" scrolling="no" allowtransparency="true"></iframe>
             </div>
         </div>
 
         <div class="section" id="glacier-section-3">
             <vizHeading>Past and Present Glacier Comparison
             </vizHeading>
-            <iframe name="iframe-3" id="map-2" height="90%" width="90%" class="embed-responsive-item"
+            <div class="map-container2">
+            <iframe name="iframe-3" id="map-2" height="95%" width="90%" class="embed-responsive-item"
                 style=" background-color:transparent;" src="/glacier_map/map_glacier_story.html" frameborder="no"
-                frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe>
+                frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe></div>
         </div>
 
 
@@ -401,9 +403,10 @@
 
 
             <vizHeading>Global Sea Level Change</vizHeading>
-            <iframe name="iframe-4" id="map-3" height="90%" width="90%" class="embed-responsive-item"
+            <div class="map-container2">
+            <iframe name="iframe-4" id="map-3" height="95%" width="90%" class="embed-responsive-item"
                 style=" background-color:transparent;" src="/sea_level/sealevel-web.html" frameborder="no"
-                frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe>
+                frameborder="0" marginwidth="0" marginheight="0" scrolling="yes" allowtransparency="true"></iframe></div>
         </div>
 
 
@@ -442,10 +445,10 @@
 
 
         <div class="section" id="end-section">
-            <div class="title">
+            <div class="title" id="end-title">
                 <hheading2>30&nbsp;degrees&nbsp;rising</hheading2>
             </div>
-            <div class="title">
+            <div class="title" id="creators">
                 <hheading style="font-family:Cabin Condensed; letter-spacing:3px">Creators: Nayomi Kasthuriarachchi,
                     Daphne Badounas, Haisu Chen, Tianyi Li</hheading>
                 <div style="margin-top:2%"></div>
@@ -457,7 +460,7 @@
                     <img src="/github.png" width="150"></a>
             </div>
 
-            <div class="title">
+            <div class="title" id="sources">
 
 
                 <div class="SmallText" id="Imagesource"> Image sources:
@@ -551,9 +554,11 @@
 
 
 <script type="text/javascript" src="/js/fullpage.js"></script>
+<script type="text/javascript" src="/js/fullpage.extensions.min.js"></script>
+
 <script>
     new fullpage('#fullpage', {
-        licenseKey: 'gplv3-license',
+        licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
         controlArrows: true,
         css3: true,
         navigation: false,

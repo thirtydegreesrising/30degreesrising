@@ -21,12 +21,8 @@
         z-index: -11
     }
 
-    .image {
-        margin-top: 2%;
-        left: calc((100% - 150px) / 2);
-        position: fixed;
-        width: 150px;
-    }
+
+
 
     .section {
         height: 100%;
@@ -100,14 +96,34 @@
     .title {
         color: black;
         text-align: center;
-        margin-top: 10em;
+    }
+
+    #end-title {
+        margin-top: 2em;
+    }
+
+    #creators {
+        margin-top: 7em;
+
+    }
+
+    #sources {
+        margin-top: 2em;
+
+    }
+    
+    .image {
+        padding-top: 2%;
+        left: calc((100% - 150px) / 2);
+        position: relative;
+        width: 150px;
     }
 
     .footnote {
         color: black;
         text-align: left;
         margin-left: 5em;
-        margin-top: 4%
+        margin-top: -10%
     }
 
     .stati {
@@ -180,7 +196,8 @@
         font-weight: normal;
         color: #ffffff;
         font-size: 42px;
-        margin-bottom:2%;
+        margin-top:2px;
+        margin-bottom:3px;
     }
     
     h1plus {
@@ -375,14 +392,18 @@
     }
 
     .chart-container {
-        width: 100%;
+        height: 100%;
         left: 10%;
     }
 
     .map-container {
-        padding-top: 20px;
-        width: 100%;
+        height: 100%;
         left: 10%;
+        margin-bottom: 1.5%;
+    }
+    .map-container2 {
+        height:100%;
+        left: 5%;
     }
 
     #seaice-section-1 {
@@ -591,8 +612,7 @@
     }
 
 
-    .dotstyle-scaleup li a:hover,
-    .dotstyle-scaleup li a:focus {
+    .dotstyle-scaleup li a:hover {
         -webkit-transform: scale(1.5);
         transform: scale(1.5);
         background-color: white;
