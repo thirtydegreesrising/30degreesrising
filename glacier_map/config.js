@@ -156,7 +156,7 @@ var config = {
             alignment: 'right',
             title: 'Alaska',
             image: '',
-            description: '"A 2005 aerial survey of Alaskan coastal glaciers identified more than a dozen glaciers, many former tidewater and calving glaciers, including Grand Plateau, Alsek, Bear, and Excelsior Glaciers that are rapidly retreating.Of 2,000 glaciers observed, 99% are retreating." (Pelto, 2016)',
+            description: '"A 2005 aerial survey of Alaskan coastal glaciers identified more than a dozen glaciers, many former tidewater and calving glaciers, including Grand Plateau, Alsek, Bear, and Excelsior Glaciers that are rapidly retreating. Of 2,000 glaciers observed, 99% are retreating." - Mauri S. Pelto.',
             location: {
                 center: [-136, 60],
                 zoom: 4.1,
