@@ -1,0 +1,201 @@
+year,Mean elevation change rate (m yr-1),Region
+2001,-0.57,Alaska
+2002,-0.56,Alaska
+2003,-0.66,Alaska
+2004,-0.72,Alaska
+2005,-0.75,Alaska
+2006,-0.76,Alaska
+2007,-0.74,Alaska
+2008,-0.77,Alaska
+2009,-0.84,Alaska
+2010,-0.91,Alaska
+2011,-0.93,Alaska
+2012,-0.93,Alaska
+2013,-0.92,Alaska
+2014,-1.02,Alaska
+2015,-1.09,Alaska
+2016,-1.13,Alaska
+2017,-1.24,Alaska
+2018,-1.22,Alaska
+2019,-1.3,Alaska
+2020,-1.3,Alaska
+2001,-0.31,"Arctic Canada, North"
+2002,-0.26,"Arctic Canada, North"
+2003,-0.31,"Arctic Canada, North"
+2004,-0.27,"Arctic Canada, North"
+2005,-0.21,"Arctic Canada, North"
+2006,-0.32,"Arctic Canada, North"
+2007,-0.33,"Arctic Canada, North"
+2008,-0.38,"Arctic Canada, North"
+2009,-0.43,"Arctic Canada, North"
+2010,-0.46,"Arctic Canada, North"
+2011,-0.41,"Arctic Canada, North"
+2012,-0.43,"Arctic Canada, North"
+2013,-0.38,"Arctic Canada, North"
+2014,-0.35,"Arctic Canada, North"
+2015,-0.42,"Arctic Canada, North"
+2016,-0.41,"Arctic Canada, North"
+2017,-0.31,"Arctic Canada, North"
+2018,-0.17,"Arctic Canada, North"
+2019,-0.31,"Arctic Canada, North"
+2020,-0.44,"Arctic Canada, North"
+2001,-0.59,"Arctic Canada, South"
+2002,-0.62,"Arctic Canada, South"
+2003,-0.66,"Arctic Canada, South"
+2004,-0.64,"Arctic Canada, South"
+2005,-0.66,"Arctic Canada, South"
+2006,-0.67,"Arctic Canada, South"
+2007,-0.68,"Arctic Canada, South"
+2008,-0.71,"Arctic Canada, South"
+2009,-0.77,"Arctic Canada, South"
+2010,-0.81,"Arctic Canada, South"
+2011,-0.78,"Arctic Canada, South"
+2012,-0.81,"Arctic Canada, South"
+2013,-0.89,"Arctic Canada, South"
+2014,-0.87,"Arctic Canada, South"
+2015,-0.87,"Arctic Canada, South"
+2016,-0.84,"Arctic Canada, South"
+2017,-0.84,"Arctic Canada, South"
+2018,-0.82,"Arctic Canada, South"
+2019,-0.9,"Arctic Canada, South"
+2020,-0.96,"Arctic Canada, South"
+2001,-0.47,Greenland Periphery
+2002,-0.49000000000000005,Greenland Periphery
+2003,-0.5266666666666667,Greenland Periphery
+2004,-0.5266666666666667,Greenland Periphery
+2005,-0.49666666666666665,Greenland Periphery
+2006,-0.5,Greenland Periphery
+2007,-0.5266666666666667,Greenland Periphery
+2008,-0.56,Greenland Periphery
+2009,-0.5433333333333333,Greenland Periphery
+2010,-0.5233333333333333,Greenland Periphery
+2011,-0.6233333333333333,Greenland Periphery
+2012,-0.7133333333333334,Greenland Periphery
+2013,-0.6633333333333333,Greenland Periphery
+2014,-0.6333333333333333,Greenland Periphery
+2015,-0.58,Greenland Periphery
+2016,-0.5433333333333333,Greenland Periphery
+2017,-0.5933333333333334,Greenland Periphery
+2018,-0.5566666666666666,Greenland Periphery
+2019,-0.5466666666666667,Greenland Periphery
+2020,-0.6066666666666667,Greenland Periphery
+2001,-1.28,Iceland
+2002,-1.16,Iceland
+2003,-1.03,Iceland
+2004,-1.24,Iceland
+2005,-1.35,Iceland
+2006,-1.13,Iceland
+2007,-1.1,Iceland
+2008,-1.12,Iceland
+2009,-1.15,Iceland
+2010,-1.36,Iceland
+2011,-1.53,Iceland
+2012,-0.91,Iceland
+2013,-0.76,Iceland
+2014,-0.91,Iceland
+2015,-0.73,Iceland
+2016,-0.49,Iceland
+2017,-0.84,Iceland
+2018,-0.87,Iceland
+2019,-0.76,Iceland
+2020,-0.87,Iceland
+2001,-0.17,Svalbard and Jan Mayen
+2002,-0.18,Svalbard and Jan Mayen
+2003,-0.31,Svalbard and Jan Mayen
+2004,-0.35,Svalbard and Jan Mayen
+2005,-0.28,Svalbard and Jan Mayen
+2006,-0.27,Svalbard and Jan Mayen
+2007,-0.24,Svalbard and Jan Mayen
+2008,-0.27,Svalbard and Jan Mayen
+2009,-0.29,Svalbard and Jan Mayen
+2010,-0.33,Svalbard and Jan Mayen
+2011,-0.33,Svalbard and Jan Mayen
+2012,-0.29,Svalbard and Jan Mayen
+2013,-0.35,Svalbard and Jan Mayen
+2014,-0.47,Svalbard and Jan Mayen
+2015,-0.45,Svalbard and Jan Mayen
+2016,-0.48,Svalbard and Jan Mayen
+2017,-0.62,Svalbard and Jan Mayen
+2018,-0.66,Svalbard and Jan Mayen
+2019,-0.53,Svalbard and Jan Mayen
+2020,-0.5,Svalbard and Jan Mayen
+2001,-0.75,Scandinavia
+2002,-0.75,Scandinavia
+2003,-0.76,Scandinavia
+2004,-0.84,Scandinavia
+2005,-0.73,Scandinavia
+2006,-0.68,Scandinavia
+2007,-0.71,Scandinavia
+2008,-0.64,Scandinavia
+2009,-0.65,Scandinavia
+2010,-0.67,Scandinavia
+2011,-0.74,Scandinavia
+2012,-0.72,Scandinavia
+2013,-0.71,Scandinavia
+2014,-0.77,Scandinavia
+2015,-0.64,Scandinavia
+2016,-0.52,Scandinavia
+2017,-0.54,Scandinavia
+2018,-0.54,Scandinavia
+2019,-0.61,Scandinavia
+2020,-0.6,Scandinavia
+2001,-0.16499999999999998,Russian Arctic
+2002,-0.185,Russian Arctic
+2003,-0.16,Russian Arctic
+2004,-0.165,Russian Arctic
+2005,-0.20500000000000002,Russian Arctic
+2006,-0.20500000000000002,Russian Arctic
+2007,-0.195,Russian Arctic
+2008,-0.2,Russian Arctic
+2009,-0.22,Russian Arctic
+2010,-0.20500000000000002,Russian Arctic
+2011,-0.22999999999999998,Russian Arctic
+2012,-0.20500000000000002,Russian Arctic
+2013,-0.145,Russian Arctic
+2014,-0.27,Russian Arctic
+2015,-0.21000000000000002,Russian Arctic
+2016,-0.2,Russian Arctic
+2017,-0.305,Russian Arctic
+2018,-0.31,Russian Arctic
+2019,-0.25,Russian Arctic
+2020,-0.235,Russian Arctic
+2001,-0.14,Western Canada and USA
+2002,-0.13,Western Canada and USA
+2003,-0.23,Western Canada and USA
+2004,-0.31,Western Canada and USA
+2005,-0.38,Western Canada and USA
+2006,-0.49,Western Canada and USA
+2007,-0.45,Western Canada and USA
+2008,-0.36,Western Canada and USA
+2009,-0.45,Western Canada and USA
+2010,-0.6,Western Canada and USA
+2011,-0.68,Western Canada and USA
+2012,-0.68,Western Canada and USA
+2013,-0.73,Western Canada and USA
+2014,-0.85,Western Canada and USA
+2015,-0.95,Western Canada and USA
+2016,-1.0,Western Canada and USA
+2017,-1.04,Western Canada and USA
+2018,-1.05,Western Canada and USA
+2019,-1.11,Western Canada and USA
+2020,-1.19,Western Canada and USA
+2001,-0.47,"Asia, North"
+2002,-0.51,"Asia, North"
+2003,-0.54,"Asia, North"
+2004,-0.54,"Asia, North"
+2005,-0.48,"Asia, North"
+2006,-0.54,"Asia, North"
+2007,-0.6,"Asia, North"
+2008,-0.59,"Asia, North"
+2009,-0.62,"Asia, North"
+2010,-0.61,"Asia, North"
+2011,-0.7,"Asia, North"
+2012,-0.66,"Asia, North"
+2013,-0.64,"Asia, North"
+2014,-0.6,"Asia, North"
+2015,-0.66,"Asia, North"
+2016,-0.73,"Asia, North"
+2017,-0.72,"Asia, North"
+2018,-0.68,"Asia, North"
+2019,-0.64,"Asia, North"
+2020,-0.73,"Asia, North"

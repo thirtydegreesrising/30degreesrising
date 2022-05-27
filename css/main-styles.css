@@ -408,7 +408,7 @@
 
     #seaice-section-1 {
 
-        background: rgba(0, 0, 0, 0.2) url("/arctic_map/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") fixed center center;
+        background: rgba(0, 0, 0, 0.2) url("/images/ArcticSeaIce_dms_2011085_10281_lrg2.jpg") fixed center center;
         background-size: cover;
         background-blend-mode: multiply;
 
@@ -421,7 +421,7 @@
 
 
     #glacier-section-1 {
-        background: rgba(0, 0, 0, 0.4) url("/glacier_map/glacier_background3flipped.jpg") fixed center center;
+        background: rgba(0, 0, 0, 0.4) url("/images/glacier_background3flipped.jpg") fixed center center;
         background-size: cover;
         background-blend-mode: multiply;
     }
@@ -438,7 +438,7 @@
     }
 
     #sealevel-section-1 {
-        background: rgba(0, 0, 0, 0.3) url("/sea_level/sealevel_back.png") fixed center center;
+        background: rgba(0, 0, 0, 0.3) url("/images/sealevel_back.png") fixed center center;
         background-size: cover;
         background-blend-mode: multiply;
 
